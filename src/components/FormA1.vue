@@ -171,6 +171,7 @@ const email = ref("");
                   class="govuk-radios__input"
                   type="radio"
                   v-model="Sex"
+                  name="Sex"
                   id="MUZ"
                   value="MUZ"
                   required
@@ -184,6 +185,7 @@ const email = ref("");
                   class="govuk-radios__input"
                   type="radio"
                   v-model="Sex"
+                  name="Sex"
                   id="ZENA"
                   value="ZENA"
                   required
