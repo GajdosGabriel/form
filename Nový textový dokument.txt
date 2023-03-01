@@ -1,0 +1,64 @@
+https://www.w3schools.com/xml/tryit.asp?filename=try_dom_createelement2
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+ <script src = "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin = "anonymous" referrerpolicy = "no-referrer"> </script>
+
+<script>
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        myFunction(this);
+    }
+};
+xhttp.open("GET", "books.xml", true);
+xhttp.send();
+
+function myFunction(xml) {
+    var x, y, i, newElement, txt, xmlDoc;
+    xmlDoc = xml.responseXML;
+    newElement = xmlDoc.createElement("envelope");
+    newElement.setAttribute("test", "<testValue>");
+    x = xmlDoc.getElementsByTagName("book")[0]
+    x.appendChild(newElement);
+
+   /* Display all elements
+    xlen = x.childNodes.length;
+    y = x.firstChild;
+    txt = "";
+    for (i = 0; i < xlen; i++) {
+        if (y.nodeType == 1) {
+            txt += y.nodeName + "<br>";
+        }
+        y = y.nextSibling;
+    }*/
+    var serializer = new XMLSerializer();
+	var xmlString = serializer.serializeToString(xmlDoc);
+    alert(xmlString);
+    
+    /*var blob = new Blob([xmlString], {
+    	type: "text/xml;charset=utf-8",
+	});
+    saveAs(blob, "download.txt");*/
+    
+    document.getElementById("demo").innerHTML = xmlString;
+    
+	var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          myFunction(this);
+      }
+  	};
+  	xhttp.open("POST", "testPost.xml", true);
+  	xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.send(xmlString);
+    
+}
+</script>
+
+</body>
+</html>
