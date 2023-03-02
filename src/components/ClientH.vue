@@ -1,6 +1,6 @@
 <template>
   <div style="margin-top: 50px">
-    <div class="flex text-lg items-start">
+    <div>
       <div class="govuk-heading-m">H) Poučenia</div>
     </div>
 
