@@ -1,6 +1,8 @@
 <script setup>
 import ClientA1 from "./ClientA1.vue";
 import ClientA2 from "./ClientA2.vue";
+import ClientB from "./ClientB.vue";
+import ClientF from "./ClientF.vue";
 import ClientG from "./ClientG.vue";
 import ClientH from "./ClientH.vue";
 </script>
@@ -39,6 +41,8 @@ import ClientH from "./ClientH.vue";
       <form action="/" @submit.prevent="onSubmit">
         <ClientA1></ClientA1>
         <ClientA2></ClientA2>
+        <ClientB></ClientB>
+        <ClientF></ClientF>
         <ClientG></ClientG>
         <ClientH></ClientH>
 
