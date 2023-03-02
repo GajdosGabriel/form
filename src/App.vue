@@ -1,5 +1,7 @@
 <script setup>
 import FormA1 from './components/FormA1.vue'
+import FormA2 from './components/FormA2.vue'
+import ClientForm from './components/ClientForm.vue'
 import TheWelcome from './components/TheWelcome.vue'
 </script>
 
@@ -7,7 +9,7 @@ import TheWelcome from './components/TheWelcome.vue'
 
   <main>
     <!-- <TheWelcome /> -->
-    <FormA1 />
+    <ClientForm />
   </main>
 </template>
 
