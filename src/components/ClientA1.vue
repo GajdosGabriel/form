@@ -8,7 +8,7 @@ defineProps({
   // }
 });
 
-const { state, setForm, getForm } = useClient();
+const { state, setForm, getForm, getvalidatedErrors } = useClient();
 
 const errorsClass = {
   span: "govuk-error-message",

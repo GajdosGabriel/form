@@ -1,10 +1,8 @@
-
 import { reactive, readonly, computed } from "vue";
-
 
 const defaultState = {
   form: {},
-  progresbar: 20,
+  validatedErrors: [],
   slide8: {},
 };
 
@@ -12,6 +10,7 @@ const state = reactive(defaultState);
 
 const getters = {
   getForm: computed(() => state.form),
+  getvalidatedErrors: computed(() => state.validatedErrors),
   incomesActual: computed(() => {
     let sumar = 0;
     if (Number.isInteger(state.slide8.five)) {
@@ -46,6 +45,16 @@ const getters = {
 };
 
 const actions = {
+  getValidate: () => {
+
+    if(! state.form.FamilyName) {
+
+      state.validatedErrors.push(['Požadujeme'])
+    alert("Začína validácia");
+    }
+
+  },
+
   setProgresbar: (number) => {
     state.progresbar = number;
   },

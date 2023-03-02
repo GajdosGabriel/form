@@ -5,6 +5,13 @@ import ClientB from "./ClientB.vue";
 import ClientF from "./ClientF.vue";
 import ClientG from "./ClientG.vue";
 import ClientH from "./ClientH.vue";
+import useClient from "../composables/Client.js";
+
+const { getValidate, getvalidatedErrors } = useClient();
+
+const onSubmit = () => {
+  getValidate();
+};
 </script>
 
 <template>
@@ -18,6 +25,8 @@ import ClientH from "./ClientH.vue";
       č. 8/2005 Z. z. v znení neskorších predpisov
     </p>
     <main class="govuk-main-wrapper" id="main-content" role="main">
+
+      <div v-text="getvalidatedErrors[0]"></div>
       <!-- Errors sumaary -->
       <!-- <div class="govuk-error-summary" data-module="govuk-error-summary">
           <div role="alert">
@@ -40,11 +49,11 @@ import ClientH from "./ClientH.vue";
 
       <form action="/" @submit.prevent="onSubmit">
         <ClientA1></ClientA1>
-        <ClientA2></ClientA2>
+        <!-- <ClientA2></ClientA2>
         <ClientB></ClientB>
         <ClientF></ClientF>
         <ClientG></ClientG>
-        <ClientH></ClientH>
+        <ClientH></ClientH> -->
 
         <button type="submit" class="govuk-button" data-module="govuk-button">
           Save and continue
