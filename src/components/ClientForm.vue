@@ -1,6 +1,8 @@
 <script setup>
-import FormA1 from "./FormA1.vue";
-import FormA2 from "./FormA2.vue";
+import ClientA1 from "./ClientA1.vue";
+import ClientA2 from "./ClientA2.vue";
+import ClientG from "./ClientG.vue";
+import ClientH from "./ClientH.vue";
 </script>
 
 <template>
@@ -35,8 +37,14 @@ import FormA2 from "./FormA2.vue";
       <!-- End Errors sumaary -->
 
       <form action="/" @submit.prevent="onSubmit">
-        <FormA2></FormA2>
-        <FormA1></FormA1>
+        <ClientA1></ClientA1>
+        <ClientA2></ClientA2>
+        <ClientG></ClientG>
+        <ClientH></ClientH>
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
       </form>
     </main>
   </div>

@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="flex text-lg items-start">
+  <div style="margin-top: 50px">
     <div class="govuk-heading-m">
       A2) Údaje o zákonnom zástupcovi/opatrovníkovi žiadateľa
     </div>

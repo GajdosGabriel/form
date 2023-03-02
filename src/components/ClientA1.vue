@@ -510,7 +510,5 @@ const email = ref("");
   </div>
   <!-- {{-- End Personal info II. --}} -->
 
-  <button type="submit" class="govuk-button" data-module="govuk-button">
-    Save and continue
-  </button>
+
 </template>
