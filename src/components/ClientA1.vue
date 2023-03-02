@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
+import useClient from "../composables/Client.js";
 defineProps({
   // msg: {
   //   type: String,
@@ -7,35 +8,23 @@ defineProps({
   // }
 });
 
+const { state, setForm, getForm } = useClient();
+
 const errorsClass = {
   span: "govuk-error-message",
   input: "govuk-input--error",
   required: "govuk-input--error",
 };
 
-const FamilyName = ref("");
-const booleanGivenFamilyName = ref(false);
-const temporary_residence = ref(false);
-const GivenName = ref("");
-const GivenFamilyName = ref("");
-const IdentifierValue = ref("");
-const Nationality = ref("");
-const StreetName = ref("");
-const BuildingNumber = ref("");
-const PropertyRegistrationNumber = ref("");
-const PostalCode = ref("");
-const Municipality = ref("");
-const Sex = ref("");
-const temporary_StreetName = ref("");
-const temporary_BuildingNumber = ref("");
-const temporary_PropertyRegistrationNumber = ref("");
-const temporary_PostalCode = ref("");
-const temporary_Municipality = ref("");
-const phone_number = ref("");
-const email = ref("");
+const form = reactive({});
+
+const clickOnNext = () => {
+  setForm(form);
+};
 </script>
 
 <template>
+  <div style="margin-bottom: 30px;" @click="clickOnNext"> <span style="background-color: aqua; padding: 7px;" >Click</span> {{ getForm }}</div>
   <div class="govuk-form-group">
     <label class="govuk-label govuk-label--s" for="FamilyName">
       Priezvisko
@@ -45,10 +34,10 @@ const email = ref("");
     <input
       type="text"
       class="govuk-input"
-      :class="{ 'govuk-input--error': FamilyName.length == 0 }"
+      :class="{ 'govuk-input--error': form.FamilyName == '' }"
       id="FamilyName"
       name="FamilyName"
-      v-model="FamilyName"
+      v-model="form.FamilyName"
       placeholder="Priezvisko"
       required
     />
@@ -64,7 +53,7 @@ const email = ref("");
           class="govuk-radios__input"
           type="radio"
           :value="0"
-          v-model="booleanGivenFamilyName"
+          v-model="form.booleanGivenFamilyName"
           required
           checked
         />
@@ -74,7 +63,7 @@ const email = ref("");
         <input
           class="govuk-radios__input"
           type="radio"
-          v-model="booleanGivenFamilyName"
+          v-model="form.booleanGivenFamilyName"
           :value="1"
           required
         />
@@ -85,7 +74,7 @@ const email = ref("");
 
   <div
     class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden"
-    v-if="booleanGivenFamilyName"
+    v-if="form.booleanGivenFamilyName"
   >
     <div class="govuk-form-group">
       <label class="govuk-label govuk-label--s" for="GivenFamilyName">
@@ -96,9 +85,9 @@ const email = ref("");
       <input
         type="text"
         class="govuk-input"
-        :class="{ 'govuk-input--error': GivenFamilyName == '' }"
+        :class="{ 'govuk-input--error': form.GivenFamilyName == '' }"
         id="GivenFamilyName"
-        v-model="GivenFamilyName"
+        v-model="form.GivenFamilyName"
         placeholder="Rodné priezvisko"
         required
       />
@@ -112,9 +101,9 @@ const email = ref("");
     <input
       type="text"
       class="govuk-input"
-      :class="{ 'govuk-input--error': GivenName.length == 0 }"
+      :class="{ 'govuk-input--error': form.GivenName == '' }"
       id="GivenName"
-      v-model="GivenName"
+      v-model="form.GivenName"
       placeholder="Meno"
       required
     />
@@ -128,7 +117,7 @@ const email = ref("");
           <input
             class="govuk-radios__input"
             type="radio"
-            v-model="Sex"
+            v-model="form.Sex"
             name="Sex"
             id="MUZ"
             value="MUZ"
@@ -140,7 +129,7 @@ const email = ref("");
           <input
             class="govuk-radios__input"
             type="radio"
-            v-model="Sex"
+            v-model="form.Sex"
             name="Sex"
             id="ZENA"
             value="ZENA"
@@ -163,9 +152,9 @@ const email = ref("");
     <input
       type="text"
       class="govuk-input"
-      :class="{ 'govuk-input--error': IdentifierValue == '' }"
+      :class="{ 'govuk-input--error': form.IdentifierValue == '' }"
       id="IdentifierValue"
-      v-model="IdentifierValue"
+      v-model="form.IdentifierValue"
       placeholder="Rodné číslo"
       required
     />
@@ -180,16 +169,16 @@ const email = ref("");
     <input
       type="text"
       class="govuk-input"
-      :class="{ 'govuk-input--error': Nationality == '' }"
+      :class="{ 'govuk-input--error': form.Nationality == '' }"
       id="Nationality"
-      v-model="Nationality"
+      v-model="form.Nationality"
       placeholder="Štátna príslušnosť"
       required
     />
   </div>
 
   <div class="govuk-form-group">
-    <fieldset class="govuk-fieldset" aria-describedby="example-hint">
+    <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-label--s">Stav</legend>
       <div class="govuk-radios govuk-radios">
         <div class="govuk-radios__item">
@@ -274,9 +263,9 @@ const email = ref("");
     <input
       type="text"
       class="govuk-input"
-      :class="{ 'govuk-input--error': StreetName == '' }"
+      :class="{ 'govuk-input--error': form.StreetName == '' }"
       id="StreetName"
-      v-model="StreetName"
+      v-model="form.StreetName"
       placeholder="Názov ulice"
       required
     />
@@ -291,224 +280,13 @@ const email = ref("");
     <input
       type="text"
       class="govuk-input govuk-input--width-10"
-      :class="{ 'govuk-input--error': BuildingNumber == '' }"
+      :class="{ 'govuk-input--error': form.BuildingNumber == '' }"
       id="BuildingNumber"
-      v-model="BuildingNumber"
+      v-model="form.BuildingNumber"
       placeholder="Orientačné číslo"
       required
     />
   </div>
 
-  <div class="govuk-form-group">
-    <label class="govuk-label govuk-label--s" for="PropertyRegistrationNumber">
-      Súpisné číslo
-    </label>
-    <span id="input-with-error-message-error" class="govuk-error-message">
-    </span>
-    <input
-      type="text"
-      class="govuk-input govuk-input--width-10"
-      :class="{ 'govuk-input--error': PropertyRegistrationNumber == '' }"
-      id="PropertyRegistrationNumber"
-      v-model="PropertyRegistrationNumber"
-      placeholder="Súpisné číslo"
-      required
-    />
-  </div>
-  <div class="govuk-form-group">
-    <label class="govuk-label govuk-label--s" for="PostalCode"> PSČ </label>
-    <span id="input-with-error-message-error" class="govuk-error-message">
-    </span>
-    <input
-      type="text"
-      class="govuk-input govuk-input--width-10"
-      :class="{ 'govuk-input--error': PostalCode == '' }"
-      id="PostalCode"
-      v-model="PostalCode"
-      placeholder="Poštové smerovacie číslo"
-      required
-    />
-  </div>
-  <div class="govuk-form-group">
-    <label class="govuk-label govuk-label--s" for="Municipality"> Obec </label>
-    <span id="input-with-error-message-error" class="govuk-error-message">
-    </span>
-    <input
-      type="text"
-      class="govuk-input"
-      :class="{ 'govuk-input--error': Municipality == '' }"
-      id="Municipality"
-      v-model="Municipality"
-      placeholder="Názov obce"
-      required
-    />
-  </div>
-  <!-- {{-- End Resident address --}} -->
-  <!-- {{-- Part Temporary address --}} -->
-  <fieldset class="govuk-fieldset">
-    <div id="changed-name-hint" class="govuk-label govuk-label--s">
-      Uviesť korenšpondenčnú adresu, na zasielanie písomnosti?
-    </div>
-    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-      <div class="govuk-radios__item">
-        <input
-          class="govuk-radios__input"
-          id="temporary_residence-0"
-          checked
-          v-model="temporary_residence"
-          type="radio"
-          :value="0"
-        />
-        <label
-          class="govuk-label govuk-radios__label"
-          for="temporary_residence-0"
-        >
-          Nie
-        </label>
-      </div>
-      <div class="govuk-radios__item">
-        <input
-          class="govuk-radios__input"
-          id="temporary_residence-1"
-          v-model="temporary_residence"
-          type="radio"
-          :value="1"
-        />
-        <label
-          class="govuk-label govuk-radios__label"
-          for="temporary_residence-1"
-        >
-          Áno
-        </label>
-      </div>
-    </div>
-  </fieldset>
-  <div
-    class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden"
-    v-if="temporary_residence"
-  >
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-      Korenšpondenčná adresa
-    </legend>
-    <div class="govuk-form-group">
-      <label class="govuk-label govuk-label--s" for="temporary_StreetName">
-        Názov ulice
-      </label>
-      <span id="input-with-error-message-error" class="govuk-error-message">
-      </span>
-      <input
-        type="text"
-        class="govuk-input"
-        :class="{ 'govuk-input--error': temporary_StreetName == '' }"
-        id="temporary_StreetName"
-        v-model="temporary_StreetName"
-        placeholder="Názov ulice"
-        required
-      />
-    </div>
-    <div class="govuk-form-group">
-      <label class="govuk-label govuk-label--s" for="temporary_BuildingNumber">
-        Orientačné číslo
-      </label>
-      <span id="input-with-error-message-error" class="govuk-error-message">
-      </span>
-      <input
-        class="govuk-input govuk-input--width-10"
-        :class="{ 'govuk-input--error': temporary_BuildingNumber == '' }"
-        id="temporary_BuildingNumber"
-        v-model="temporary_BuildingNumber"
-        type="text"
-        placeholder="Popisné číslo"
-        required
-      />
-    </div>
-    <div class="govuk-form-group">
-      <label
-        class="govuk-label govuk-label--s"
-        for="temporary_PropertyRegistrationNumber"
-      >
-        Súpisné číslo
-      </label>
-      <span id="input-with-error-message-error" class="govuk-error-message">
-      </span>
-      <input
-        class="govuk-input govuk-input--width-10"
-        :class="{
-          'govuk-input--error': temporary_PropertyRegistrationNumber == '',
-        }"
-        id="temporary_PropertyRegistrationNumber"
-        v-model="temporary_PropertyRegistrationNumber"
-        type="text"
-        placeholder="Súpisné číslo"
-        required
-      />
-    </div>
-    <div class="govuk-form-group">
-      <label class="govuk-label govuk-label--s" for="temporary_PostalCode">
-        Psč
-      </label>
-      <span id="input-with-error-message-error" class="govuk-error-message">
-      </span>
-      <input
-        class="govuk-input govuk-input--width-10"
-        :class="{ 'govuk-input--error': temporary_PostalCode == '' }"
-        id="temporary_PostalCode"
-        v-model="temporary_PostalCode"
-        placeholder="Psč obce"
-        type="text"
-        required
-      />
-    </div>
-    <div class="govuk-form-group">
-      <label class="govuk-label govuk-label--s" for="temporary_Municipality">
-        Obec
-      </label>
-      <span id="input-with-error-message-error" class="govuk-error-message">
-      </span>
-      <input
-        type="text"
-        class="govuk-input govuk-input--width-10"
-        :class="{ 'govuk-input--error': temporary_Municipality == '' }"
-        id="temporary_Municipality"
-        v-model="temporary_Municipality"
-        placeholder="Názov obce"
-        required
-      />
-    </div>
-  </div>
-  <!-- {{-- End Temporary address --}} -->
-  <!-- {{-- Part Personal info II. --}} -->
-  <div class="govuk-form-group">
-    <label class="govuk-label govuk-label--s" for="phone_number">
-      Telefónne číslo
-    </label>
-    <span id="input-with-error-message-error" class="govuk-error-message">
-    </span>
-    <input
-      type="text"
-      class="govuk-input govuk-input--width-10"
-      :class="{ 'govuk-input--error': phone_number == '' }"
-      id="phone_number"
-      v-model="phone_number"
-      placeholder="Telefónne číslo"
-      required
-    />
-  </div>
-  <div class="govuk-form-group">
-    <label class="govuk-label govuk-label--s" for="email"> Email </label>
-    <span id="input-with-error-message-error" class="govuk-error-message">
-    </span>
-    <input
-      type="text"
-      class="govuk-input govuk-input--width-10"
-      :class="{ 'govuk-input--error': email == '' }"
-      id="email"
-      v-model="email"
-      placeholder="Email"
-      required
-    />
-  </div>
   <!-- {{-- End Personal info II. --}} -->
-
-
 </template>
