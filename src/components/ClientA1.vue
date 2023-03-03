@@ -34,12 +34,12 @@ const clickOnNext = () => {
     <input
       type="text"
       class="govuk-input"
-      :class="{ 'govuk-input--error': form.FamilyName == '' }"
+      :class="{ 'govuk-input--error': ! form.FamilyName }"
       id="FamilyName"
       name="FamilyName"
       v-model="form.FamilyName"
       placeholder="Priezvisko"
-      required
+
     />
   </div>
 
@@ -85,7 +85,7 @@ const clickOnNext = () => {
       <input
         type="text"
         class="govuk-input"
-        :class="{ 'govuk-input--error': form.GivenFamilyName == '' }"
+        :class="{ 'govuk-input--error': ! form.GivenFamilyName }"
         id="GivenFamilyName"
         v-model="form.GivenFamilyName"
         placeholder="Rodné priezvisko"
@@ -101,7 +101,7 @@ const clickOnNext = () => {
     <input
       type="text"
       class="govuk-input"
-      :class="{ 'govuk-input--error': form.GivenName == '' }"
+      :class="{ 'govuk-input--error': ! form.GivenName }"
       id="GivenName"
       v-model="form.GivenName"
       placeholder="Meno"
@@ -152,7 +152,7 @@ const clickOnNext = () => {
     <input
       type="text"
       class="govuk-input"
-      :class="{ 'govuk-input--error': form.IdentifierValue == '' }"
+      :class="{ 'govuk-input--error': ! form.IdentifierValue }"
       id="IdentifierValue"
       v-model="form.IdentifierValue"
       placeholder="Rodné číslo"
@@ -169,7 +169,7 @@ const clickOnNext = () => {
     <input
       type="text"
       class="govuk-input"
-      :class="{ 'govuk-input--error': form.Nationality == '' }"
+      :class="{ 'govuk-input--error': ! form.Nationality }"
       id="Nationality"
       v-model="form.Nationality"
       placeholder="Štátna príslušnosť"
@@ -263,7 +263,7 @@ const clickOnNext = () => {
     <input
       type="text"
       class="govuk-input"
-      :class="{ 'govuk-input--error': form.StreetName == '' }"
+      :class="{ 'govuk-input--error': ! form.StreetName }"
       id="StreetName"
       v-model="form.StreetName"
       placeholder="Názov ulice"
@@ -280,7 +280,7 @@ const clickOnNext = () => {
     <input
       type="text"
       class="govuk-input govuk-input--width-10"
-      :class="{ 'govuk-input--error': form.BuildingNumber == '' }"
+      :class="{ 'govuk-input--error': ! form.BuildingNumber }"
       id="BuildingNumber"
       v-model="form.BuildingNumber"
       placeholder="Orientačné číslo"

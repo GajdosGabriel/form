@@ -49,8 +49,8 @@ const actions = {
 
     if(! state.form.FamilyName) {
 
-      state.validatedErrors.push(['Požadujeme'])
-    alert("Začína validácia");
+      state.validatedErrors.push(['Validate error'])
+    // alert("Začína validácia");
     }
 
   },

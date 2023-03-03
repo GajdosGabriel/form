@@ -28,23 +28,20 @@ const onSubmit = () => {
 
       <div v-text="getvalidatedErrors[0]"></div>
       <!-- Errors sumaary -->
-      <!-- <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div class="govuk-error-summary" data-module="govuk-error-summary" v-if="getvalidatedErrors.length">
           <div role="alert">
             <h2 class="govuk-error-summary__title">
               There is a problem
             </h2>
             <div class="govuk-error-summary__body">
               <ul class="govuk-list govuk-error-summary__list">
-                <li>
-                    <a href="#">The date your passport was issued must be in the past</a>
-                  </li>
-                  <li>
-                    <a href="#">Enter a postcode, like AA1 1AA</a>
+                <li v-for="(getvalidatedError, index) in getvalidatedErrors" :key="index">
+                    <a href="#">{{ getvalidatedError }}</a>
                   </li>
                 </ul>
               </div>
             </div>
-          </div> -->
+          </div>
       <!-- End Errors sumaary -->
 
       <form action="/" @submit.prevent="onSubmit">
