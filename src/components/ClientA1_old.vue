@@ -24,11 +24,26 @@ const clickOnNext = () => {
     {{ getForm }}
   </div>
 
-  <TextField
-    v-model="form.FamilyName"
-    placeholder="Uveďte vaše prizvisko"
-    title="Priezvisko"
-  />
+
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--s" for="FamilyName">
+      Priezvisko
+    </label>
+    <span id="input-with-error-message-error" class="govuk-error-message">
+    </span>
+    <input
+      type="text"
+      class="govuk-input"
+      :class="{ 'govuk-input--error': !form.FamilyName }"
+      id="FamilyName"
+      v-model="form.FamilyName"
+      placeholder="Priezvisko"
+      required
+    />
+  </div>
+
+
 
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-label--s">
@@ -63,19 +78,23 @@ const clickOnNext = () => {
     class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden"
     v-if="form.booleanGivenFamilyName"
   >
-    <TextField
-      v-model="form.GivenFamilyName"
-      placeholder="Uveďte vaše rodné priezvisko"
-      title="Rodné priezvisko"
-    />
-
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="GivenFamilyName">
+        Rodné priezvisko
+      </label>
+      <span id="input-with-error-message-error" class="govuk-error-message">
+      </span>
+      <input
+        type="text"
+        class="govuk-input"
+        :class="{ 'govuk-input--error': !form.GivenFamilyName }"
+        id="GivenFamilyName"
+        v-model="form.GivenFamilyName"
+        placeholder="Rodné priezvisko"
+        required
+      />
+    </div>
   </div>
-
-  <TextField
-    v-model="form.GivenName"
-    placeholder="Uveďte vaše meno"
-    title="Meno"
-  />
 
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
@@ -111,19 +130,6 @@ const clickOnNext = () => {
     </fieldset>
   </div>
 
-  <TextField
-    v-model="form.IdentifierValue"
-    placeholder="Uveďte vaše  rodné číslo"
-    title=" Rodné číslo"
-    input-short="true"
-  />
-
-  <TextField
-    v-model="form.Nationality"
-    placeholder="Uveďte vašu štátnu príslušnosť"
-    title="Štátna príslušnosť"
-    input-short="true"
-  />
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-label--s">Stav</legend>
@@ -133,7 +139,6 @@ const clickOnNext = () => {
             class="govuk-radios__input"
             type="radio"
             name="MaritalStatus"
-            v-model="form.MaritalStatus"
             id="1"
             value="1"
             required
@@ -147,7 +152,6 @@ const clickOnNext = () => {
             class="govuk-radios__input"
             type="radio"
             name="MaritalStatus"
-            v-model="form.MaritalStatus"
             id="2"
             value="2"
             required
@@ -161,7 +165,6 @@ const clickOnNext = () => {
             class="govuk-radios__input"
             type="radio"
             name="MaritalStatus"
-            v-model="form.MaritalStatus"
             id="3"
             value="3"
             required
@@ -175,7 +178,6 @@ const clickOnNext = () => {
             class="govuk-radios__input"
             type="radio"
             name="MaritalStatus"
-            v-model="form.MaritalStatus"
             id="4"
             value="4"
             required
@@ -189,7 +191,6 @@ const clickOnNext = () => {
             class="govuk-radios__input"
             type="radio"
             name="MaritalStatus"
-            v-model="form.MaritalStatus"
             id="5"
             value="5"
             required
@@ -201,22 +202,95 @@ const clickOnNext = () => {
       </div>
     </fieldset>
   </div>
-
+  <!-- {{-- End Personal info --}} -->
+  
+  <!-- {{-- Part Resident address --}} -->
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
     Adresa trvalého pobytu
   </legend>
 
-  <TextField
-    v-model="form.StreetName"
-    placeholder="Uveďte názov ulice"
-    title="Názov ulice"
-  />
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--s" for="GivenName"> Meno </label>
+    <span id="input-with-error-message-error" class="govuk-error-message">
+    </span>
+    <input
+      type="text"
+      class="govuk-input"
+      :class="{ 'govuk-input--error': !form.GivenName }"
+      id="GivenName"
+      v-model="form.GivenName"
+      placeholder="Meno"
+      required
+    />
+  </div>
 
-  <TextField
-    v-model="form.BuildingNumber"
-    placeholder="Uveďte orientačné číslo"
-    title="Orientačné číslo"
-    input-short="true"
-  />
+  <div class="govuk-form-group govuk-input--width-10">
+    <label class="govuk-label govuk-label--s" for="IdentifierValue">
+      Rodné číslo
+    </label>
+    <span id="input-with-error-message-error" class="govuk-error-message">
+    </span>
+    <input
+      type="text"
+      class="govuk-input"
+      :class="{ 'govuk-input--error': !form.IdentifierValue }"
+      id="IdentifierValue"
+      v-model="form.IdentifierValue"
+      placeholder="Rodné číslo"
+      required
+    />
+  </div>
 
- </template>
+  <div class="govuk-form-group govuk-input--width-10">
+    <label class="govuk-label govuk-label--s" for="Nationality">
+      Štátna príslušnosť
+    </label>
+    <span id="input-with-error-message-error" class="govuk-error-message">
+    </span>
+    <input
+      type="text"
+      class="govuk-input"
+      :class="{ 'govuk-input--error': !form.Nationality }"
+      id="Nationality"
+      v-model="form.Nationality"
+      placeholder="Štátna príslušnosť"
+      required
+    />
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--s" for="StreetName">
+      Názov ulice
+    </label>
+    <span id="input-with-error-message-error" class="govuk-error-message">
+    </span>
+    <input
+      type="text"
+      class="govuk-input"
+      :class="{ 'govuk-input--error': !form.StreetName }"
+      id="StreetName"
+      v-model="form.StreetName"
+      placeholder="Názov ulice"
+      required
+    />
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--s" for="BuildingNumber">
+      Orientačné číslo
+    </label>
+    <span id="input-with-error-message-error" class="govuk-error-message">
+    </span>
+    <input
+      type="text"
+      class="govuk-input govuk-input--width-10"
+      :class="{ 'govuk-input--error': !form.BuildingNumber }"
+      id="BuildingNumber"
+      v-model="form.BuildingNumber"
+      placeholder="Orientačné číslo"
+      required
+    />
+  </div>
+
+  <!-- {{-- End Personal info II. --}} -->
+</template>
