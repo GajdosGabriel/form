@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApplicationCivil xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://data.gov.sk/id/egov/eform/30798841.ApplicationCivil.sk/1.0" >
+	<ApplicationNumber>ICI-230126-0001-br3a</ApplicationNumber>
+	<Applicant>												<!-- type="PhysicalPerson": ziadateľ - musí byť vyplnený práve 1x -->									
+		<ID>												<!-- <rodne_cislo>8854126501</rodne_cislo> -->
+			<IdentifierType>
+				<Codelist>
+					<CodelistCode>4001</CodelistCode>
+					<CodelistItem>
+						<ItemCode>9</ItemCode>
+						<ItemName Language='sk'>Rodné číslo</ItemName>
+					</CodelistItem>
+				</Codelist>
+			</IdentifierType>
+			<IdentifierValue>8854126501</IdentifierValue>
+		</ID>											
+		<GivenName>Mária</GivenName>						<!-- meno -->
+		<FamilyName>Nováková</FamilyName>					<!-- priezvisko -->
+		<GivenFamilyName>Kováčová</GivenFamilyName>			<!-- rodne priezvisko -->
+															<!--<DateOfBirth/> nepovinný element -->
+		<Sex>												<!-- pohlavie -->
+			<Code>ZENA</Code>
+			<Text>Žena</Text>
+		</Sex>	
+		<Nationality> 										<!-- statna prislusnost -->
+			<Code>SVK</Code>
+			<Text>Slovensko</Text>
+		</Nationality>						
+		<MaritalStatus>										<!-- rodinny stav -->
+			<Code>ZOSOBASENY</Code>
+			<Text>vydatá/ženatý</Text>
+		</MaritalStatus>
+		<TelephoneAddress>									
+			<Number>
+				<FormattedNumber>+421910123456</FormattedNumber> <!-- tel_cislo -->
+			</Number>
+		</TelephoneAddress>
+		<ElectronicAddress>									
+			<InternetAddress>maria.kovacova@example.com</InternetAddress> <!-- email -->
+		</ElectronicAddress>
+
+
+
+
+
+		<PermanentResidence>								<!-- type="PhysicalAddress": trvalý pobyt - môže byť vyplnené 0 az 1x -->
+			<StreetName>Košická</StreetName>
+			<PropertyRegistrationNumber>1234</PropertyRegistrationNumber> 	<!-- súpisné číslo, nepovinný element -->
+			<BuildingNumber>1</BuildingNumber>								<!-- orientačné číslo číslo, nepovinný element -->
+			<Municipality>Bratislava</Municipality>
+			<PostalCode>82108</PostalCode>	
+															<!-- <PostOfficeBox /> nepovinny element-->			
+		</PermanentResidence>
+		<LegalRepresentative>								<!-- type="PhysicalPerson": zákonný zástupca - môže byť vyplnený 0 az 1x -->
+			<GivenName>Peter</GivenName>
+			<FamilyName>Kováč</FamilyName>
+															<!-- <GivenFamilyName /> rodne_priezvisko, nepovinný element -->
+			<DateOfBirth>1985-03-01</DateOfBirth>			<!-- nepovinný element -->
+															<!-- <Sex /> pohlavie, nepovinný element -->
+															<!-- <Nationality /> statna_prislusnost, nepovinný element -->
+															<!-- <MaritalStatus /> rodinny_stav, nepovinný element -->
+			<TelephoneAddress>								<!-- môže byť vyplnené 0 az 1x -->
+				<Number>
+					<FormattedNumber>+421910654321</FormattedNumber> <!-- tel_cislo -->
+				</Number>
+			</TelephoneAddress>
+			<ElectronicAddress>								<!-- môže byť vyplnené 0 az 1x -->
+				<InternetAddress>peter.kovac@email.sk</InternetAddress> <!-- email -->
+			</ElectronicAddress>
+			<PermanentResidence> 							<!-- type="PhysicalAddress": trvalý pobyt - môže byť vyplnené 0 az 1x -->
+				<StreetName>Košická</StreetName>
+				<PropertyRegistrationNumber>2345</PropertyRegistrationNumber> 	<!-- súpisné číslo, nepovinný element -->
+				<BuildingNumber>2</BuildingNumber>								<!-- orientačné číslo, nepovinný element -->
+				<Municipality>Bratislava</Municipality>
+				<PostalCode>82108</PostalCode>
+															<!-- <PostOfficeBox /> pobox, nepovinný element -->
+			</PermanentResidence>
+		</LegalRepresentative>
+	</Applicant>
+	<CorrespondenceAddress>									<!-- type="PhysicalAddress": korešpondenčná adresa - môže byť vyplnené 0 az 1x -->
+		<StreetName>Košická</StreetName>
+		<PropertyRegistrationNumber>3456</PropertyRegistrationNumber> 	<!-- súpisné číslo, nepovinný element -->
+		<BuildingNumber>3</BuildingNumber>								<!-- orientačné číslo, nepovinný element -->
+		<Municipality>Bratislava</Municipality>
+		<PostalCode>82108</PostalCode>
+															<!-- <PostOfficeBox /> nepovinny element-->
+	</CorrespondenceAddress>
+	<Representative>										<!-- type="PhysicalPerson": splnomocnenec - môže byť vyplnené 0 az 1x --> 
+		<GivenName>Pavol</GivenName>
+		<FamilyName>Splnomocnený</FamilyName>
+															<!-- <GivenFamilyName /> rodne_priezvisko, nepovinný element -->
+		<DateOfBirth>1983-10-08</DateOfBirth>				<!-- nepovinný element -->
+															<!-- <Sex /> pohlavie, nepovinný element -->
+															<!-- <Nationality /> statna_prislusnost, nepovinný element -->
+															<!-- <MaritalStatus/> rodinny_stav, nepovinný element -->													
+		<TelephoneAddress>									
+			<Number>
+				<FormattedNumber>+421910987654</FormattedNumber> <!-- tel_cislo -->
+			</Number>
+		</TelephoneAddress>
+		<ElectronicAddress>									
+			<InternetAddress>pavol.splnomocneny@email.sk</InternetAddress> <!-- email -->
+		</ElectronicAddress>
+		<PermanentResidence>								<!-- type="PhysicalAddress": trvalý pobyt - môže byť vyplnené 0 az 1x -->
+			<StreetName>Bratislavská</StreetName>
+			<PropertyRegistrationNumber>4567</PropertyRegistrationNumber> 	<!-- súpisné číslo, nepovinný element -->
+			<BuildingNumber>10</BuildingNumber>								<!-- orientačné číslo, nepovinný element -->
+			<Municipality>Bratislava</Municipality>
+			<PostalCode>84106</PostalCode>
+															<!-- <PostOfficeBox /> nepovinny element-->
+		</PermanentResidence>
+	</Representative>
+	<LegalCaseCPP>Prrávna vec vyplnená zamestnancom CPP v internom portáli.</LegalCaseCPP> 	<!-- pravna_vec_cpp -->
+	<LegalCase>Tu bude popísaná právna vec slovami žiadateľa o právnu pomoc. V stručnosti tu popíše svoj problém/prípad, ktorý potrebuje riešiť.</LegalCase> <!-- pravna_vec, nepovinný element -->
+	<Counterparty>Jozef Novák, Gunduličova 5, Bratislava 82100, 0903123456, jozef.novak@email.sk</Counterparty> <!-- protistrana -->
+	<ClaimValue>700</ClaimValue> 						    	<!-- hodnota sporu, nepovinný element -->
+	<CantCalculateClaimValue>false</CantCalculateClaimValue>	<!-- neviem_vycislit_hs -->
+	
+	<LegalAidType> 												<!-- typ_pravnej_pomoci - môže byť vyplnené viackrát -->
+		<Code>TPP01</Code>
+		<Text>právne poradenstvo</Text>
+	</LegalAidType>
+	<LegalAidType>
+		<Code>TPP04</Code>
+		<Text>právna pomoc a zastupovanie v rámci už prebiehajúceho súdneho konania</Text>
+		<ApplicationLegalProceedings> 								<!-- ziadost_sudne_konanie - môže byť vyplnené 1x -->
+			<CourtName>Krajský súd Bratislava</CourtName>			<!-- názov súdu -->
+			<ReferenceNumber>KSB-2022-1234-5678</ReferenceNumber> 	<!-- spisová značka -->
+																	<!-- <CaseNature/> povaha prípadu -->
+			<HearingDate>2023-01-03</HearingDate>					<!-- datum_pojednavania -->
+																	<!-- <JudicalDecisionDate /> dátum rozhodnutia -->
+			<ComplainantRespondent>									<!-- POZOR! PREMENOVANÝ ELEMENT navrhovatel_odporca -->
+				<Code>ODPORCA</Code>								<!-- POZOR! ELEMENTY navrhovatel_odporca a opravneny_povinny urobi ako OPTION lebo moze byt vyplnene bud jedno alebo druhe -->
+				<Text>Odporca</Text>
+			</ComplainantRespondent> 	
+			<!-- <LegitimateMandatory />					 POZOR! PREMENOVANÝ ELEMENT opravneny_povinny -->
+		</ApplicationLegalProceedings>
+	</LegalAidType>
+	<LegalAidType>
+		<Code>TPP05</Code>
+		<Text>právna pomoc a zastupovanie v rámci súdneho konania, ktoré sa týka už vystaveného súdneho rozhodnutia</Text>
+		<ApplicationLegalProceedings>								<!-- ziadost_sudne_konanie - môže byť vyplnené 0 az 1x -->
+			<CourtName>Okresný súd Bratislava</CourtName>			<!-- názov súdu -->
+			<ReferenceNumber>KSB-2023-9876-0123</ReferenceNumber>	<!-- spisová značka -->
+			<CaseNature>											<!-- povaha prípadu -->
+				<Code>ODVOLANIE_PROTI_ROZHODNUTIU</Code>
+				<Text>odvolanie, iný opravný prostriedok</Text>
+			</CaseNature>	
+			<!-- <HearingDate />							 datum_pojednavania -->
+			<JudicalDecisionDate>2023-01-01</JudicalDecisionDate>	<!-- dátum rozhodnutia -->
+			<ComplainantRespondent>									<!-- POZOR! PREMENOVANÝ ELEMENT navrhovatel_odporca -->
+				<Code>NAVRHOVATEL</Code>							<!-- POZOR! ELEMENTY navrhovatel_odporca a opravneny_povinny urobi ako OPTION lebo moze byt vyplnene bud jedno alebo druhe -->
+				<Text>Navrhovateľ</Text>
+			</ComplainantRespondent>	
+			<!-- <LegitimateMandatory />					 POZOR! PREMENOVANÝ ELEMENT opravneny_povinny -->
+		</ApplicationLegalProceedings>
+	</LegalAidType>
+	<PreliminaryProvisionLa>true</PreliminaryProvisionLa> 			<!-- predbezne_poskytnutie_pp -->
+	<PreliminaryProvisionLaReason>O 3 dni mi uplynie lehota na podanie odvolania voči priloženému rozhodnutiu.</PreliminaryProvisionLaReason> <!-- dovod_predbezneho_poskytnutia_pp, nepovinny element -->
+	<Deadline>2023-01-25</Deadline> 								<!-- koniec_lehoty, nepovinny element -->
+	<MaterialNeedBenefit>false</MaterialNeedBenefit> 				<!-- davka_v_hmotnej_nudzi -->
+	
+	<ApplicationIncomeExpenceLiability> 							<!-- ziadost_prijmy_vydavky_zavazky - môže byť vyplnené viackrát -->
+		<IncomeExpenceLiabilityKind> 								<!-- druh_prijem_vydavok_zavazok -->
+			<Code>PR001</Code>										<!-- PRIJMY -->
+			<Text>mzda alebo plat zo zamestnania</Text>
+		</IncomeExpenceLiabilityKind>
+		<TypeOfPerson> 												<!-- typ_osoby -->
+			<Code>ZIADATEL</Code>
+			<Text>Žiadateľ</Text>
+		</TypeOfPerson>
+		<Amount>700</Amount>										<!-- suma -->
+		<!-- <Description /> 								 popis, nepovinny element -->
+	</ApplicationIncomeExpenceLiability>
+
+	<ApplicationIncomeExpenceLiability>
+		<IncomeExpenceLiabilityKind>
+			<Code>PR023</Code>
+			<Text>prídavok na dieťa</Text>
+		</IncomeExpenceLiabilityKind>
+		<TypeOfPerson>
+			<Code>ZIADATEL</Code>
+			<Text>Žiadateľ</Text>
+		</TypeOfPerson>
+		<Amount>175</Amount>
+		<!-- <Description /> 								 popis, nepovinny element -->
+	</ApplicationIncomeExpenceLiability>
+	
+	<ApplicationIncomeExpenceLiability>								<!-- ziadost_prijmy_vydavky_zavazky - môže byť vyplnené viackrát -->
+		<IncomeExpenceLiabilityKind>
+			<Code>VYD001</Code> 									<!-- VYDAVKY -->
+			<Text>Na bývanie</Text>
+		</IncomeExpenceLiabilityKind>
+		<TypeOfPerson>
+			<Code>ZIADATEL</Code>
+			<Text>Žiadateľ</Text>
+		</TypeOfPerson>
+		<Amount>450</Amount>
+		<!-- <Description /> 								 popis, nepovinny element -->
+	</ApplicationIncomeExpenceLiability>
+	<ApplicationIncomeExpenceLiability>
+		<IncomeExpenceLiabilityKind>
+			<Code>VYD001</Code>
+			<Text>Na bývanie</Text>
+		</IncomeExpenceLiabilityKind>
+		<TypeOfPerson>
+			<Code>MANZEL</Code>
+			<Text>Manžel/ka</Text>
+		</TypeOfPerson>
+		<Amount>500</Amount>
+		<!-- <Description /> 								 popis, nepovinny element -->
+	</ApplicationIncomeExpenceLiability>
+	<ApplicationIncomeExpenceLiability>
+		<IncomeExpenceLiabilityKind>
+			<Code>VYD002</Code>
+			<Text>Strava</Text>
+		</IncomeExpenceLiabilityKind>
+		<TypeOfPerson>
+			<Code>MANZEL</Code>
+			<Text>Manžel/ka</Text>
+		</TypeOfPerson>
+		<Amount>200</Amount>
+		<!-- <Description /> 								 popis, nepovinny element -->
+	</ApplicationIncomeExpenceLiability>
+	<ApplicationIncomeExpenceLiability>
+		<IncomeExpenceLiabilityKind>
+			<Code>VYD003</Code>
+			<Text>Ošatenie + hygiena</Text>
+		</IncomeExpenceLiabilityKind>
+		<TypeOfPerson>
+			<Code>ZIADATEL</Code>
+			<Text>Žiadateľ</Text>
+		</TypeOfPerson>
+		<Amount>50</Amount>
+		<!-- <Description /> 								 popis, nepovinny element -->
+	</ApplicationIncomeExpenceLiability>
+	<ApplicationIncomeExpenceLiability>
+		<IncomeExpenceLiabilityKind>
+			<Code>VYD003</Code>
+			<Text>Ošatenie + hygiena</Text>
+		</IncomeExpenceLiabilityKind>
+		<TypeOfPerson>
+			<Code>MANZEL</Code>
+			<Text>Manžel/ka</Text>
+		</TypeOfPerson>
+		<Amount>100</Amount>
+		<!-- <Description /> 								 popis, nepovinny element -->
+	</ApplicationIncomeExpenceLiability>
+	<ApplicationIncomeExpenceLiability>
+		<IncomeExpenceLiabilityKind>
+			<Code>VYD004</Code>
+			<Text>Zdravotná starostlivosť</Text>
+		</IncomeExpenceLiabilityKind>
+		<TypeOfPerson>
+			<Code>ZIADATEL</Code>
+			<Text>Žiadateľ</Text>
+		</TypeOfPerson>
+		<Amount>100</Amount>
+		<!-- <Description /> 								 popis, nepovinny element -->
+	</ApplicationIncomeExpenceLiability>
+	<ApplicationIncomeExpenceLiability>
+		<IncomeExpenceLiabilityKind>
+			<Code>VYD005</Code>
+			<Text>Pôžičky, úvery, exekúcie</Text>
+		</IncomeExpenceLiabilityKind>
+		<TypeOfPerson>
+			<Code>MANZEL</Code>
+			<Text>Manžel/ka</Text>
+		</TypeOfPerson>
+		<Amount>30</Amount>
+		<Description>Spotrebný úver na pračku - VUB Banka Slovensko</Description> <!-- popis, nepovinny element -->
+	</ApplicationIncomeExpenceLiability>
+	<ApplicationIncomeExpenceLiability>
+		<IncomeExpenceLiabilityKind>
+			<Code>VYD006</Code>
+			<Text>Ostatné výdavky</Text>
+		</IncomeExpenceLiabilityKind>
+		<TypeOfPerson>
+			<Code>ZIADATEL</Code>
+			<Text>Žiadateľ</Text>
+		</TypeOfPerson>
+		<Amount>100</Amount>
+		<Description>školné pre dieťa</Description>				    <!-- popis, nepovinny element -->
+	</ApplicationIncomeExpenceLiability>
+	<ApplicationIncomeExpenceLiability>
+		<IncomeExpenceLiabilityKind>
+			<Code>VYD006</Code>
+			<Text>Ostatné výdavky</Text>
+		</IncomeExpenceLiabilityKind>
+		<TypeOfPerson>
+			<Code>DIETA</Code>
+			<Text>Nezaopatrené dieťa/deti</Text>
+		</TypeOfPerson>
+		<Amount>50</Amount>
+		<Description>Stravovanie v škole</Description>				<!-- popis, nepovinny element -->
+	</ApplicationIncomeExpenceLiability>
+	<CentralOfficeOfLabourEvidence>false</CentralOfficeOfLabourEvidence> 	<!-- evidovany_na_urade_prace -->
+	<PupilStudent>false</PupilStudent> 								<!-- ziak_student -->
+
+	<ApplicationAsset> 												<!-- ziadost_majetok - môže byť vyplnené viackrát -->
+		<AssetType>													<!-- typ_majetku -->
+			<Code>M06</Code>
+			<Text>automobil/y</Text>
+		</AssetType>
+		<Description>Auto - Volkswagen Golf, rok výroby 2012</Description> <!-- popis majetku, nepovinny element -->
+		<Value>8000</Value>
+	</ApplicationAsset>
+
+	<ApplicationFamilySituation>  									<!-- ziadost_rodinne_pomery - môže byť vyplnené viackrát -->
+		<TypeOfPerson>
+			<Code>MANZEL</Code>
+			<Text>Manžel/ka</Text>
+		</TypeOfPerson>
+		<GivenName>Peter</GivenName>
+		<FamilyName>Novák</FamilyName>
+		<DateOfBirth>1985-01-03</DateOfBirth>						
+	</ApplicationFamilySituation>
+	<ApplicationFamilySituation>
+		<TypeOfPerson>
+			<Code>DIETA</Code>
+			<Text>Nezaopatrené dieťa/deti</Text>
+		</TypeOfPerson>
+		<GivenName>Jana</GivenName>
+		<FamilyName>Nováková</FamilyName>
+		<DateOfBirth>2018-05-14</DateOfBirth>						
+	</ApplicationFamilySituation>
+	<AdditionalInfo>Tu uvádzam všetky svoje doplňujúce informácie, ktoré sa mi nezmestili do formulára.</AdditionalInfo> <!-- doplnujuce_info -->
+	<CompletionPlace>Bratislave</CompletionPlace>  			<!-- miesto_vyplnenia -->
+	<CompletionDate>2023-01-22</CompletionDate>  			<!-- datum_vyplnenia -->
+</ApplicationCivil>

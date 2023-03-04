@@ -115,14 +115,14 @@ const clickOnNext = () => {
     v-model="form.IdentifierValue"
     placeholder="Uveďte vaše  rodné číslo"
     title=" Rodné číslo"
-    input-short="true"
+    :input-short="true"
   />
 
   <TextField
     v-model="form.Nationality"
     placeholder="Uveďte vašu štátnu príslušnosť"
     title="Štátna príslušnosť"
-    input-short="true"
+    :input-short="true"
   />
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
@@ -216,7 +216,7 @@ const clickOnNext = () => {
     v-model="form.BuildingNumber"
     placeholder="Uveďte orientačné číslo"
     title="Orientačné číslo"
-    input-short="true"
+    :input-short="true"
   />
 
  </template>

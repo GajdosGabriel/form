@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationCivil xmlns="https://data.gov.sk/id/egov/eform/30798841.ApplicationCivil.sk/1.0">
+  <ApplicationNumber/>
+  <Applicant>
+    <ID>
+      <IdentifierType>
+        <Codelist>
+          <CodelistCode>4001</CodelistCode>
+          <CodelistItem>
+            <ItemCode>9</ItemCode>
+            <ItemName Language="sk">902434</ItemName>
+          </CodelistItem>
+        </Codelist>
+      </IdentifierType>
+	  <IdentifierValue>12345</IdentifierValue>
+    </ID>
+    <GivenName>Vidal</GivenName>
+    <FamilyName>Klein</FamilyName>
+    <GivenFamilyName>Schiller</GivenFamilyName>
+    <Sex>
+      <Code>MUZ</Code>
+      <Text>Muž</Text>
+    </Sex>
+    <Nationality>
+      <Code>Kazakhstan</Code>
+      <Text>Kazakhstan</Text>
+    </Nationality>
+    <MaritalStatus>
+      <Code>1</Code>
+      <Text>Slobodný</Text>
+    </MaritalStatus>
+    <TelephoneAddress>
+      <Number>
+        <FormattedNumber>+8006417963</FormattedNumber>
+      </Number>
+    </TelephoneAddress>
+    <ElectronicAddress>
+      <InternetAddress>will.lexus@towne.org</InternetAddress>
+    </ElectronicAddress>
+    <PermanentResidence>
+      <StreetName>Christine Shores</StreetName>
+      <BuildingNumber>500</BuildingNumber>
+      <Municipality>Skilesbury</Municipality>
+      <PostalCode>368468313</PostalCode>
+      <PostOfficeBox/>
+    </PermanentResidence>
+  </Applicant>
+  <CorrespondenceAddress>
+    <StreetName>Breitenberg Meadow</StreetName>
+    
+    <BuildingNumber>636</BuildingNumber>
+    <Municipality>Metztown</Municipality>
+    <PostalCode>533886514</PostalCode>
+  </CorrespondenceAddress>
+  <LegalCaseCPP>Expedita aliquam perferendis porro fuga. Qui vero possimus voluptatem id enim molestias natus nihil. At soluta illum et deserunt quos culpa.</LegalCaseCPP>
+  <LegalCase>Prof. Hilton, 1-855-840-4191</LegalCase>
+  <Counterparty>5057</Counterparty>
+  <ClaimValue>5057</ClaimValue>
+  <CantCalculateClaimValue>1</CantCalculateClaimValue>
+  <LegalAidType>
+    <Code>TPP01</Code>
+    <Text>právne poradenstvo</Text>
+  </LegalAidType>
+  <LegalAidType>
+    <Code>TPP02</Code>
+    <Text>mediácia (mimosúdne riešenie sporu dohodou)</Text>
+  </LegalAidType>
+  <LegalAidType>
+    <Code>TPP03</Code>
+    <Text>právna pomoc a zastupovanie v súdnom konaní vrátane jeho začatia</Text>
+  </LegalAidType>
+  <LegalAidType>
+    <Code>TPP04</Code>
+    <Text>právna pomoc a zastupovanie v rámci už prebiehajúceho súdneho konania</Text>
+    <ApplicationLegalProceedings>
+      <CourtName>Kossside</CourtName>
+      <ReferenceNumber>Spis-2201/2014</ReferenceNumber>
+      <HearingDate>2010-05-17</HearingDate>
+      <ComplainantRespondent>
+        <Code>NAVRHOVATEL</Code>
+        <Text>Navrhovateľ</Text>
+      </ComplainantRespondent>
+    </ApplicationLegalProceedings>
+  </LegalAidType>
+  <LegalAidType>
+    <ApplicationLegalProceedings>
+      <CourtName>Port Elijahhaven</CourtName>
+      <ReferenceNumber/>
+      <CaseNature/>
+    </ApplicationLegalProceedings>
+    <Code>TPP05</Code>
+    <Text>právna pomoc a zastupovanie v rámci súdneho konania, ktoré sa týka už vystaveného súdneho rozhodnutia</Text>
+  </LegalAidType>
+  <PreliminaryProvisionLa>true</PreliminaryProvisionLa>
+  <PreliminaryProvisionLaReason>Aut id beatae ipsum qui quo ut. Id placeat quia aliquid recusandae rem quam. Eaque ipsum placeat deserunt porro qui nesciunt.</PreliminaryProvisionLaReason>
+  <Deadline>1974-06-17</Deadline>
+  <MaterialNeedBenefit>true</MaterialNeedBenefit>
+  <ApplicationAsset>
+    <AssetType>
+      <Code>M04</Code>
+      <Text>cenné papiere</Text>
+    </AssetType>
+    <Description/>
+    <Value>2000</Value>
+  </ApplicationAsset>
+  <ApplicationAsset>
+    <AssetType>
+      <Code>M07</Code>
+      <Text>iné</Text>
+    </AssetType>
+    <Description/>
+    <Value>333</Value>
+  </ApplicationAsset>
+  <CentralOfficeOfLabourEvidence>0</CentralOfficeOfLabourEvidence>
+  <PupilStudent/>
+  <ApplicationFamilySituation>
+    <TypeOfPerson/>
+    <GivenName/>
+    <FamilyName/>
+    <DateOfBirth/>
+  </ApplicationFamilySituation>
+  <AdditionalInfo>Et omnis et et occaecati aut tenetur. Consequatur placeat omnis quam eum ea at veniam.</AdditionalInfo>
+  <CompletionPlace>North Marcelinotown</CompletionPlace>
+  <CompletionDate>1986-02-16</CompletionDate>
+</ApplicationCivil>

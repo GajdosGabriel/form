@@ -1,0 +1,223 @@
+﻿<xs:schema attributeFormDefault="unqualified" 
+		   elementFormDefault="qualified" 
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   targetNamespace="https://data.gov.sk/id/egov/eform/30798841.ApplicationCivil.sk/1.0"
+		   xmlns ="https://data.gov.sk/id/egov/eform/30798841.ApplicationCivil.sk/1.0">
+	
+	<xs:element name="ApplicationCivil">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element type="xs:string" name="ApplicationNumber"/>
+				<xs:element name="Applicant"  minOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ID" type ="IDCType"/>												
+							<xs:element type="xs:string" name="GivenName"/>
+							<xs:element type="xs:string" name="FamilyName"/>
+							<xs:element type="xs:string" name="GivenFamilyName"/>
+							<xs:element type="xs:date" name="DateOfBirth" minOccurs="0"/>
+							<xs:element name="Sex"	type="CodeTextCType"/>		
+							<xs:element name="Nationality"  type="CodeTextCType"/>								
+							<xs:element name="MaritalStatus" type="CodeTextCType"/>								
+							<xs:element name="TelephoneAddress" type="TelephoneAddressCType" minOccurs="0" />							
+							<xs:element name="ElectronicAddress" type="ElectronicAddressCType" minOccurs="0" />								
+							<xs:element name="PermanentResidence" type="PhysicalAddressCType" minOccurs="0" />								
+							<xs:element name="LegalRepresentative" type="PhysicalPersonCType" minOccurs="0" />															
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="CorrespondenceAddress" type="PhysicalAddressCType" minOccurs="0"/>					
+				<xs:element name="Representative" type ="PhysicalPersonCType" minOccurs="0"/>				
+				<xs:element type="xs:string" name="LegalCaseCPP" minOccurs="0"/>
+				<xs:element type="xs:string" name="LegalCase"/>
+				<xs:element type="xs:string" name="Counterparty"/>
+				<xs:element type="xs:int" name="ClaimValue" minOccurs="0"/>
+				<xs:element type="xs:boolean" name="CantCalculateClaimValue"/>
+				<xs:element name="LegalAidType" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="Code"/>
+							<xs:element type="xs:string" name="Text"/>
+							<xs:element name="ApplicationLegalProceedings" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="CourtName"/>
+										<xs:element type="xs:string" name="ReferenceNumber"/>
+										<xs:element name="CaseNature" minOccurs="0">
+											<xs:complexType mixed="true">
+												<xs:sequence>
+													<xs:element type="xs:string" name="Code" minOccurs="0"/>
+													<xs:element type="xs:string" name="Text" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element type="xs:date" name="HearingDate" minOccurs="0"/>
+										<xs:element type="xs:date" name="JudicalDecisionDate" minOccurs="0"/>
+										<xs:choice>
+										<xs:element name="ComplainantRespondent" type="CodeTextCType"/>
+										<xs:element type="xs:string" name="LegitimateMandatory" minOccurs="0"/>
+										</xs:choice>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element type="xs:string" name="PreliminaryProvisionLa"/>
+				<xs:element type="xs:string" name="PreliminaryProvisionLaReason" minOccurs="0"/>
+				<xs:element type="xs:date" name="Deadline" minOccurs="0"/>
+				<xs:element type="xs:boolean" name="MaterialNeedBenefit"/>
+				<xs:element name="ApplicationIncomeExpenceLiability" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="IncomeExpenceLiabilityKind" type="CodeTextCType" minOccurs="0"  maxOccurs="unbounded"/>
+							<xs:element name="TypeOfPerson" type="CodeTextCType"/>
+							<xs:element type="xs:int" name="Amount"/>
+							<xs:element type="xs:string" name="Description" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element type="xs:boolean" name="CentralOfficeOfLabourEvidence"/>
+				<xs:element type="xs:boolean" name="PupilStudent"/>
+				<xs:element name="ApplicationAsset" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="AssetType" type="CodeTextCType"/>
+							<xs:element type="xs:string" name="Description" minOccurs="0"/>
+							<xs:element type="xs:int" name="Value"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ApplicationFamilySituation" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="IncomeExpenceLiabilityKind" type="CodeTextCType" minOccurs="0"  maxOccurs="unbounded" />
+							<xs:element name="TypeOfPerson" type="CodeTextCType"/>
+							<xs:element type="xs:string" name="GivenName" minOccurs="0"/>
+							<xs:element type="xs:string" name="FamilyName" minOccurs="0"/>
+							<xs:element type="xs:date" name="DateOfBirth" minOccurs="0"/>
+							<xs:element type="xs:int" name="Amount" minOccurs="0"/>
+							<xs:element type="xs:string" name="Description" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element type="xs:string" name="AdditionalInfo" minOccurs="0"/>
+				<xs:element type="xs:string" name="CompletionPlace"/>
+				<xs:element type="xs:date" name="CompletionDate"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	
+	
+	<!-- ComplexType -->
+
+	<xs:complexType name="CodeTextCType">
+		<xs:sequence>
+			<xs:element type="xs:string" name="Code"/>
+			<xs:element type="xs:string" name="Text"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+
+		<xs:complexType name="IDCType" >
+			<xs:sequence>
+				<xs:element name="IdentifierType">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Codelist">
+								<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CodelistCode" type ="xs:int"/>
+									<xs:element name="CodelistItem">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element type="xs:int" name="ItemCode"/>
+												<xs:element name="ItemName">
+													<xs:complexType>
+														<xs:simpleContent>
+															<xs:extension base="xs:string">
+																<xs:attribute type="xs:string" name="Language"/>
+															</xs:extension>
+														</xs:simpleContent>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								</xs:complexType>	
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element type="xs:long" name="IdentifierValue"/>
+			</xs:sequence>
+		</xs:complexType>
+
+
+
+	<xs:complexType name ="PhysicalAddressCType">
+		<xs:sequence>
+			<xs:element type="xs:string" name="StreetName" minOccurs="0"/>
+			<xs:element type="xs:int" name="PropertyRegistrationNumber" minOccurs="0"/>
+			<xs:element type="xs:int" name="BuildingNumber" minOccurs="0"/>
+			<xs:element type="xs:string" name="Municipality" />
+			<xs:element type="xs:int" name="PostalCode"/>
+			<xs:element type="xs:string" name="PostOfficeBox" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+	<xs:complexType name ="PhysicalPersonCType">
+		<xs:sequence>
+			<xs:element name="ID" type="IDCType" minOccurs="0"/>				
+			<xs:element type="xs:string" name="GivenName"/>
+			<xs:element type="xs:string" name="FamilyName"/>
+			<xs:element type="xs:string" name="GivenFamilyName" minOccurs="0"/>
+			<xs:element type="xs:date" name="DateOfBirth" minOccurs="0"/>
+			<xs:element type="xs:string" name="Sex" minOccurs="0"/>
+			<xs:element type="xs:string" name="Nationality" minOccurs="0"/>
+			<xs:element type="xs:string" name="MaritalStatus" minOccurs="0"/>
+			<xs:element name="TelephoneAddress" type="TelephoneAddressCType" minOccurs="0" />		
+			<xs:element name="ElectronicAddress" type="ElectronicAddressCType" minOccurs="0" />
+			<xs:element name="PermanentResidence" type="PhysicalAddressCType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="TelephoneAddressCType">
+		<xs:sequence>
+			<xs:element name="Number">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element type="FormattedNumberType" name="FormattedNumber"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="ElectronicAddressCType">
+		<xs:sequence>
+			<xs:element type="xs:string" name="InternetAddress"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:simpleType name="FormattedNumberType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="20" />
+			<xs:pattern value="(\+|%2b|00)[0-9 ]+" />
+		</xs:restriction>
+	</xs:simpleType> 
+
+</xs:schema>
+
+
+
