@@ -20,6 +20,11 @@ defineProps({
 });
 
 const input = ref("");
+
+const { validateNameField, errors } = useFormValidation();
+    const validateInput = () => {
+      validateNameField("name", input.value);
+    };
 </script>
 
 <template>
