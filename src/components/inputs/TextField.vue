@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import useFormValidation from "./useFormValidation";
-defineProps({
+const props = defineProps({
   label: {
     type: String,
     required: true,
@@ -10,10 +10,6 @@ defineProps({
     type: String,
     required: true,
   },
-  validateMsg: {
-    type: String,
-    default: "Položka musí byť vyplnená",
-  },
   inputShort: {
     type: Boolean,
     default: false,
@@ -21,18 +17,20 @@ defineProps({
 });
 
 const input = ref("");
-
 const { validateNameField, errors } = useFormValidation();
-    const validateInput = () => {
-      validateNameField("name", input.value);
-    };
+
+const validateInput = () => {
+  validateNameField(props.label, input.value);
+};
 </script>
 
 <template>
   <div class="govuk-form-group">
     <label class="govuk-label govuk-label--s" :for="label" v-text="label">
     </label>
-    <span class="govuk-error-message"> {{ input == '' ? validateMsg : "" }} </span>
+    <span class="govuk-error-message">
+      {{ input == "" ? "Položka musí byť vyplnená" : errors }}
+    </span>
     <input
       type="text"
       class="govuk-input"
