@@ -27,7 +27,7 @@ const clickOnNext = () => {
   <TextField
     v-model="form.FamilyName"
     placeholder="Uveďte vaše prizvisko"
-    title="Priezvisko"
+    label="Priezvisko"
   />
 
   <fieldset class="govuk-fieldset">
@@ -66,7 +66,7 @@ const clickOnNext = () => {
     <TextField
       v-model="form.GivenFamilyName"
       placeholder="Uveďte vaše rodné priezvisko"
-      title="Rodné priezvisko"
+      label="Rodné priezvisko"
     />
 
   </div>
@@ -74,7 +74,7 @@ const clickOnNext = () => {
   <TextField
     v-model="form.GivenName"
     placeholder="Uveďte vaše meno"
-    title="Meno"
+    label="Meno"
   />
 
   <div class="govuk-form-group">
@@ -114,14 +114,14 @@ const clickOnNext = () => {
   <TextField
     v-model="form.IdentifierValue"
     placeholder="Uveďte vaše  rodné číslo"
-    title=" Rodné číslo"
+    label=" Rodné číslo"
     :input-short="true"
   />
 
   <TextField
     v-model="form.Nationality"
     placeholder="Uveďte vašu štátnu príslušnosť"
-    title="Štátna príslušnosť"
+    label="Štátna príslušnosť"
     :input-short="true"
   />
   <div class="govuk-form-group">
@@ -209,13 +209,13 @@ const clickOnNext = () => {
   <TextField
     v-model="form.StreetName"
     placeholder="Uveďte názov ulice"
-    title="Názov ulice"
+    label="Názov ulice"
   />
 
   <TextField
     v-model="form.BuildingNumber"
     placeholder="Uveďte orientačné číslo"
-    title="Orientačné číslo"
+    label="Orientačné číslo"
     :input-short="true"
   />
 
