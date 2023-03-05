@@ -161,7 +161,12 @@ function xml(form) {
   var Code = doc.createElement("Code");
   var CodeText = doc.createTextNode(form.MaritalStatus);
   var Text = doc.createElement("Text");
-  var TextText = doc.createTextNode('vydatá/ženatý');
+  var TextText = doc.createTextNode(
+    (form.MaritalStatus == 1) ? 'Slobodný/á' : 
+    (form.MaritalStatus == 2) ? 'Vydatá/ženaty': 
+    (form.MaritalStatus == 3) ? 'Ovdovená/ý': 
+    (form.MaritalStatus == 4) ? 'Rozvedená/ý': 'Odlúčená/ý'
+  );
   Code.appendChild(CodeText);
   Text.appendChild(TextText);
   MaritalStatus.appendChild(Code);
@@ -171,12 +176,11 @@ function xml(form) {
   var TelephoneAddress = doc.createElement("TelephoneAddress");
   var Number = doc.createElement("Number");
   var FormattedNumber = doc.createElement("FormattedNumber");
-  var FormattedNumberText = doc.createTextNode(form.PhoneNumber);
+  var FormattedNumberText = doc.createTextNode('+421' + form.PhoneNumber);
   FormattedNumber.appendChild(FormattedNumberText);
   Number.appendChild(FormattedNumber);
   TelephoneAddress.appendChild(Number);
   Applicant.appendChild(TelephoneAddress);
-
 
   var ElectronicAddress = doc.createElement("ElectronicAddress");
   var InternetAddress = doc.createElement("InternetAddress");
@@ -185,9 +189,35 @@ function xml(form) {
   ElectronicAddress.appendChild(InternetAddress);
   Applicant.appendChild(ElectronicAddress);
 
+  var PermanentResidence = doc.createElement("PermanentResidence");
+  var StreetName = doc.createElement("StreetName");
+  var StreetNameText = doc.createTextNode(form.StreetName);
+  var PropertyRegistrationNumber = doc.createElement("PropertyRegistrationNumber");
+  var PropertyRegistrationNumberText = doc.createTextNode(form.PropertyRegistrationNumber);
+  var BuildingNumber = doc.createElement("BuildingNumber");
+  var BuildingNumberText = doc.createTextNode(form.BuildingNumber);
+  var Municipality = doc.createElement("Municipality");
+  var MunicipalityText = doc.createTextNode(form.PostalCode);
+  var PostalCode = doc.createElement("PostalCode");
+  var PostalCodeText = doc.createTextNode(form.Municipal);
+
+  PostalCode.appendChild(PostalCodeText);
+  PermanentResidence.appendChild(PostalCode);
+  PermanentResidence.appendChild(MunicipalityText);
+  PermanentResidence.appendChild(Municipality);
+  BuildingNumber.appendChild(BuildingNumberText);
+  PermanentResidence.appendChild(BuildingNumber);
+  PropertyRegistrationNumber.appendChild(PropertyRegistrationNumberText);
+  PermanentResidence.appendChild(PropertyRegistrationNumber);
+  StreetName.appendChild(StreetNameText);
+  PermanentResidence.appendChild(StreetName);
+  Applicant.appendChild(PermanentResidence);
 
 
 
+
+
+  
 
 
 

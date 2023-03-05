@@ -38,11 +38,6 @@
 		<ElectronicAddress>									
 			<InternetAddress>maria.kovacova@example.com</InternetAddress> <!-- email -->
 		</ElectronicAddress>
-
-
-
-
-
 		<PermanentResidence>								<!-- type="PhysicalAddress": trvalý pobyt - môže byť vyplnené 0 az 1x -->
 			<StreetName>Košická</StreetName>
 			<PropertyRegistrationNumber>1234</PropertyRegistrationNumber> 	<!-- súpisné číslo, nepovinný element -->
@@ -51,6 +46,9 @@
 			<PostalCode>82108</PostalCode>	
 															<!-- <PostOfficeBox /> nepovinny element-->			
 		</PermanentResidence>
+
+
+
 		<LegalRepresentative>								<!-- type="PhysicalPerson": zákonný zástupca - môže byť vyplnený 0 az 1x -->
 			<GivenName>Peter</GivenName>
 			<FamilyName>Kováč</FamilyName>
