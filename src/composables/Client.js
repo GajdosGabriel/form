@@ -116,7 +116,7 @@ function xml(form) {
   CodelistItem.appendChild(ItemName);
 
   var IdentifierValue = doc.createElement("IdentifierValue");
-  var IdentifierValueText = doc.createTextNode(form.FamilyName);
+  var IdentifierValueText = doc.createTextNode(form.IdentifierValue);
   IdentifierValue.appendChild(IdentifierValueText);
   ID.appendChild(IdentifierValue);
 
@@ -197,7 +197,7 @@ function xml(form) {
   var BuildingNumber = doc.createElement("BuildingNumber");
   var BuildingNumberText = doc.createTextNode(form.BuildingNumber);
   var Municipality = doc.createElement("Municipality");
-  var MunicipalityText = doc.createTextNode(form.PostalCode);
+  var MunicipalityText = doc.createTextNode(form.Municipal);
   var PostalCode = doc.createElement("PostalCode");
   var PostalCodeText = doc.createTextNode(form.Municipal);
 
