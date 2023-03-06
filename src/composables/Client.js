@@ -210,6 +210,68 @@ if(form.booleanCorrespondence) {
 }
 
 
+if(form.booleanRepresentative) {
+  var Representative = doc.createElement("Representative");
+
+  var RepresentativeGiveName = doc.createElement("RepresentativeGiveName");
+  var RepresentativeGiveNameText = doc.createTextNode(form.RepresentativeGiveName);
+  var RepresentativeFamilyName = doc.createElement("RepresentativeFamilyName");
+  var RepresentativeFamilyNameText = doc.createTextNode(form.RepresentativeFamilyName);
+  var RepresentativeDateOfBirth = doc.createElement("RepresentativeDateOfBirth");
+  var RepresentativeDateOfBirthText = doc.createTextNode(form.RepresentativeDateOfBirth);
+
+
+  var PermanentResidence = doc.createElement("PermanentResidence");
+  var RepresentativeStreetName = doc.createElement("StreetName");
+  var RepresentativeStreetNameText = doc.createTextNode(form.RepresentativeStreetName);
+  var RepresentativeBuildingNumber = doc.createElement("BuildingNumber");
+  var RepresentativeBuildingNumberText = doc.createTextNode(form.RepresentativeBuildingNumber);
+  var RepresentativePropertyRegistrationNumber = doc.createElement("PropertyRegistrationNumber");
+  var RepresentativePropertyRegistrationNumberText = doc.createTextNode(form.RepresentativePropertyRegistrationNumber);
+  var RepresentativeMunicipality = doc.createElement("Municipality");
+  var RepresentativeMunicipalityText = doc.createTextNode(form.RepresentativeMunicipality);
+  var RepresentativePostalCode = doc.createElement("PostalCode");
+  var RepresentativePostalCodeText = doc.createTextNode(form.RepresentativePostalCode);
+
+
+  RepresentativeGiveName.appendChild(RepresentativeGiveNameText);
+  Representative.appendChild(RepresentativeGiveName);
+  RepresentativeFamilyName.appendChild(RepresentativeFamilyNameText);
+  Representative.appendChild(RepresentativeFamilyName);
+  RepresentativeDateOfBirth.appendChild(RepresentativeDateOfBirthText);
+  Representative.appendChild(RepresentativeDateOfBirth);
+
+  var RepresentativeTelephoneAddress = doc.createElement("TelephoneAddress");
+  var RepresentativeNumber = doc.createElement("Number");
+  var RepresentativeFormattedNumber = doc.createElement("FormattedNumber");
+  var RepresentativeFormattedNumberText = doc.createTextNode('+421' + form.RepresentativePhoneNumber);
+  RepresentativeFormattedNumber.appendChild(RepresentativeFormattedNumberText);
+  RepresentativeNumber.appendChild(RepresentativeFormattedNumber);
+  RepresentativeTelephoneAddress.appendChild(RepresentativeNumber);
+  Representative.appendChild(RepresentativeTelephoneAddress);
+
+  var RepresentativeElectronicAddress = doc.createElement("ElectronicAddress");
+  var RepresentativeInternetAddress = doc.createElement("InternetAddress");
+  var RepresentativeInternetAddressText = doc.createTextNode(form.RepresentativeEmail);
+  RepresentativeInternetAddress.appendChild(RepresentativeInternetAddressText);
+  RepresentativeElectronicAddress.appendChild(RepresentativeInternetAddress);
+  Representative.appendChild(RepresentativeElectronicAddress);
+
+  RepresentativeStreetName.appendChild(RepresentativeStreetNameText);
+  PermanentResidence.appendChild(RepresentativeStreetName);
+  RepresentativePropertyRegistrationNumber.appendChild(RepresentativePropertyRegistrationNumberText);
+  PermanentResidence.appendChild(RepresentativePropertyRegistrationNumber);
+  RepresentativeBuildingNumber.appendChild(RepresentativeBuildingNumberText);
+  PermanentResidence.appendChild(RepresentativeBuildingNumber);
+  RepresentativeMunicipality.appendChild(RepresentativeMunicipalityText);
+  PermanentResidence.appendChild(RepresentativeMunicipality);
+  RepresentativePostalCode.appendChild(RepresentativePostalCodeText);
+  PermanentResidence.appendChild(RepresentativePostalCode);
+  Representative.appendChild(PermanentResidence);
+  ApplicationCivil.appendChild(Representative);
+}
+
+
 
 
 

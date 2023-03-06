@@ -84,9 +84,6 @@
 															<!-- <PostOfficeBox /> nepovinny element-->
 	</CorrespondenceAddress>
 	
-	
-	
-	
 	<Representative>										<!-- type="PhysicalPerson": splnomocnenec - môže byť vyplnené 0 az 1x --> 
 		<GivenName>Pavol</GivenName>
 		<FamilyName>Splnomocnený</FamilyName>
@@ -112,6 +109,9 @@
 															<!-- <PostOfficeBox /> nepovinny element-->
 		</PermanentResidence>
 	</Representative>
+
+
+
 	<LegalCaseCPP>Prrávna vec vyplnená zamestnancom CPP v internom portáli.</LegalCaseCPP> 	<!-- pravna_vec_cpp -->
 	<LegalCase>Tu bude popísaná právna vec slovami žiadateľa o právnu pomoc. V stručnosti tu popíše svoj problém/prípad, ktorý potrebuje riešiť.</LegalCase> <!-- pravna_vec, nepovinný element -->
 	<Counterparty>Jozef Novák, Gunduličova 5, Bratislava 82100, 0903123456, jozef.novak@email.sk</Counterparty> <!-- protistrana -->

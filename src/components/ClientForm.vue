@@ -48,9 +48,9 @@ const onSubmit = () => {
       <!-- End Errors sumaary -->
 
       <form action="/" @submit.prevent="onSubmit">
-        <ClientA1></ClientA1>
-        <!-- <ClientA2></ClientA2>
-        <ClientB></ClientB>
+        <!-- <ClientA1></ClientA1> -->
+        <ClientA2></ClientA2>
+       <!-- <ClientB></ClientB>
         <ClientF></ClientF>
         <ClientG></ClientG>
         <ClientH></ClientH> -->
