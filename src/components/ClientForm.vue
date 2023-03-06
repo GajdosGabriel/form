@@ -7,7 +7,11 @@ import ClientG from "./ClientG.vue";
 import ClientH from "./ClientH.vue";
 import useClient from "../composables/Client.js";
 
+import useFormValidation from "./inputs/useFormValidation";
+
 const { getValidate, getvalidatedErrors } = useClient();
+
+const { errors } = useFormValidation();
 
 const onSubmit = () => {
   getValidate();
@@ -26,17 +30,16 @@ const onSubmit = () => {
     </p>
     <main class="govuk-main-wrapper" id="main-content" role="main">
 
-      <div v-text="getvalidatedErrors[0]"></div>
       <!-- Errors sumaary -->
       <div class="govuk-error-summary" data-module="govuk-error-summary" v-if="getvalidatedErrors.length">
           <div role="alert">
             <h2 class="govuk-error-summary__title">
-              There is a problem
+              Validačné chyby  / There is a problem
             </h2>
             <div class="govuk-error-summary__body">
               <ul class="govuk-list govuk-error-summary__list">
-                <li v-for="(getvalidatedError, index) in getvalidatedErrors" :key="index">
-                    <a href="#">{{ getvalidatedError }}</a>
+                <li v-for="(error, index) in errors" :key="index">
+                    <a href="#">{{ error }}</a>
                   </li>
                 </ul>
               </div>
