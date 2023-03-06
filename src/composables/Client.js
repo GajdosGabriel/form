@@ -3,7 +3,6 @@ import { reactive, readonly, computed } from "vue";
 const defaultState = {
   form: {},
   validatedErrors: [],
-  slide8: {},
 };
 
 const state = reactive(defaultState);
@@ -11,37 +10,6 @@ const state = reactive(defaultState);
 const getters = {
   getForm: computed(() => state.form),
   getvalidatedErrors: computed(() => state.validatedErrors),
-  incomesActual: computed(() => {
-    let sumar = 0;
-    if (Number.isInteger(state.slide8.five)) {
-      sumar += state.slide8.five;
-    }
-    if (Number.isInteger(state.slide8.six)) {
-      sumar += state.slide8.six;
-    }
-    if (Number.isInteger(state.slide8.seven)) {
-      sumar += state.slide8.seven;
-    }
-    if (Number.isInteger(state.slide8.eight)) {
-      sumar += state.slide8.eight;
-    }
-
-    return Number(sumar);
-  }),
-
-  extensActual: computed(() => {
-    let sumar = 0;
-    if (state.slide6.partner == 1 || state.slide6.partner == 2) {
-      sumar += Number(234.42 + 163.53);
-    } else {
-      sumar += Number(234.42);
-    }
-
-    if (state.slide7.children) {
-      sumar += Number(107.03 * state.slide7.children);
-    }
-    return Math.round(1.6 * sumar);
-  }),
 };
 
 const actions = {
@@ -212,6 +180,35 @@ function xml(form) {
   StreetName.appendChild(StreetNameText);
   PermanentResidence.appendChild(StreetName);
   Applicant.appendChild(PermanentResidence);
+
+
+
+if(form.booleanCorrespondence) {
+  var CorrespondenceAddress = doc.createElement("CorrespondenceAddress");
+  var CorrespondenceStreetName = doc.createElement("StreetName");
+  var CorrespondenceStreetNameText = doc.createTextNode(form.CorrespondenceStreetName);
+  var CorrespondenceBuildingNumber = doc.createElement("BuildingNumber");
+  var CorrespondenceBuildingNumberText = doc.createTextNode(form.CorrespondenceBuildingNumber);
+  var CorrespondencePropertyRegistrationNumber = doc.createElement("PropertyRegistrationNumber");
+  var CorrespondencePropertyRegistrationNumberText = doc.createTextNode(form.CorrespondencePropertyRegistrationNumber);
+  var CorrespondenceMunicipality = doc.createElement("Municipality");
+  var CorrespondenceMunicipalityText = doc.createTextNode(form.CorrespondenceMunicipality);
+  var CorrespondencePostalCode = doc.createElement("PostalCode");
+  var CorrespondencePostalCodeText = doc.createTextNode(form.CorrespondencePostalCode);
+
+  CorrespondenceStreetName.appendChild(CorrespondenceStreetNameText);
+  CorrespondenceAddress.appendChild(CorrespondenceStreetName);
+  CorrespondencePropertyRegistrationNumber.appendChild(CorrespondencePropertyRegistrationNumberText);
+  CorrespondenceAddress.appendChild(CorrespondencePropertyRegistrationNumber);
+  CorrespondenceBuildingNumber.appendChild(CorrespondenceBuildingNumberText);
+  CorrespondenceAddress.appendChild(CorrespondenceBuildingNumber);
+  CorrespondenceMunicipality.appendChild(CorrespondenceMunicipalityText);
+  CorrespondenceAddress.appendChild(CorrespondenceMunicipality);
+  CorrespondencePostalCode.appendChild(CorrespondencePostalCodeText);
+  CorrespondenceAddress.appendChild(CorrespondencePostalCode);
+  ApplicationCivil.appendChild(CorrespondenceAddress);
+}
+
 
 
 

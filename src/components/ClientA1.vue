@@ -26,7 +26,7 @@ const clickOnNext = () => {
 
   <TextField v-model="form.FamilyName" placeholder="Uveďte vaše prizvisko" label="Priezvisko" />
 
-  <fieldset class="govuk-fieldset">
+  <fieldset class="govuk-fieldset" style="margin-bottom: 20px;">
     <legend class="govuk-fieldset__legend govuk-label--s">
       Je Vaše priezvisko iné ako rodné?
     </legend>
@@ -122,7 +122,10 @@ const clickOnNext = () => {
 
   <TextField v-model="form.StreetName" placeholder="Uveďte názov ulice" label="Názov ulice" />
 
-  <TextField v-model="form.PropertyRegistrationNumber" label="Orientačné číslo" placeholder="Uveďte orientačné číslo"
+  <TextField v-model="form.BuildingNumber" label="Orientačné číslo" placeholder="Uveďte orientačné číslo"
+    :input-short="true" />
+
+  <TextField v-model="form.PropertyRegistrationNumber" label="Súpisné číslo" placeholder="Uveďte súpisné číslo"
     :input-short="true" />
 
   <TextField v-model="form.PostalCode" label="Psč" placeholder="Psč obce" :input-short="true" />
@@ -130,42 +133,45 @@ const clickOnNext = () => {
   <TextField v-model="form.Municipal" label="Obec" placeholder="Názov obce" />
 
 
-  <fieldset class="govuk-fieldset">
+  <fieldset class="govuk-fieldset" style="margin-bottom: 20px;">
     <legend class="govuk-fieldset__legend govuk-label--s">
       Uviesť korenšpondenčnú adresu, na zasielanie písomnosti?
     </legend>
     <div class="govuk-radios govuk-radios--inline">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" type="radio" id="booleantemporary_residence-0" :value="0"
-          v-model="form.booleantemporary_residence" required checked />
-        <label class="govuk-label govuk-radios__label" for="booleantemporary_residence-0"> Nie </label>
+        <input class="govuk-radios__input" type="radio" id="booleanCorrespondence-0" :value="0"
+          v-model="form.booleanCorrespondence" required checked />
+        <label class="govuk-label govuk-radios__label" for="booleanCorrespondence-0"> Nie </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" type="radio" id="booleantemporary_residence-1"
-          v-model="form.booleantemporary_residence" :value="1" required />
-        <label class="govuk-label govuk-radios__label" for="booleantemporary_residence-1"> Áno </label>
+        <input class="govuk-radios__input" type="radio" id="booleanCorrespondence-1"
+          v-model="form.booleanCorrespondence" :value="1" required />
+        <label class="govuk-label govuk-radios__label" for="booleantemCorrespondence-1"> Áno </label>
       </div>
     </div>
   </fieldset>
 
 
 
-  <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden">
+  <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" v-if="form.booleanCorrespondence">
 
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Korenšpondenčná adresa</legend>
 
-    <TextField v-model="form.temporary_StreetName" placeholder="Uveďte názov ulice" label="Názov ulice" />
+    <TextField v-model="form.CorrespondenceStreetName" placeholder="Uveďte názov ulice" label="Názov ulice" />
 
-    <TextField v-model="form.temporary_PropertyRegistrationNumber" label="Orientačné číslo"
+    <TextField v-model="form.CorrespondenceBuildingNumber" label="Orientačné číslo"
       placeholder="Uveďte orientačné číslo" :input-short="true" />
 
-    <TextField v-model="form.temporary_PostalCode" label="Psč" placeholder="Psč obce" :input-short="true" />
+    <TextField v-model="form.CorrespondencePropertyRegistrationNumber" label="Súpisné číslo"
+      placeholder="Uveďte súpisné číslo" :input-short="true" />
 
-    <TextField v-model="form.temporary_Municipal" label="Obec" placeholder="Názov obce" />
+    <TextField v-model="form.CorrespondencePostalCode" label="Psč" placeholder="Psč obce" :input-short="true" />
+
+    <TextField v-model="form.CorrespondenceMunicipality" label="Obec" placeholder="Názov obce" />
 
   </div>
 
-  <TextField v-model="form.temporary_StreetName" placeholder="Uveďte telefónne číslo" label="Telefónne číslo" />
+  <TextField v-model="form.PhoneNumber" placeholder="Uveďte telefónne číslo" label="Telefónne číslo" />
 
   <TextField v-model="form.Email" placeholder="Uveďte svoj email" label="Email" />
 

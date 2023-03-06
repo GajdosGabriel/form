@@ -83,6 +83,10 @@
 		<PostalCode>82108</PostalCode>
 															<!-- <PostOfficeBox /> nepovinny element-->
 	</CorrespondenceAddress>
+	
+	
+	
+	
 	<Representative>										<!-- type="PhysicalPerson": splnomocnenec - môže byť vyplnené 0 az 1x --> 
 		<GivenName>Pavol</GivenName>
 		<FamilyName>Splnomocnený</FamilyName>
