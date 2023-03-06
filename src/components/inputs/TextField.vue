@@ -19,19 +19,22 @@ const props = defineProps({
 const input = ref("");
 const { validateNameField, errors } = useFormValidation();
 
+var key = props.label;
+
 const validateInput = () => {
   validateNameField(props.label, input.value);
 };
 </script>
 
 <template>
-  <div class="govuk-form-group">
+  <div class="govuk-form-group">   {{ key }}
+
     <label class="govuk-label govuk-label--s" :for="label" v-text="label">
     </label>
-    <span class="govuk-error-message" v-for="(error, index) in errors" :key="index">
-      <!-- https://www.tutorialspoint.com/how-to-set-a-string-as-a-key-for-an-object-javascript -->
-      <!-- {{ errors }}  -->
-     {{ Object.entries(error) }}
+ 
+    <span class="govuk-error-message">
+      {{ errors[key] }}
+
       <!-- {{ input == "" ? "Položka musí byť vyplnená" : errors }} -->
     </span>
     <input
