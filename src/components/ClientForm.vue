@@ -11,7 +11,7 @@ import useClient from "../composables/Client.js";
 
 import useFormValidation from "./inputs/useFormValidation";
 
-const { getValidate, getvalidatedErrors } = useClient();
+const { getValidate, getForm, getRepresentative, getLegalRepresentative } = useClient();
 
 const { errors } = useFormValidation();
 
@@ -31,31 +31,50 @@ const onSubmit = () => {
       č. 8/2005 Z. z. v znení neskorších predpisov
     </p>
     <main class="govuk-main-wrapper" id="main-content" role="main">
+      <!-- Fpr testing -->
+      <div style="margin-bottom: 30px">
+        <span style="background-color: aqua; padding: 7px">Form</span>
+        {{ getForm }}
+      </div>
+
+      <div style="margin-bottom: 30px" @click="clickOnNext">
+        <span style="background-color: aqua; padding: 7px">LegalReprezentative</span>
+        {{ getLegalRepresentative }}
+      </div>
+
+      <div style="margin-bottom: 30px" @click="clickOnNext">
+        <span style="background-color: aqua; padding: 7px">Reprezentative</span>
+        {{ getRepresentative }}
+      </div>
 
       <!-- Errors sumaary -->
-      <div class="govuk-error-summary" data-module="govuk-error-summary" v-if="Object.keys(errors).length != 0">
-          <div role="alert">
-            <h2 class="govuk-error-summary__title">
-              Validačné chyby  / There is a problem
-            </h2>
-            <div class="govuk-error-summary__body">
-              <ul class="govuk-list govuk-error-summary__list">
-                <li v-for="(error, index) in errors" :key="index">
-                    <a href="#">{{ error }}</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+      <div
+        class="govuk-error-summary"
+        data-module="govuk-error-summary"
+        v-if="Object.keys(errors).length != 0"
+      >
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            Validačné chyby / There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li v-for="(error, index) in errors" :key="index">
+                <a href="#">{{ error }}</a>
+              </li>
+            </ul>
           </div>
+        </div>
+      </div>
       <!-- End Errors sumaary -->
 
       <form action="/" @submit.prevent="onSubmit">
         <!-- <ClientA1></ClientA1> -->
         <!-- <ClientA2></ClientA2> -->
-        <ClientA3></ClientA3>
-      <!-- <ClientB></ClientB> -->
-      <!-- <ClientE></ClientE> -->
-         <!-- <ClientF></ClientF>
+        <!-- <ClientA3></ClientA3> -->
+        <ClientB></ClientB>
+        <!-- <ClientE></ClientE> -->
+        <!-- <ClientF></ClientF>
         <ClientG></ClientG>
         <ClientH></ClientH> -->
 

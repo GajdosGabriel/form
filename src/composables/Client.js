@@ -20,10 +20,6 @@ const actions = {
   getValidate: () => {
       state.validatedErrors.push(["Validate error"]);
   },
-
-  setProgresbar: (number) => {
-    state.progresbar = number;
-  },
   setForm: (inputs) => {
     state.form = inputs;
     xml()
@@ -363,5 +359,5 @@ if(state.representative.boolean) {
 
   var serializer = new XMLSerializer();
   var xmlString = serializer.serializeToString(doc);
-  alert(xmlString);
+  // alert(xmlString);
 }

@@ -4,26 +4,14 @@ import useClient from "../composables/Client.js";
 import TextField from "./inputs/TextField.vue";
 
 const { setRepresentative, getRepresentative } = useClient();
-
-// const errorsClass = {
-//   span: "govuk-error-message",
-//   input: "govuk-input--error",
-//   required: "govuk-input--error",
-// };
-
 const representative = reactive({});
 
-const clickOnNext = () => {
+watch(representative, () => {
   setRepresentative(representative);
-};
+});
 </script>
 
 <template>
-  <div style="margin-bottom: 30px" @click="clickOnNext">
-    <span style="background-color: aqua; padding: 7px">Click</span>
-    {{ getRepresentative }}
-  </div>
-
   <div style="margin-top: 50px">
     <div class="govuk-heading-m">
       A3) Údaje o splnomocnencovi žiadateľa pre účely nárokového konania

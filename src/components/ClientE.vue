@@ -3,21 +3,12 @@ import { reactive } from "vue";
 import useClient from "../composables/Client.js";
 import TextField from "./inputs/TextField.vue";
 
-const { state, setForm, getForm, getvalidatedErrors } = useClient();
-
+const { setForm } = useClient();
 const form = reactive({});
 
-const clickOnNext = () => {
-  setForm(form);
-};
 </script>
 
 <template>
-  <div style="margin-bottom: 30px" @click="clickOnNext">
-    <span style="background-color: aqua; padding: 7px">Click</span>
-    {{ getForm }}
-  </div>
-
   <div style="margin-top: 50px">
     <div class="govuk-heading-m">E) Rodinná a sociálna situácia žiadateľa</div>
 

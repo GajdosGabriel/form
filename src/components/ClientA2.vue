@@ -7,17 +7,12 @@ const { setLegalRepresentative, getLegalRepresentative } = useClient();
 
 const legalRepresentative = reactive({});
 
-const clickOnNext = () => {
+watch(legalRepresentative, () => {
   setLegalRepresentative(legalRepresentative);
-};
+});
 </script>
 
 <template>
-  <div style="margin-bottom: 30px" @click="clickOnNext">
-    <span style="background-color: aqua; padding: 7px">Click</span>
-    {{ getLegalRepresentative }}
-  </div>
-
   <div style="margin-top: 50px">
     <div class="govuk-heading-m">
       A2) Údaje o zákonnom zástupcovi/opatrovníkovi žiadateľa
