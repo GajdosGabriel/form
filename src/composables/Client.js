@@ -14,9 +14,9 @@ const getters = {
 
 const actions = {
   getValidate: () => {
-    if (!state.form.FamilyName) {
+  
       state.validatedErrors.push(["Validate error"]);
-    }
+   
   },
 
   setProgresbar: (number) => {

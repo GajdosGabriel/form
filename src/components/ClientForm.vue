@@ -31,7 +31,7 @@ const onSubmit = () => {
     <main class="govuk-main-wrapper" id="main-content" role="main">
 
       <!-- Errors sumaary -->
-      <div class="govuk-error-summary" data-module="govuk-error-summary" v-if="getvalidatedErrors.length">
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
           <div role="alert">
             <h2 class="govuk-error-summary__title">
               Validačné chyby  / There is a problem

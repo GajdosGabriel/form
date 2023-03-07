@@ -3,12 +3,12 @@ const errors = reactive({});
 import useValidators from "./Validators";
 
 export default function useFormValidation() {
-  const { isEmpty, minLength, isEmail } = useValidators();
+  const { isEmpty, maxLength, isEmail } = useValidators();
 
   const validateNameField = (fieldName, fieldValue) => {
     errors[fieldName] = !fieldValue
       ? isEmpty(fieldName, fieldValue)
-      : minLength(fieldName, fieldValue, 4);
+      : maxLength(fieldName, fieldValue, 240);
   };
 
   const validateEmailField = (fieldName, fieldValue) => {

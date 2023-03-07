@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import useFormValidation from "./useFormValidation";
 const props = defineProps({
   label: {
@@ -21,17 +21,20 @@ const { validateNameField, errors } = useFormValidation();
 
 var key = props.label;
 
+onMounted(() => {
+  validateInput()
+})
+
 const validateInput = () => {
   validateNameField(props.label, input.value);
 };
 </script>
 
 <template>
-  <div class="govuk-form-group">   {{ key }}
-
+  <div class="govuk-form-group">
     <label class="govuk-label govuk-label--s" :for="label" v-text="label">
     </label>
- 
+
     <span class="govuk-error-message">
       {{ errors[key] }}
 
@@ -50,7 +53,6 @@ const validateInput = () => {
       @keyup="validateInput"
       @blue="validateInput"
       @input="$emit('update:modelValue', $event.target.value)"
-      required
     />
   </div>
 </template>

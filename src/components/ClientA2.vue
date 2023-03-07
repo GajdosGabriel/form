@@ -5,11 +5,11 @@ import TextField from "./inputs/TextField.vue";
 
 const { state, setForm, getForm, getvalidatedErrors } = useClient();
 
-const errorsClass = {
-  span: "govuk-error-message",
-  input: "govuk-input--error",
-  required: "govuk-input--error",
-};
+// const errorsClass = {
+//   span: "govuk-error-message",
+//   input: "govuk-input--error",
+//   required: "govuk-input--error",
+// };
 
 const form = reactive({});
 

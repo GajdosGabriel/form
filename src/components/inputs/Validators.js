@@ -1,10 +1,16 @@
 export default function useValidators() {
   const isEmpty = (fieldName, fieldValue) => {
-    return !fieldValue ? "Pole " + fieldName + " sa vyžaduje" : "";
+    return !fieldValue ? `${fieldName} sa vyžaduje` : "";
+  };
+
+  const maxLength = (fieldName, fieldValue, max) => {
+    return fieldValue.length > max
+      ? `${fieldName} nesmie byť dlhšie ako ${max} znakov`
+      : "";
   };
   const minLength = (fieldName, fieldValue, min) => {
     return fieldValue.length < min
-      ? `Pole ${fieldName} musí obsahovať najmenej ${min} znaky`
+      ? `${fieldName} musí obsahovať najmenej ${min} znaky`
       : "";
   };
 
@@ -15,5 +21,5 @@ export default function useValidators() {
       ? "The input is not a valid " + fieldName + " address"
       : "";
   };
-  return { isEmpty, minLength, isEmail };
+  return { isEmpty, minLength,  maxLength, isEmail };
 }
