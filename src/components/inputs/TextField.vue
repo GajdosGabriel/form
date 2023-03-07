@@ -22,8 +22,8 @@ const { validateNameField, errors } = useFormValidation();
 var key = props.label;
 
 onMounted(() => {
-  validateInput()
-})
+  validateInput();
+});
 
 const validateInput = () => {
   validateNameField(props.label, input.value);
@@ -36,9 +36,8 @@ const validateInput = () => {
     </label>
 
     <span class="govuk-error-message">
-      {{ errors[key] }}
-
-      <!-- {{ input == "" ? "Položka musí byť vyplnená" : errors }} -->
+      {{ errors[key] ? "Položka sa požaduje" : errors[key] }}
+       <!-- {{ input == "" ? "Položka musí byť vyplnená" : errors[key] }} -->
     </span>
     <input
       type="text"

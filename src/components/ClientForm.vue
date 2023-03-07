@@ -3,6 +3,7 @@ import ClientA1 from "./ClientA1.vue";
 import ClientA2 from "./ClientA2.vue";
 import ClientA3 from "./ClientA3.vue";
 import ClientB from "./ClientB.vue";
+import ClientE from "./ClientE.vue";
 import ClientF from "./ClientF.vue";
 import ClientG from "./ClientG.vue";
 import ClientH from "./ClientH.vue";
@@ -32,7 +33,7 @@ const onSubmit = () => {
     <main class="govuk-main-wrapper" id="main-content" role="main">
 
       <!-- Errors sumaary -->
-      <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div class="govuk-error-summary" data-module="govuk-error-summary" v-if="Object.keys(errors).length != 0">
           <div role="alert">
             <h2 class="govuk-error-summary__title">
               Validačné chyby  / There is a problem
@@ -51,9 +52,10 @@ const onSubmit = () => {
       <form action="/" @submit.prevent="onSubmit">
         <!-- <ClientA1></ClientA1> -->
         <!-- <ClientA2></ClientA2> -->
-        <ClientA3></ClientA3>
-       <!-- <ClientB></ClientB>
-        <ClientF></ClientF>
+        <!-- <ClientA3></ClientA3> -->
+      <!-- <ClientB></ClientB> -->
+      <ClientE></ClientE>
+         <!-- <ClientF></ClientF>
         <ClientG></ClientG>
         <ClientH></ClientH> -->
 

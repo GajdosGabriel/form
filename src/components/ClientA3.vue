@@ -78,7 +78,7 @@ const clickOnNext = () => {
       v-if="form.booleanRepresentative"
     >
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-        Údaje o zástupcovi/opatrovníkovi
+        Údaje o zástupcovi
       </legend>
 
       <TextField
