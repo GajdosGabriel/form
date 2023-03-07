@@ -2,6 +2,8 @@ import { reactive, readonly, computed } from "vue";
 
 const defaultState = {
   form: {},
+  representative: {},
+  legalRepresentative: {},
   validatedErrors: [],
 };
 
@@ -9,24 +11,38 @@ const state = reactive(defaultState);
 
 const getters = {
   getForm: computed(() => state.form),
+  getRepresentative: computed(() => state.representative),
+  getLegalRepresentative: computed(() => state.legalRepresentative),
   getvalidatedErrors: computed(() => state.validatedErrors),
 };
 
 const actions = {
   getValidate: () => {
-  
       state.validatedErrors.push(["Validate error"]);
-   
   },
 
   setProgresbar: (number) => {
     state.progresbar = number;
   },
   setForm: (inputs) => {
-    xml(state.form);
     state.form = inputs;
+    xml()
   },
+  setRepresentative: (inputs) => {
+    state.representative = inputs;
+    xml()
+  },
+  setLegalRepresentative: (inputs) => {
+    state.legalRepresentative = inputs;
+    xml()
+  },
+
+  createXml: () => {
+    xml();
+  }
 };
+
+
 
 export default () => ({
   state: readonly(state),
@@ -34,7 +50,7 @@ export default () => ({
   ...actions,
 });
 
-function xml(form) {
+function xml() {
   var doc = document.implementation.createDocument("", "", null);
 
   var ApplicationCivil = doc.createElement("ApplicationCivil");
@@ -84,30 +100,30 @@ function xml(form) {
   CodelistItem.appendChild(ItemName);
 
   var IdentifierValue = doc.createElement("IdentifierValue");
-  var IdentifierValueText = doc.createTextNode(form.IdentifierValue);
+  var IdentifierValueText = doc.createTextNode(state.form.IdentifierValue);
   IdentifierValue.appendChild(IdentifierValueText);
   ID.appendChild(IdentifierValue);
 
   var GivenName = doc.createElement("GivenName");
-  var GivenNameText = doc.createTextNode(form.GiveName);
+  var GivenNameText = doc.createTextNode(state.form.GiveName);
   GivenName.appendChild(GivenNameText);
   Applicant.appendChild(GivenName);
 
   var FamilyName = doc.createElement("FamilyName");
-  var FamilyNameText = doc.createTextNode(form.FamilyName);
+  var FamilyNameText = doc.createTextNode(state.form.FamilyName);
   FamilyName.appendChild(FamilyNameText);
   Applicant.appendChild(FamilyName);
 
   var GivenFamilyName = doc.createElement("GivenFamilyName");
-  var GivenFamilyNameText = doc.createTextNode(form.GivenFamilyName);
+  var GivenFamilyNameText = doc.createTextNode(state.form.GivenFamilyName);
   GivenFamilyName.appendChild(GivenFamilyNameText);
   Applicant.appendChild(GivenFamilyName);
 
   var Sex = doc.createElement("Sex");
   var Code = doc.createElement("Code");
-  var CodeText = doc.createTextNode(form.Sex);
+  var CodeText = doc.createTextNode(state.form.Sex);
   var Text = doc.createElement("Text");
-  var TextText = doc.createTextNode(form.Sex === "ZENA" ? "Žena" : "Muž");
+  var TextText = doc.createTextNode(state.form.Sex === "ZENA" ? "Žena" : "Muž");
   Code.appendChild(CodeText);
   Text.appendChild(TextText);
   Sex.appendChild(Code);
@@ -116,7 +132,7 @@ function xml(form) {
 
   var Nationality = doc.createElement("Nationality");
   var Code = doc.createElement("Code");
-  var CodeText = doc.createTextNode(form.Nationality);
+  var CodeText = doc.createTextNode(state.form.Nationality);
   var Text = doc.createElement("Text");
   var TextText = doc.createTextNode('SVK');
   Code.appendChild(CodeText);
@@ -127,13 +143,13 @@ function xml(form) {
 
   var MaritalStatus = doc.createElement("MaritalStatus");
   var Code = doc.createElement("Code");
-  var CodeText = doc.createTextNode(form.MaritalStatus);
+  var CodeText = doc.createTextNode(state.form.MaritalStatus);
   var Text = doc.createElement("Text");
   var TextText = doc.createTextNode(
-    (form.MaritalStatus == 1) ? 'Slobodný/á' : 
-    (form.MaritalStatus == 2) ? 'Vydatá/ženaty': 
-    (form.MaritalStatus == 3) ? 'Ovdovená/ý': 
-    (form.MaritalStatus == 4) ? 'Rozvedená/ý': 'Odlúčená/ý'
+    (state.form.MaritalStatus == 1) ? 'Slobodný/á' : 
+    (state.form.MaritalStatus == 2) ? 'Vydatá/ženaty': 
+    (state.form.MaritalStatus == 3) ? 'Ovdovená/ý': 
+    (state.form.MaritalStatus == 4) ? 'Rozvedená/ý': 'Odlúčená/ý'
   );
   Code.appendChild(CodeText);
   Text.appendChild(TextText);
@@ -144,7 +160,7 @@ function xml(form) {
   var TelephoneAddress = doc.createElement("TelephoneAddress");
   var Number = doc.createElement("Number");
   var FormattedNumber = doc.createElement("FormattedNumber");
-  var FormattedNumberText = doc.createTextNode('+421' + form.PhoneNumber);
+  var FormattedNumberText = doc.createTextNode('+421' + state.form.PhoneNumber);
   FormattedNumber.appendChild(FormattedNumberText);
   Number.appendChild(FormattedNumber);
   TelephoneAddress.appendChild(Number);
@@ -152,22 +168,22 @@ function xml(form) {
 
   var ElectronicAddress = doc.createElement("ElectronicAddress");
   var InternetAddress = doc.createElement("InternetAddress");
-  var InternetAddressText = doc.createTextNode(form.Email);
+  var InternetAddressText = doc.createTextNode(state.form.Email);
   InternetAddress.appendChild(InternetAddressText);
   ElectronicAddress.appendChild(InternetAddress);
   Applicant.appendChild(ElectronicAddress);
 
   var PermanentResidence = doc.createElement("PermanentResidence");
   var StreetName = doc.createElement("StreetName");
-  var StreetNameText = doc.createTextNode(form.StreetName);
+  var StreetNameText = doc.createTextNode(state.form.StreetName);
   var PropertyRegistrationNumber = doc.createElement("PropertyRegistrationNumber");
-  var PropertyRegistrationNumberText = doc.createTextNode(form.PropertyRegistrationNumber);
+  var PropertyRegistrationNumberText = doc.createTextNode(state.form.PropertyRegistrationNumber);
   var BuildingNumber = doc.createElement("BuildingNumber");
-  var BuildingNumberText = doc.createTextNode(form.BuildingNumber);
+  var BuildingNumberText = doc.createTextNode(state.form.BuildingNumber);
   var Municipality = doc.createElement("Municipality");
-  var MunicipalityText = doc.createTextNode(form.Municipal);
+  var MunicipalityText = doc.createTextNode(state.form.Municipal);
   var PostalCode = doc.createElement("PostalCode");
-  var PostalCodeText = doc.createTextNode(form.Municipal);
+  var PostalCodeText = doc.createTextNode(state.form.Municipal);
 
   PostalCode.appendChild(PostalCodeText);
   PermanentResidence.appendChild(PostalCode);
@@ -183,18 +199,18 @@ function xml(form) {
 
 
 
-if(form.booleanCorrespondence) {
+if(state.form.booleanCorrespondence) {
   var CorrespondenceAddress = doc.createElement("CorrespondenceAddress");
   var CorrespondenceStreetName = doc.createElement("StreetName");
-  var CorrespondenceStreetNameText = doc.createTextNode(form.CorrespondenceStreetName);
+  var CorrespondenceStreetNameText = doc.createTextNode(state.form.CorrespondenceStreetName);
   var CorrespondenceBuildingNumber = doc.createElement("BuildingNumber");
-  var CorrespondenceBuildingNumberText = doc.createTextNode(form.CorrespondenceBuildingNumber);
+  var CorrespondenceBuildingNumberText = doc.createTextNode(state.form.CorrespondenceBuildingNumber);
   var CorrespondencePropertyRegistrationNumber = doc.createElement("PropertyRegistrationNumber");
-  var CorrespondencePropertyRegistrationNumberText = doc.createTextNode(form.CorrespondencePropertyRegistrationNumber);
+  var CorrespondencePropertyRegistrationNumberText = doc.createTextNode(state.form.CorrespondencePropertyRegistrationNumber);
   var CorrespondenceMunicipality = doc.createElement("Municipality");
-  var CorrespondenceMunicipalityText = doc.createTextNode(form.CorrespondenceMunicipality);
+  var CorrespondenceMunicipalityText = doc.createTextNode(state.form.CorrespondenceMunicipality);
   var CorrespondencePostalCode = doc.createElement("PostalCode");
-  var CorrespondencePostalCodeText = doc.createTextNode(form.CorrespondencePostalCode);
+  var CorrespondencePostalCodeText = doc.createTextNode(state.form.CorrespondencePostalCode);
 
   CorrespondenceStreetName.appendChild(CorrespondenceStreetNameText);
   CorrespondenceAddress.appendChild(CorrespondenceStreetName);
@@ -210,28 +226,28 @@ if(form.booleanCorrespondence) {
 }
 
 
-if(form.booleanLegalRepresentative) {
+if(state.legalRepresentative.boolean) {
   var LegalRepresentative = doc.createElement("LegalRepresentative");
 
   var LegalRepresentativeGiveName = doc.createElement("LegalRepresentativeGiveName");
-  var LegalRepresentativeGiveNameText = doc.createTextNode(form.LegalRepresentativeGiveName);
+  var LegalRepresentativeGiveNameText = doc.createTextNode(state.legalRepresentative.GiveName);
   var LegalRepresentativeFamilyName = doc.createElement("LegalRepresentativeFamilyName");
-  var LegalRepresentativeFamilyNameText = doc.createTextNode(form.LegalRepresentativeFamilyName);
+  var LegalRepresentativeFamilyNameText = doc.createTextNode(state.legalRepresentative.FamilyName);
   var LegalRepresentativeDateOfBirth = doc.createElement("LegalRepresentativeDateOfBirth");
-  var LegalRepresentativeDateOfBirthText = doc.createTextNode(form.LegalRepresentativeDateOfBirth);
+  var LegalRepresentativeDateOfBirthText = doc.createTextNode(state.legalRepresentative.DateOfBirth);
 
 
   var PermanentResidence = doc.createElement("PermanentResidence");
   var LegalRepresentativeStreetName = doc.createElement("StreetName");
-  var LegalRepresentativeStreetNameText = doc.createTextNode(form.LegalRepresentativeStreetName);
+  var LegalRepresentativeStreetNameText = doc.createTextNode(state.legalRepresentative.StreetName);
   var LegalRepresentativeBuildingNumber = doc.createElement("BuildingNumber");
-  var LegalRepresentativeBuildingNumberText = doc.createTextNode(form.LegalRepresentativeBuildingNumber);
+  var LegalRepresentativeBuildingNumberText = doc.createTextNode(state.legalRepresentative.BuildingNumber);
   var LegalRepresentativePropertyRegistrationNumber = doc.createElement("PropertyRegistrationNumber");
-  var LegalRepresentativePropertyRegistrationNumberText = doc.createTextNode(form.LegalRepresentativePropertyRegistrationNumber);
+  var LegalRepresentativePropertyRegistrationNumberText = doc.createTextNode(state.legalRepresentative.PropertyRegistrationNumber);
   var LegalRepresentativeMunicipality = doc.createElement("Municipality");
-  var LegalRepresentativeMunicipalityText = doc.createTextNode(form.LegalRepresentativeMunicipality);
+  var LegalRepresentativeMunicipalityText = doc.createTextNode(state.legalRepresentative.Municipality);
   var LegalRepresentativePostalCode = doc.createElement("PostalCode");
-  var LegalRepresentativePostalCodeText = doc.createTextNode(form.LegalRepresentativePostalCode);
+  var LegalRepresentativePostalCodeText = doc.createTextNode(state.legalRepresentative.PostalCode);
 
 
   LegalRepresentativeGiveName.appendChild(LegalRepresentativeGiveNameText);
@@ -244,7 +260,7 @@ if(form.booleanLegalRepresentative) {
   var LegalRepresentativeTelephoneAddress = doc.createElement("TelephoneAddress");
   var LegalRepresentativeNumber = doc.createElement("Number");
   var LegalRepresentativeFormattedNumber = doc.createElement("FormattedNumber");
-  var LegalRepresentativeFormattedNumberText = doc.createTextNode('+421' + form.LegalRepresentativePhoneNumber);
+  var LegalRepresentativeFormattedNumberText = doc.createTextNode('+421' + state.legalRepresentative.PhoneNumber);
   LegalRepresentativeFormattedNumber.appendChild(LegalRepresentativeFormattedNumberText);
   LegalRepresentativeNumber.appendChild(LegalRepresentativeFormattedNumber);
   LegalRepresentativeTelephoneAddress.appendChild(LegalRepresentativeNumber);
@@ -252,7 +268,7 @@ if(form.booleanLegalRepresentative) {
 
   var LegalRepresentativeElectronicAddress = doc.createElement("ElectronicAddress");
   var LegalRepresentativeInternetAddress = doc.createElement("InternetAddress");
-  var LegalRepresentativeInternetAddressText = doc.createTextNode(form.LegalRepresentativeEmail);
+  var LegalRepresentativeInternetAddressText = doc.createTextNode(state.legalRepresentative.Email);
   LegalRepresentativeInternetAddress.appendChild(LegalRepresentativeInternetAddressText);
   LegalRepresentativeElectronicAddress.appendChild(LegalRepresentativeInternetAddress);
   LegalRepresentative.appendChild(LegalRepresentativeElectronicAddress);
@@ -273,28 +289,28 @@ if(form.booleanLegalRepresentative) {
 
 
 
-if(form.booleanRepresentative) {
+if(state.representative.boolean) {
   var Representative = doc.createElement("Representative");
 
   var RepresentativeGiveName = doc.createElement("RepresentativeGiveName");
-  var RepresentativeGiveNameText = doc.createTextNode(form.RepresentativeGiveName);
+  var RepresentativeGiveNameText = doc.createTextNode(state.representative.GiveName);
   var RepresentativeFamilyName = doc.createElement("RepresentativeFamilyName");
-  var RepresentativeFamilyNameText = doc.createTextNode(form.RepresentativeFamilyName);
+  var RepresentativeFamilyNameText = doc.createTextNode(state.representative.FamilyName);
   var RepresentativeDateOfBirth = doc.createElement("RepresentativeDateOfBirth");
-  var RepresentativeDateOfBirthText = doc.createTextNode(form.RepresentativeDateOfBirth);
+  var RepresentativeDateOfBirthText = doc.createTextNode(state.representative.DateOfBirth);
 
 
   var PermanentResidence = doc.createElement("PermanentResidence");
   var RepresentativeStreetName = doc.createElement("StreetName");
-  var RepresentativeStreetNameText = doc.createTextNode(form.RepresentativeStreetName);
+  var RepresentativeStreetNameText = doc.createTextNode(state.representative.StreetName);
   var RepresentativeBuildingNumber = doc.createElement("BuildingNumber");
-  var RepresentativeBuildingNumberText = doc.createTextNode(form.RepresentativeBuildingNumber);
+  var RepresentativeBuildingNumberText = doc.createTextNode(state.representative.BuildingNumber);
   var RepresentativePropertyRegistrationNumber = doc.createElement("PropertyRegistrationNumber");
-  var RepresentativePropertyRegistrationNumberText = doc.createTextNode(form.RepresentativePropertyRegistrationNumber);
+  var RepresentativePropertyRegistrationNumberText = doc.createTextNode(state.representative.PropertyRegistrationNumber);
   var RepresentativeMunicipality = doc.createElement("Municipality");
-  var RepresentativeMunicipalityText = doc.createTextNode(form.RepresentativeMunicipality);
+  var RepresentativeMunicipalityText = doc.createTextNode(state.representative.Municipality);
   var RepresentativePostalCode = doc.createElement("PostalCode");
-  var RepresentativePostalCodeText = doc.createTextNode(form.RepresentativePostalCode);
+  var RepresentativePostalCodeText = doc.createTextNode(state.representative.PostalCode);
 
 
   RepresentativeGiveName.appendChild(RepresentativeGiveNameText);
@@ -307,7 +323,7 @@ if(form.booleanRepresentative) {
   var RepresentativeTelephoneAddress = doc.createElement("TelephoneAddress");
   var RepresentativeNumber = doc.createElement("Number");
   var RepresentativeFormattedNumber = doc.createElement("FormattedNumber");
-  var RepresentativeFormattedNumberText = doc.createTextNode('+421' + form.RepresentativePhoneNumber);
+  var RepresentativeFormattedNumberText = doc.createTextNode('+421' + state.representative.PhoneNumber);
   RepresentativeFormattedNumber.appendChild(RepresentativeFormattedNumberText);
   RepresentativeNumber.appendChild(RepresentativeFormattedNumber);
   RepresentativeTelephoneAddress.appendChild(RepresentativeNumber);
@@ -315,7 +331,7 @@ if(form.booleanRepresentative) {
 
   var RepresentativeElectronicAddress = doc.createElement("ElectronicAddress");
   var RepresentativeInternetAddress = doc.createElement("InternetAddress");
-  var RepresentativeInternetAddressText = doc.createTextNode(form.RepresentativeEmail);
+  var RepresentativeInternetAddressText = doc.createTextNode(state.representative.Email);
   RepresentativeInternetAddress.appendChild(RepresentativeInternetAddressText);
   RepresentativeElectronicAddress.appendChild(RepresentativeInternetAddress);
   Representative.appendChild(RepresentativeElectronicAddress);

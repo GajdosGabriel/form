@@ -3,25 +3,19 @@ import { reactive } from "vue";
 import useClient from "../composables/Client.js";
 import TextField from "./inputs/TextField.vue";
 
-const { state, setForm, getForm, getvalidatedErrors } = useClient();
+const { setLegalRepresentative, getLegalRepresentative } = useClient();
 
-// const errorsClass = {
-//   span: "govuk-error-message",
-//   input: "govuk-input--error",
-//   required: "govuk-input--error",
-// };
-
-const form = reactive({});
+const legalRepresentative = reactive({});
 
 const clickOnNext = () => {
-  setForm(form);
+  setLegalRepresentative(legalRepresentative);
 };
 </script>
 
 <template>
   <div style="margin-bottom: 30px" @click="clickOnNext">
     <span style="background-color: aqua; padding: 7px">Click</span>
-    {{ getForm }}
+    {{ getLegalRepresentative }}
   </div>
 
   <div style="margin-top: 50px">
@@ -48,7 +42,7 @@ const clickOnNext = () => {
           <input
             class="govuk-radios__input"
             id="booleanLegalRepresentative-0"
-            v-model="form.booleanLegalRepresentative"
+            v-model="legalRepresentative.boolean"
             type="radio"
             :value="0"
             checked
@@ -63,7 +57,7 @@ const clickOnNext = () => {
           <input
             class="govuk-radios__input"
             id="booleanLegalRepresentative-1"
-            v-model="form.booleanLegalRepresentative"
+            v-model="legalRepresentative.boolean"
             type="radio"
             :value="1"
           /><label
@@ -78,20 +72,20 @@ const clickOnNext = () => {
 
     <div
       class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden"
-      v-if="form.booleanLegalRepresentative"
+      v-if="legalRepresentative.boolean"
     >
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
         Údaje o zástupcovi/opatrovníkovi
       </legend>
 
       <TextField
-        v-model="form.LegalRepresentativeGivenName"
+        v-model="legalRepresentative.GivenName"
         placeholder="Uveďte zákonného zástupcu"
         label="Meno zákonného zástupcu"
       />
 
       <TextField
-        v-model="form.LegalRepresentativeFamilyName"
+        v-model="legalRepresentative.FamilyName"
         placeholder="Uveďte priezvisko zákonného zástupcu"
         label="Priezvisko zákonného zástupcu"
       />
@@ -106,7 +100,7 @@ const clickOnNext = () => {
         <input
           class="govuk-input govuk-input--width-10"
           id="LegalRepresentativeDateOfBirth"
-          v-model="form.LegalRepresentativeDateOfBirth"
+          v-model="legalRepresentative.DateOfBirth"
           placeholder="Dátum
               narodenia"
           required
@@ -119,46 +113,46 @@ const clickOnNext = () => {
       </legend>
 
       <TextField
-        v-model="form.LegalRepresentativeStreetName"
+        v-model="legalRepresentative.StreetName"
         placeholder="Uveďte názov ulice"
         label="Názov ulice"
       />
 
       <TextField
-        v-model="form.LegalRepresentativeBuildingNumber"
+        v-model="legalRepresentative.BuildingNumber"
         label="Orientačné číslo"
         placeholder="Uveďte orientačné číslo"
         :input-short="true"
       />
 
       <TextField
-        v-model="form.LegalRepresentativePropertyRegistrationNumber"
+        v-model="legalRepresentative.PropertyRegistrationNumber"
         label="Súpisné číslo"
         placeholder="Uveďte súpisné číslo"
         :input-short="true"
       />
 
       <TextField
-        v-model="form.LegalRepresentativePostalCode"
+        v-model="legalRepresentative.PostalCode"
         label="Psč"
         placeholder="Psč obce"
         :input-short="true"
       />
 
       <TextField
-        v-model="form.LegalRepresentativeMunicipality"
+        v-model="legalRepresentative.Municipality"
         label="Obec"
         placeholder="Názov obce"
       />
 
       <TextField
-        v-model="form.LegalRepresentativePhoneNumber"
+        v-model="legalRepresentative.PhoneNumber"
         placeholder="Uveďte telefónne číslo"
         label="Telefónne číslo zástupcu"
       />
 
       <TextField
-        v-model="form.LegalRepresentativeEmail"
+        v-model="legalRepresentative.Email"
         placeholder="Uveďte email zákonného zástupcu"
         label="Email zákonného zástupcu"
       />

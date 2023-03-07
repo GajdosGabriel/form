@@ -3,7 +3,7 @@ import { reactive } from "vue";
 import useClient from "../composables/Client.js";
 import TextField from "./inputs/TextField.vue";
 
-const { state, setForm, getForm, getvalidatedErrors } = useClient();
+const { setRepresentative, getRepresentative } = useClient();
 
 // const errorsClass = {
 //   span: "govuk-error-message",
@@ -11,17 +11,17 @@ const { state, setForm, getForm, getvalidatedErrors } = useClient();
 //   required: "govuk-input--error",
 // };
 
-const form = reactive({});
+const representative = reactive({});
 
 const clickOnNext = () => {
-  setForm(form);
+  setRepresentative(representative);
 };
 </script>
 
 <template>
   <div style="margin-bottom: 30px" @click="clickOnNext">
     <span style="background-color: aqua; padding: 7px">Click</span>
-    {{ getForm }}
+    {{ getRepresentative }}
   </div>
 
   <div style="margin-top: 50px">
@@ -45,7 +45,7 @@ const clickOnNext = () => {
           <input
             class="govuk-radios__input"
             id="booleanRepresentative-0"
-            v-model="form.booleanRepresentative"
+            v-model="representative.boolean"
             type="radio"
             :value="0"
             checked
@@ -60,7 +60,7 @@ const clickOnNext = () => {
           <input
             class="govuk-radios__input"
             id="booleanRepresentative-1"
-            v-model="form.booleanRepresentative"
+            v-model="representative.boolean"
             type="radio"
             :value="1"
           /><label
@@ -75,20 +75,20 @@ const clickOnNext = () => {
 
     <div
       class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden"
-      v-if="form.booleanRepresentative"
+      v-if="representative.boolean"
     >
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
         Údaje o zástupcovi
       </legend>
 
       <TextField
-        v-model="form.RepresentativeGivenName"
+        v-model="representative.GivenName"
         placeholder="Uveďte zástupcu"
         label="Meno zástupcu"
       />
 
       <TextField
-        v-model="form.RepresentativeFamilyName"
+        v-model="representative.FamilyName"
         placeholder="Uveďte priezvisko zástupcu"
         label="Priezvisko zástupcu"
       />
@@ -103,7 +103,7 @@ const clickOnNext = () => {
         <input
           class="govuk-input govuk-input--width-10"
           id="LegalRepresentativeDateOfBirth"
-          v-model="form.RepresentativeDateOfBirth"
+          v-model="representative.DateOfBirth"
           placeholder="Dátum
               narodenia"
           required
@@ -116,46 +116,46 @@ const clickOnNext = () => {
       </legend>
 
       <TextField
-        v-model="form.RepresentativeStreetName"
+        v-model="representative.StreetName"
         placeholder="Uveďte názov ulice"
         label="Názov ulice"
       />
 
       <TextField
-        v-model="form.RepresentativeBuildingNumber"
+        v-model="representative.BuildingNumber"
         label="Orientačné číslo"
         placeholder="Uveďte orientačné číslo"
         :input-short="true"
       />
 
       <TextField
-        v-model="form.RepresentativePropertyRegistrationNumber"
+        v-model="representative.PropertyRegistrationNumber"
         label="Súpisné číslo"
         placeholder="Uveďte súpisné číslo"
         :input-short="true"
       />
 
       <TextField
-        v-model="form.RepresentativePostalCode"
+        v-model="representative.PostalCode"
         label="Psč"
         placeholder="Psč obce"
         :input-short="true"
       />
 
       <TextField
-        v-model="form.RepresentativeMunicipality"
+        v-model="representative.Municipality"
         label="Obec"
         placeholder="Názov obce"
       />
 
       <TextField
-        v-model="form.RepresentativePhoneNumber"
+        v-model="representative.PhoneNumber"
         placeholder="Uveďte telefónne číslo"
         label="Telefónne číslo zástupcu"
       />
 
       <TextField
-        v-model="form.RepresentativeEmail"
+        v-model="representative.Email"
         placeholder="Uveďte email zákonného zástupcu"
         label="Email zákonného zástupcu"
       />
