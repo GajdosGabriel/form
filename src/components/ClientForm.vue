@@ -1,6 +1,7 @@
 <script setup>
 import ClientA1 from "./ClientA1.vue";
 import ClientA2 from "./ClientA2.vue";
+import ClientA3 from "./ClientA3.vue";
 import ClientB from "./ClientB.vue";
 import ClientF from "./ClientF.vue";
 import ClientG from "./ClientG.vue";
@@ -49,7 +50,8 @@ const onSubmit = () => {
 
       <form action="/" @submit.prevent="onSubmit">
         <!-- <ClientA1></ClientA1> -->
-        <ClientA2></ClientA2>
+        <!-- <ClientA2></ClientA2> -->
+        <ClientA3></ClientA3>
        <!-- <ClientB></ClientB>
         <ClientF></ClientF>
         <ClientG></ClientG>
