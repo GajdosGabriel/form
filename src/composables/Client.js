@@ -419,6 +419,28 @@ function xml() {
   }
 
   // C IV.
+  if (state.form.LegalAidType4) {
+    var LegalAidType = doc.createElement("LegalAidType");
+    var LegalAidTypeCode = doc.createElement("Code");
+    var LegalAidTypeCodeText = doc.createTextNode('TPP04');
+    var LegalAidTypeText = doc.createElement("Text");
+    var LegalAidTypeTextText = doc.createTextNode('právna pomoc a zastupovanie v rámci už prebiehajúceho súdneho konania');
+    LegalAidTypeCode.appendChild(LegalAidTypeCodeText);
+    LegalAidType.appendChild(LegalAidTypeCode);
+    LegalAidTypeText.appendChild(LegalAidTypeTextText);
+    LegalAidType.appendChild(LegalAidTypeText);
+
+    // Nedokončené
+
+
+    var ApplicationLegalProceedingsCourtName = doc.createElement("CourtName");
+    ApplicationLegalProceedings.appendChild(ApplicationLegalProceedingsCourtName);
+
+    var ApplicationLegalProceedings = doc.createElement("ApplicationLegalProceedings");
+    LegalAidType.appendChild(ApplicationLegalProceedings);
+
+    ApplicationCivil.appendChild(LegalAidType);
+  }
   // C V.  
 
 
