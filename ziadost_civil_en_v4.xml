@@ -122,6 +122,8 @@
 		<Code>TPP01</Code>
 		<Text>právne poradenstvo</Text>
 	</LegalAidType>
+
+	
 	<LegalAidType>
 		<Code>TPP04</Code>
 		<Text>právna pomoc a zastupovanie v rámci už prebiehajúceho súdneho konania</Text>

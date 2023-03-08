@@ -376,7 +376,50 @@ function xml() {
   CantCalculateClaimValue.appendChild(CantCalculateClaimValueText);
   ApplicationCivil.appendChild(CantCalculateClaimValue);
 
+  // C I. 
+  if (state.form.LegalAidType1) {
+    var LegalAidType = doc.createElement("LegalAidType");
+    var LegalAidTypeCode = doc.createElement("Code");
+    var LegalAidTypeCodeText = doc.createTextNode('TPP01');
+    var LegalAidTypeText = doc.createElement("Text");
+    var LegalAidTypeTextText = doc.createTextNode('právne poradenstvo');
+    LegalAidTypeCode.appendChild(LegalAidTypeCodeText);
+    LegalAidType.appendChild(LegalAidTypeCode);
+    LegalAidTypeText.appendChild(LegalAidTypeTextText);
+    LegalAidType.appendChild(LegalAidTypeText);
+    ApplicationCivil.appendChild(LegalAidType);
+  }
 
+  // C II. 
+  if (state.form.LegalAidType2) {
+    var LegalAidType = doc.createElement("LegalAidType");
+    var LegalAidTypeCode = doc.createElement("Code");
+    var LegalAidTypeCodeText = doc.createTextNode('TPP02');
+    var LegalAidTypeText = doc.createElement("Text");
+    var LegalAidTypeTextText = doc.createTextNode('mediácia (mimosúdne riešenie sporu dohodou)');
+    LegalAidTypeCode.appendChild(LegalAidTypeCodeText);
+    LegalAidType.appendChild(LegalAidTypeCode);
+    LegalAidTypeText.appendChild(LegalAidTypeTextText);
+    LegalAidType.appendChild(LegalAidTypeText);
+    ApplicationCivil.appendChild(LegalAidType);
+  }
+
+  // C III. 
+  if (state.form.LegalAidType3) {
+    var LegalAidType = doc.createElement("LegalAidType");
+    var LegalAidTypeCode = doc.createElement("Code");
+    var LegalAidTypeCodeText = doc.createTextNode('TPP03');
+    var LegalAidTypeText = doc.createElement("Text");
+    var LegalAidTypeTextText = doc.createTextNode('právna pomoc a zastupovanie v súdnom konaní vrátane jeho začatia');
+    LegalAidTypeCode.appendChild(LegalAidTypeCodeText);
+    LegalAidType.appendChild(LegalAidTypeCode);
+    LegalAidTypeText.appendChild(LegalAidTypeTextText);
+    LegalAidType.appendChild(LegalAidTypeText);
+    ApplicationCivil.appendChild(LegalAidType);
+  }
+
+  // C IV.
+  // C V.  
 
 
 

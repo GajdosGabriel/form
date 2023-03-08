@@ -3,6 +3,7 @@ import ClientA1 from "./ClientA1.vue";
 import ClientA2 from "./ClientA2.vue";
 import ClientA3 from "./ClientA3.vue";
 import ClientB from "./ClientB.vue";
+import ClientC from "./ClientC.vue";
 import ClientE from "./ClientE.vue";
 import ClientF from "./ClientF.vue";
 import ClientG from "./ClientG.vue";
@@ -78,13 +79,14 @@ const onXml = () => {
       <!-- End Errors sumaary -->
 
       <form action="/" @submit.prevent="onSubmit">
-        <ClientA1></ClientA1>
-        <ClientA2></ClientA2>
+        <!-- <ClientA1></ClientA1> -->
+        <!-- <ClientA2></ClientA2> -->
         <!-- <ClientA3></ClientA3> -->
-        <ClientB></ClientB>
+        <!-- <ClientB></ClientB> -->
+        <ClientC></ClientC>
         <!-- <ClientE></ClientE> -->
-        <ClientF></ClientF>
-        <ClientG></ClientG>
+        <!-- <ClientF></ClientF> -->
+        <!-- <ClientG></ClientG> -->
         <!-- <ClientH></ClientH> -->
 
         <button type="submit" class="govuk-button" data-module="govuk-button">

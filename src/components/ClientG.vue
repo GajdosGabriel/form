@@ -20,12 +20,12 @@ watch(form, () => {
       </div>
     </div>
 
-    <div class="govuk-form-group">
-      <label class="govuk-label govuk-label--s" for="CompletionPlace">
-        Miesto </label><span id="input-with-error-message-error" class="govuk-error-message"></span><input
-        class="govuk-input govuk-input--width-10" id="CompletionPlace" type="text" label="Miesto" placeholder="Obec"
-        v-model="form.CompletionPlace" required />
-    </div>
+    <TextField
+        v-model="form.CompletionPlace"
+        label="Miesto"
+        placeholder="Miesto podania"
+        :input-short="true"
+      />
 
     <div class="govuk-form-group">
       <label class="govuk-label govuk-label--s" for="CompletionDate">
