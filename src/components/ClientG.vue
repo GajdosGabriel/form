@@ -1,3 +1,17 @@
+<script setup>
+import { reactive, watch } from "vue";
+import useClient from "../composables/Client.js";
+import TextField from "./inputs/TextField.vue";
+
+const { setForm } = useClient();
+const form = reactive({});
+
+watch(form, () => {
+  setForm(form);
+});
+</script>
+
+
 <template>
   <div style="margin-top: 50px;">
     <div>
@@ -7,37 +21,17 @@
     </div>
 
     <div class="govuk-form-group">
-      <label class="govuk-label govuk-label--s" for="signature_place">
-        Miesto </label
-      ><span
-        id="input-with-error-message-error"
-        class="govuk-error-message"
-      ></span
-      ><input
-        class="govuk-input govuk-input--width-10"
-        id="signature_place"
-        type="text"
-        label="Miesto"
-        placeholder="Obec"
-        name="signature_place"
-        required
-      />
+      <label class="govuk-label govuk-label--s" for="CompletionPlace">
+        Miesto </label><span id="input-with-error-message-error" class="govuk-error-message"></span><input
+        class="govuk-input govuk-input--width-10" id="CompletionPlace" type="text" label="Miesto" placeholder="Obec"
+        v-model="form.CompletionPlace" required />
     </div>
 
     <div class="govuk-form-group">
-      <label class="govuk-label govuk-label--s" for="signature_date">
-        Dňa </label
-      ><span
-        id="input-with-error-message-error"
-        class="govuk-error-message"
-      ></span
-      ><input
-        class="govuk-input govuk-input--width-10"
-        id="signature_date"
-        type="date"
-        label="Dňa"
-        name="signature_date"
-      />
+      <label class="govuk-label govuk-label--s" for="CompletionDate">
+        Dňa </label><span id="input-with-error-message-error" class="govuk-error-message"></span><input
+        class="govuk-input govuk-input--width-10" id="CompletionDate" type="date" label="Dňa"
+        v-model="form.CompletionDate" />
     </div>
   </div>
 </template>

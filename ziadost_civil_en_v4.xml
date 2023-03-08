@@ -326,6 +326,8 @@
 		<FamilyName>Nováková</FamilyName>
 		<DateOfBirth>2018-05-14</DateOfBirth>						
 	</ApplicationFamilySituation>
+
+	
 	<AdditionalInfo>Tu uvádzam všetky svoje doplňujúce informácie, ktoré sa mi nezmestili do formulára.</AdditionalInfo> <!-- doplnujuce_info -->
 	<CompletionPlace>Bratislave</CompletionPlace>  			<!-- miesto_vyplnenia -->
 	<CompletionDate>2023-01-22</CompletionDate>  			<!-- datum_vyplnenia -->

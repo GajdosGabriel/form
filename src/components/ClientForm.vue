@@ -79,13 +79,13 @@ const onXml = () => {
 
       <form action="/" @submit.prevent="onSubmit">
         <ClientA1></ClientA1>
-        <!-- <ClientA2></ClientA2> -->
+        <ClientA2></ClientA2>
         <!-- <ClientA3></ClientA3> -->
         <ClientB></ClientB>
         <!-- <ClientE></ClientE> -->
-        <!-- <ClientF></ClientF>
+        <ClientF></ClientF>
         <ClientG></ClientG>
-        <ClientH></ClientH> -->
+        <!-- <ClientH></ClientH> -->
 
         <button type="submit" class="govuk-button" data-module="govuk-button">
           Save and continue
