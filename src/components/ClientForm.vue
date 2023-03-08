@@ -11,12 +11,16 @@ import useClient from "../composables/Client.js";
 
 import useFormValidation from "./inputs/useFormValidation";
 
-const { getValidate, getForm, getRepresentative, getLegalRepresentative } = useClient();
+const { getValidate, getForm, getRepresentative, getLegalRepresentative, createXml } = useClient();
 
 const { errors } = useFormValidation();
 
 const onSubmit = () => {
   getValidate();
+};
+
+const onXml = () => {
+  createXml();
 };
 </script>
 
@@ -32,6 +36,11 @@ const onSubmit = () => {
     </p>
     <main class="govuk-main-wrapper" id="main-content" role="main">
       <!-- Fpr testing -->
+      <div style="margin-bottom: 30px">
+        <span style="background-color: grey; color: whitesmoke; padding: 7px" @click="onXml">Show Xml</span>
+      </div>
+
+
       <div style="margin-bottom: 30px">
         <span style="background-color: aqua; padding: 7px">Form</span>
         {{ getForm }}
@@ -69,7 +78,7 @@ const onSubmit = () => {
       <!-- End Errors sumaary -->
 
       <form action="/" @submit.prevent="onSubmit">
-        <!-- <ClientA1></ClientA1> -->
+        <ClientA1></ClientA1>
         <!-- <ClientA2></ClientA2> -->
         <!-- <ClientA3></ClientA3> -->
         <ClientB></ClientB>

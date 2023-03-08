@@ -22,15 +22,12 @@ const actions = {
   },
   setForm: (inputs) => {
     state.form = inputs;
-    xml()
   },
   setRepresentative: (inputs) => {
     state.representative = inputs;
-    xml()
   },
   setLegalRepresentative: (inputs) => {
     state.legalRepresentative = inputs;
-    xml()
   },
 
   createXml: () => {
@@ -359,5 +356,5 @@ if(state.representative.boolean) {
 
   var serializer = new XMLSerializer();
   var xmlString = serializer.serializeToString(doc);
-  // alert(xmlString);
+  alert(xmlString);
 }
