@@ -98,7 +98,7 @@ function xml() {
   ID.appendChild(IdentifierValue);
 
   var GivenName = doc.createElement("GivenName");
-  var GivenNameText = doc.createTextNode(state.form.GiveName);
+  var GivenNameText = doc.createTextNode(state.form.GivenName);
   GivenName.appendChild(GivenNameText);
   Applicant.appendChild(GivenName);
 
@@ -176,18 +176,19 @@ function xml() {
   var Municipality = doc.createElement("Municipality");
   var MunicipalityText = doc.createTextNode(state.form.Municipal);
   var PostalCode = doc.createElement("PostalCode");
-  var PostalCodeText = doc.createTextNode(state.form.Municipal);
+  var PostalCodeText = doc.createTextNode(state.form.PostalCode);
 
-  PostalCode.appendChild(PostalCodeText);
-  PermanentResidence.appendChild(PostalCode);
-  PermanentResidence.appendChild(MunicipalityText);
-  PermanentResidence.appendChild(Municipality);
-  BuildingNumber.appendChild(BuildingNumberText);
-  PermanentResidence.appendChild(BuildingNumber);
-  PropertyRegistrationNumber.appendChild(PropertyRegistrationNumberText);
-  PermanentResidence.appendChild(PropertyRegistrationNumber);
+
   StreetName.appendChild(StreetNameText);
   PermanentResidence.appendChild(StreetName);
+  PropertyRegistrationNumber.appendChild(PropertyRegistrationNumberText);
+  PermanentResidence.appendChild(PropertyRegistrationNumber);
+  BuildingNumber.appendChild(BuildingNumberText);
+  PermanentResidence.appendChild(BuildingNumber);
+  Municipality.appendChild(MunicipalityText);
+  PermanentResidence.appendChild(Municipality);
+  PostalCode.appendChild(PostalCodeText);
+  PermanentResidence.appendChild(PostalCode);
   Applicant.appendChild(PermanentResidence);
 
 
@@ -361,11 +362,12 @@ function xml() {
   Counterparty.appendChild(CounterpartyText);
   ApplicationCivil.appendChild(Counterparty);
 
+  if (state.form.ClaimValue) {
   var ClaimValue = doc.createElement("ClaimValue");
   var ClaimValueText = doc.createTextNode(state.form.ClaimValue);
   ClaimValue.appendChild(ClaimValueText);
   ApplicationCivil.appendChild(ClaimValue);
-
+}
 
   var CantCalculateClaimValue = doc.createElement("CantCalculateClaimValue");
   if (state.form.ClaimValue) {
@@ -470,5 +472,7 @@ function xml() {
 
   var serializer = new XMLSerializer();
   var xmlString = serializer.serializeToString(doc);
+
+  navigator.clipboard.writeText(xmlString)
   alert(xmlString);
 }

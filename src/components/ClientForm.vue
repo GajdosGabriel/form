@@ -12,7 +12,7 @@ import useClient from "../composables/Client.js";
 
 import useFormValidation from "./inputs/useFormValidation";
 
-const { getValidate, getForm, getRepresentative, getLegalRepresentative, createXml } = useClient();
+const {state, getValidate, getForm, getRepresentative, getLegalRepresentative, createXml } = useClient();
 
 const { errors } = useFormValidation();
 
@@ -65,7 +65,7 @@ const onXml = () => {
       >
         <div role="alert">
           <h2 class="govuk-error-summary__title">
-            Validačné chyby / There is a problem
+            Validačné chyby / Required inputs
           </h2>
           <div class="govuk-error-summary__body">
             <ul class="govuk-list govuk-error-summary__list">
@@ -79,9 +79,9 @@ const onXml = () => {
       <!-- End Errors sumaary -->
 
       <form action="/" @submit.prevent="onSubmit">
-        <!-- <ClientA1></ClientA1> -->
-        <!-- <ClientA2></ClientA2> -->
-        <!-- <ClientA3></ClientA3> -->
+        <ClientA1></ClientA1>
+        <ClientA2></ClientA2>
+        <ClientA3></ClientA3>
         <!-- <ClientB></ClientB> -->
         <ClientC></ClientC>
         <!-- <ClientE></ClientE> -->
