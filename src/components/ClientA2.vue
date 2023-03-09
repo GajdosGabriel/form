@@ -3,7 +3,7 @@ import { reactive, watch } from "vue";
 import useClient from "../composables/Client.js";
 import TextField from "./inputs/TextField.vue";
 
-const { setLegalRepresentative, getLegalRepresentative } = useClient();
+const { state, setLegalRepresentative, getLegalRepresentative } = useClient();
 
 const legalRepresentative = reactive({});
 
