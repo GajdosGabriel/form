@@ -71,14 +71,14 @@ watch(representative, () => {
 
       <TextField
         v-model="representative.GivenName"
-        :current-value="representative.GivenName"
+        :current-value="state.representative.GivenName"
         placeholder="Uveďte zástupcu"
         label="Meno zástupcu"
       />
 
       <TextField
         v-model="representative.FamilyName"
-        :current-value="representative.FamilyName"
+        :current-value="state.representative.FamilyName"
         placeholder="Uveďte priezvisko zástupcu"
         label="Priezvisko zástupcu"
       />
@@ -107,14 +107,14 @@ watch(representative, () => {
 
       <TextField
         v-model="representative.StreetName"
-        :current-value="representative.StreetName"
+        :current-value="state.representative.StreetName"
         placeholder="Uveďte názov ulice"
         label="Názov ulice"
       />
 
       <TextField
         v-model="representative.BuildingNumber"
-        :current-value="representative.BuildingNumber"
+        :current-value="state.representative.BuildingNumber"
         label="Orientačné číslo"
         placeholder="Uveďte orientačné číslo"
         :input-short="true"
@@ -122,7 +122,7 @@ watch(representative, () => {
 
       <TextField
         v-model="representative.PropertyRegistrationNumber"
-        :current-value="representative.PropertyRegistrationNumber"
+        :current-value="state.representative.PropertyRegistrationNumber"
         label="Súpisné číslo"
         placeholder="Uveďte súpisné číslo"
         :input-short="true"
@@ -130,7 +130,7 @@ watch(representative, () => {
 
       <TextField
         v-model="representative.PostalCode"
-        :current-value="representative.PostalCode"
+        :current-value="state.representative.PostalCode"
         label="Psč"
         placeholder="Psč obce"
         :input-short="true"
@@ -138,21 +138,21 @@ watch(representative, () => {
 
       <TextField
         v-model="representative.Municipality"
-        :current-value="representative.Municipality"
+        :current-value="state.representative.Municipality"
         label="Obec"
         placeholder="Názov obce"
       />
 
       <TextField
         v-model="representative.PhoneNumber"
-        :current-value="representative.PhoneNumber"
+        :current-value="state.representative.PhoneNumber"
         placeholder="Uveďte telefónne číslo"
         label="Telefónne číslo zástupcu"
       />
 
       <TextField
         v-model="representative.Email"
-        :current-value="representative.Email"
+        :current-value="state.representative.Email"
         placeholder="Uveďte email zákonného zástupcu"
         label="Email zákonného zástupcu"
       />

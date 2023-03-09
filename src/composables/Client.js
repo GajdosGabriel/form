@@ -2,7 +2,11 @@ import { reactive, readonly, computed } from "vue";
 import { xml } from "./Xml";
 
 const defaultState = {
-  form: {},
+  form: {
+     booleanGivenFamilyName: 0, 
+     FamilyName: "Gajdoš", 
+     GivenName: "Gabriel" 
+  },
   representative: {},
   legalRepresentative: {},
   validatedErrors: [],
