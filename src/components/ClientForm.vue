@@ -12,7 +12,7 @@ import useClient from "../composables/Client.js";
 
 import useFormValidation from "./inputs/useFormValidation";
 
-const {state, getValidate, getForm, getRepresentative, getLegalRepresentative, createXml } = useClient();
+const {state, getValidate, getForm, getRepresentative, getLegalRepresentative, createXml, setDemoDataForm } = useClient();
 
 const { errors } = useFormValidation();
 
@@ -20,9 +20,15 @@ const onSubmit = () => {
   getValidate();
 };
 
-const onXml = () => {
+const copyXml = () => {
   createXml();
 };
+
+const pushDemoDataForm = () => {
+  setDemoDataForm();
+};
+
+
 </script>
 
 <template>
@@ -38,8 +44,13 @@ const onXml = () => {
     <main class="govuk-main-wrapper" id="main-content" role="main">
       <!-- Fpr testing -->
       <div style="margin-bottom: 30px">
-        <span style="background-color: grey; color: whitesmoke; padding: 7px" @click="onXml">Show Xml</span>
+        <span style="background-color: grey; color: whitesmoke; padding: 7px" @click="copyXml">Copy Xml</span>
       </div>
+
+      <div style="margin-bottom: 30px">
+        <span style="background-color: grey; color: whitesmoke; padding: 7px" @click="pushDemoDataForm">Form Demo data</span>
+      </div>
+
 
 
       <div style="margin-bottom: 30px">

@@ -2,11 +2,27 @@ import { reactive, readonly, computed } from "vue";
 import { xml } from "./Xml";
 
 const defaultState = {
-  form: {
-     booleanGivenFamilyName: 0, 
-     FamilyName: "Gajdoš", 
-     GivenName: "Gabriel" 
-  },
+  form: {},
+
+  formDemoData: { 
+    FamilyName: "Gajdoš", 
+    GivenName: "Gabriel", 
+    booleanGivenFamilyName: 1, 
+    FamilyName: "Gajdoš", 
+    GivenName: "Gabriel", 
+    BuildingNumber: "55", 
+    PropertyRegistrationNumber: "35", 
+    IdentifierValue: "6805216671", 
+    Nationality: "Slovenska", 
+    StreetName: "Slatinsky", 
+    PostalCode: "82107", 
+    Municipal: "Bratislava", 
+    PhoneNumber: "985689055", 
+    Email: "email.email@gmail.com", 
+    Sex: "MUZ", 
+    MaritalStatus: "5", 
+    GivenFamilyName: "Gadd"
+ },
   representative: {},
   legalRepresentative: {},
   validatedErrors: [],
@@ -38,7 +54,12 @@ const actions = {
   createXml: () => {
     xml(state);
   },
+
+  setDemoDataForm: () => {
+    Object.assign(state.form, state.formDemoData);
+  },
 };
+
 
 export default () => ({
   state: readonly(state),
