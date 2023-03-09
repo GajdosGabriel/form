@@ -14,7 +14,7 @@ watch(representative, () => {
 <template>
   <div style="margin-top: 50px">
     <div class="govuk-heading-m">
-      A3) Údaje o splnomocnencovi žiadateľa pre účely nárokového konania
+      A3) Údaje o splnomocnencovi žiadateľa pre účely nárokového konania / Reprezentative
     </div>
 
     <p class="govuk-body">(v prílohe priložte plnomocenstvo)</p>
@@ -66,7 +66,7 @@ watch(representative, () => {
       v-if="representative.boolean"
     >
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-        Údaje o zástupcovi
+        Údaje o zástupcovi / Reprezentative
       </legend>
 
       <TextField

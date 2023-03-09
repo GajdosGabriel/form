@@ -15,7 +15,7 @@ watch(legalRepresentative, () => {
 <template>
   <div style="margin-top: 50px">
     <div class="govuk-heading-m">
-      A2) Údaje o zákonnom zástupcovi/opatrovníkovi žiadateľa
+      A2) Údaje o zákonnom zástupcovi/opatrovníkovi žiadateľa / LegalReprezentative
     </div>
 
     <p class="govuk-body">
@@ -70,7 +70,7 @@ watch(legalRepresentative, () => {
       v-if="legalRepresentative.boolean"
     >
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-        Údaje o zástupcovi/opatrovníkovi
+        Údaje o zástupcovi/opatrovníkovi /LegalReprezentative
       </legend>
 
       <TextField
