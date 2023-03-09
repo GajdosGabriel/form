@@ -22,6 +22,7 @@ watch(form, () => {
 
     <TextField
         v-model="form.CompletionPlace"
+        :current-value="form.CompletionPlace"
         label="Miesto"
         placeholder="Miesto podania"
         :input-short="true"

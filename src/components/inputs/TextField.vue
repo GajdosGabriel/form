@@ -14,9 +14,13 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  currentValue: {
+    type: String,
+    default: "",
+  },
 });
 
-const input = ref("");
+const input = ref(props.currentValue);
 const { validateNameField, errors } = useFormValidation();
 
 var key = props.label;
