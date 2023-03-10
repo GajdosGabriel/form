@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import useFormValidation from "./useFormValidation";
 const props = defineProps({
   label: {
@@ -20,7 +20,7 @@ const props = defineProps({
   },
 });
 
-const input = ref(props.currentValue);
+let input = ref(props.currentValue);
 const { validateNameField, errors } = useFormValidation();
 
 var key = props.label;
@@ -28,6 +28,13 @@ var key = props.label;
 onMounted(() => {
   validateInput();
 });
+
+watch(
+  props,
+  () => {
+    input = ref(props.currentValue);
+    validateInput();
+  });
 
 const validateInput = () => {
   validateNameField(props.label, input.value);
@@ -41,7 +48,7 @@ const validateInput = () => {
 
     <span class="govuk-error-message">
       {{ errors[key] ? "Položka sa požaduje" : errors[key] }}
-       <!-- {{ input == "" ? "Položka musí byť vyplnená" : errors[key] }} -->
+      <!-- {{ input == "" ? "Položka musí byť vyplnená" : errors[key] }} -->
     </span>
     <input
       type="text"
