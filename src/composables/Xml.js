@@ -535,10 +535,74 @@ export function xml(state) {
       }
       ApplicationLegalProceedingsComplainantRespondentText.appendChild(ApplicationLegalProceedingsComplainantRespondentCodeTextText);
       ApplicationLegalProceedingsComplainantRespondent.appendChild(ApplicationLegalProceedingsComplainantRespondentText);
-  
-
     }
     // C V.
+
+    if (state.form.LegalAidType5) {
+      var LegalAidType = doc.createElement("LegalAidType");
+      var LegalAidTypeCode = doc.createElement("Code");
+      var LegalAidTypeCodeText = doc.createTextNode("TPP05");
+      var LegalAidTypeText = doc.createElement("Text");
+      var LegalAidTypeTextText = doc.createTextNode(
+        "právna pomoc a zastupovanie v rámci súdneho konania, ktoré sa týka už vystaveného súdneho rozhodnutia"
+      );
+      LegalAidTypeCode.appendChild(LegalAidTypeCodeText);
+      LegalAidType.appendChild(LegalAidTypeCode);
+      LegalAidTypeText.appendChild(LegalAidTypeTextText);
+      LegalAidType.appendChild(LegalAidTypeText);
+      ApplicationCivil.appendChild(LegalAidType);
+      var ApplicationLegalProceedings = doc.createElement("ApplicationLegalProceedings");
+      LegalAidType.appendChild(ApplicationLegalProceedings);
+  
+      var ApplicationLegalProceedingsCourtName = doc.createElement("CourtName");
+      var ApplicationLegalProceedingsCourtNameText = doc.createTextNode(state.form.CourtName5);
+      ApplicationLegalProceedingsCourtName.appendChild(ApplicationLegalProceedingsCourtNameText);
+      ApplicationLegalProceedings.appendChild(ApplicationLegalProceedingsCourtName);
+
+
+      var ApplicationLegalProceedingsReferenceNumber = doc.createElement("ReferenceNumber");
+      var ApplicationLegalProceedingsReferenceNumberText = doc.createTextNode(state.form.ReferenceNumber5);
+      ApplicationLegalProceedingsReferenceNumber.appendChild(ApplicationLegalProceedingsReferenceNumberText);
+      ApplicationLegalProceedings.appendChild(ApplicationLegalProceedingsReferenceNumber);
+
+
+
+      var ApplicationLegalProceedingsCaseNature = doc.createElement("CaseNature");
+      var ApplicationLegalProceedingsCaseNatureCode = doc.createElement("Code");
+      var ApplicationLegalProceedingsCaseNatureCodeText = doc.createTextNode(state.form.CaseNatureCode);
+      // var ApplicationLegalProceedingsHearingDateText = doc.createTextNode(state.form.HearingDate);
+      // ApplicationLegalProceedingsHearingDate.appendChild(ApplicationLegalProceedingsHearingDateText);
+      ApplicationLegalProceedingsCaseNature.appendChild(ApplicationLegalProceedingsCaseNatureCodeText);
+      ApplicationLegalProceedingsCaseNature.appendChild(ApplicationLegalProceedingsCaseNatureCode);
+      ApplicationLegalProceedings.appendChild(ApplicationLegalProceedingsCaseNature);
+
+
+
+      
+      var ApplicationLegalProceedingsComplainantRespondent = doc.createElement("ComplainantRespondent");
+      ApplicationLegalProceedings.appendChild(ApplicationLegalProceedingsComplainantRespondent);
+
+
+    
+      var ApplicationLegalProceedingsComplainantRespondentCode = doc.createElement("Code");
+      if(state.form.ComplainantRespondent) {
+        var ApplicationLegalProceedingsComplainantRespondentCodeText = doc.createTextNode("ODPORCA");
+      } else {
+      var ApplicationLegalProceedingsComplainantRespondentCodeText = doc.createTextNode("NAVRHOVATEL");
+      }
+      ApplicationLegalProceedingsComplainantRespondentCode.appendChild(ApplicationLegalProceedingsComplainantRespondentCodeText);
+      ApplicationLegalProceedingsComplainantRespondent.appendChild(ApplicationLegalProceedingsComplainantRespondentCode);
+  
+   
+      var ApplicationLegalProceedingsComplainantRespondentText = doc.createElement("Text");
+      if(state.form.ComplainantRespondent) {
+        var ApplicationLegalProceedingsComplainantRespondentCodeTextText = doc.createTextNode("Odporca");
+      } else {
+      var ApplicationLegalProceedingsComplainantRespondentCodeTextText = doc.createTextNode("Navrhovateľ");
+      }
+      ApplicationLegalProceedingsComplainantRespondentText.appendChild(ApplicationLegalProceedingsComplainantRespondentCodeTextText);
+      ApplicationLegalProceedingsComplainantRespondent.appendChild(ApplicationLegalProceedingsComplainantRespondentText);
+    }
   
     // -------- End of XML ----------
   
