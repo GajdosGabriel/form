@@ -563,5 +563,6 @@ export function xml(state) {
     var xmlString = serializer.serializeToString(doc);
   
     navigator.clipboard.writeText(xmlString);
-    alert(xmlString);
+    // alert(xmlString);
+    alert('Xml has been copyied. Use Ctrv + V');
   }

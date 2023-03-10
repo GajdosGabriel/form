@@ -48,7 +48,7 @@ const pushDemoDataForm = () => {
       </div>
 
       <div style="margin-bottom: 30px">
-        <span style="background-color: grey; color: whitesmoke; padding: 7px" @click="pushDemoDataForm">Form Demo data</span>
+        <span style="background-color: grey; color: whitesmoke; padding: 7px" @click="pushDemoDataForm">SetForm Demo data</span>
       </div>
 
 
@@ -92,9 +92,9 @@ const pushDemoDataForm = () => {
       <form action="/" @submit.prevent="onSubmit">
         <!-- <ClientA1></ClientA1> -->
         <!-- <ClientA2></ClientA2> -->
-        <!-- <ClientA3></ClientA3> -->
+        <ClientA3></ClientA3>
         <!-- <ClientB></ClientB> -->
-        <ClientC></ClientC>
+        <!-- <ClientC></ClientC> -->
         <!-- <ClientE></ClientE> -->
         <!-- <ClientF></ClientF> -->
         <!-- <ClientG></ClientG> -->

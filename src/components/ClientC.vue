@@ -79,7 +79,7 @@ watch(form, () => {
               <div class="govuk-radios govuk-radios--inline">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" type="radio" :value="0" v-model="form.ComplainantRespondent"
-                    required checked />
+                    required />
                   <label class="govuk-label govuk-radios__label" for="m"> Navrhovateľ </label>
                 </div>
                 <div class="govuk-radios__item">
