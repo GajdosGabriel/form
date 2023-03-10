@@ -19,7 +19,7 @@ const defaultState = {
     Municipal: "Bratislava", 
     PhoneNumber: "985689055", 
     Email: "email.email@gmail.com", 
-    Sex: "MUZ", 
+    Sex: "ZENA", 
     MaritalStatus: "5", 
     GivenFamilyName: "Gadd"
  },

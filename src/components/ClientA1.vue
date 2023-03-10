@@ -36,9 +36,9 @@ watch(form, () => {
           class="govuk-radios__input"
           type="radio"
           :value="0"
-          v-model="form.booleanGivenFamilyName"
-          required
+          v-model="getForm.booleanGivenFamilyName"
           checked
+          required
         />
         <label class="govuk-label govuk-radios__label" for="m"> Nie </label>
       </div>
@@ -46,8 +46,9 @@ watch(form, () => {
         <input
           class="govuk-radios__input"
           type="radio"
-          v-model="form.booleanGivenFamilyName"
+          v-model="getForm.booleanGivenFamilyName"
           :value="1"
+          :checked="getForm.booleanGivenFamilyName"
           required
         />
         <label class="govuk-label govuk-radios__label" for="w"> Áno </label>
@@ -57,10 +58,10 @@ watch(form, () => {
 
   <div
     class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden"
-    v-if="form.booleanGivenFamilyName"
+    v-if="getForm.booleanGivenFamilyName"
   >
     <TextField
-      v-model="form.GivenFamilyName"
+      v-model="getForm.GivenFamilyName"
       :current-value="getForm.GivenFamilyName"
       placeholder="Uveďte vaše rodné priezvisko"
       label="Rodné priezvisko"
@@ -68,7 +69,7 @@ watch(form, () => {
   </div>
 
   <TextField
-    v-model="form.GivenName"
+    v-model="getForm.GivenName"
     :current-value="getForm.GivenName"
     placeholder="Uveďte vaše meno"
     label="Meno"
@@ -82,10 +83,11 @@ watch(form, () => {
           <input
             class="govuk-radios__input"
             type="radio"
-            v-model="form.Sex"
+            v-model="getForm.Sex"
             name="Sex"
             id="MUZ"
-            value="MUZ"
+            :value="MUZ"
+            :checked="getForm.Sex === 'MUZ'"
             required
           />
           <label class="govuk-label govuk-radios__label" for="MUZ"> Muž </label>
@@ -94,10 +96,11 @@ watch(form, () => {
           <input
             class="govuk-radios__input"
             type="radio"
-            v-model="form.Sex"
+            v-model="getForm.Sex"
             name="Sex"
             id="ZENA"
-            value="ZENA"
+            :value="ZENA"
+            :checked="getForm.Sex === 'ZENA'"
             required
           />
           <label class="govuk-label govuk-radios__label" for="ZENA">
@@ -134,7 +137,8 @@ watch(form, () => {
             name="MaritalStatus"
             v-model="form.MaritalStatus"
             id="1"
-            value="1"
+            :value="1"
+            :checked="getForm.MaritalStatus === '1'"
             required
           />
           <label class="govuk-label govuk-radios__label" for="1">
@@ -148,7 +152,8 @@ watch(form, () => {
             name="MaritalStatus"
             v-model="form.MaritalStatus"
             id="2"
-            value="2"
+            :value="2"
+            :checked="getForm.MaritalStatus === '2'"
             required
           />
           <label class="govuk-label govuk-radios__label" for="2">
@@ -162,7 +167,8 @@ watch(form, () => {
             name="MaritalStatus"
             v-model="form.MaritalStatus"
             id="3"
-            value="3"
+            :value="3"
+            :checked="getForm.MaritalStatus === '3'"
             required
           />
           <label class="govuk-label govuk-radios__label" for="3">
@@ -176,7 +182,8 @@ watch(form, () => {
             name="MaritalStatus"
             v-model="form.MaritalStatus"
             id="4"
-            value="4"
+            :value="4"
+            :checked="getForm.MaritalStatus === '4'"
             required
           />
           <label class="govuk-label govuk-radios__label" for="4">
@@ -190,7 +197,8 @@ watch(form, () => {
             name="MaritalStatus"
             v-model="form.MaritalStatus"
             id="5"
-            value="5"
+            :value="5"
+            :checked="getForm.MaritalStatus === '5'"
             required
           />
           <label class="govuk-label govuk-radios__label" for="5">
