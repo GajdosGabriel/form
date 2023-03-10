@@ -90,9 +90,9 @@ const pushDemoDataForm = () => {
       <!-- End Errors sumaary -->
 
       <form action="/" @submit.prevent="onSubmit">
-        <ClientA1></ClientA1>
-        <ClientA2></ClientA2>
-        <ClientA3></ClientA3>
+        <!-- <ClientA1></ClientA1> -->
+        <!-- <ClientA2></ClientA2> -->
+        <!-- <ClientA3></ClientA3> -->
         <!-- <ClientB></ClientB> -->
         <ClientC></ClientC>
         <!-- <ClientE></ClientE> -->

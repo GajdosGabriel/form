@@ -491,20 +491,52 @@ export function xml(state) {
       LegalAidType.appendChild(LegalAidTypeCode);
       LegalAidTypeText.appendChild(LegalAidTypeTextText);
       LegalAidType.appendChild(LegalAidTypeText);
-  
-      // Nedokončené
-  
-      var ApplicationLegalProceedingsCourtName = doc.createElement("CourtName");
-      ApplicationLegalProceedings.appendChild(
-        ApplicationLegalProceedingsCourtName
-      );
-  
-      var ApplicationLegalProceedings = doc.createElement(
-        "ApplicationLegalProceedings"
-      );
+      ApplicationCivil.appendChild(LegalAidType);
+      var ApplicationLegalProceedings = doc.createElement("ApplicationLegalProceedings");
       LegalAidType.appendChild(ApplicationLegalProceedings);
   
-      ApplicationCivil.appendChild(LegalAidType);
+      var ApplicationLegalProceedingsCourtName = doc.createElement("CourtName");
+      var ApplicationLegalProceedingsCourtNameText = doc.createTextNode(state.form.CourtName);
+      ApplicationLegalProceedingsCourtName.appendChild(ApplicationLegalProceedingsCourtNameText);
+      ApplicationLegalProceedings.appendChild(ApplicationLegalProceedingsCourtName);
+
+
+      var ApplicationLegalProceedingsReferenceNumber = doc.createElement("ReferenceNumber");
+      var ApplicationLegalProceedingsReferenceNumberText = doc.createTextNode(state.form.ReferenceNumber);
+      ApplicationLegalProceedingsReferenceNumber.appendChild(ApplicationLegalProceedingsReferenceNumberText);
+      ApplicationLegalProceedings.appendChild(ApplicationLegalProceedingsReferenceNumber);
+
+      var ApplicationLegalProceedingsHearingDate = doc.createElement("HearingDate");
+      var ApplicationLegalProceedingsHearingDateText = doc.createTextNode(state.form.HearingDate);
+      ApplicationLegalProceedingsHearingDate.appendChild(ApplicationLegalProceedingsHearingDateText);
+      ApplicationLegalProceedings.appendChild(ApplicationLegalProceedingsHearingDate);
+
+
+      var ApplicationLegalProceedingsComplainantRespondent = doc.createElement("ComplainantRespondent");
+      ApplicationLegalProceedings.appendChild(ApplicationLegalProceedingsComplainantRespondent);
+
+
+    
+      var ApplicationLegalProceedingsComplainantRespondentCode = doc.createElement("Code");
+      if(state.form.ComplainantRespondent) {
+        var ApplicationLegalProceedingsComplainantRespondentCodeText = doc.createTextNode("ODPORCA");
+      } else {
+      var ApplicationLegalProceedingsComplainantRespondentCodeText = doc.createTextNode("NAVRHOVATEL");
+      }
+      ApplicationLegalProceedingsComplainantRespondentCode.appendChild(ApplicationLegalProceedingsComplainantRespondentCodeText);
+      ApplicationLegalProceedingsComplainantRespondent.appendChild(ApplicationLegalProceedingsComplainantRespondentCode);
+  
+   
+      var ApplicationLegalProceedingsComplainantRespondentText = doc.createElement("Text");
+      if(state.form.ComplainantRespondent) {
+        var ApplicationLegalProceedingsComplainantRespondentCodeTextText = doc.createTextNode("Odporca");
+      } else {
+      var ApplicationLegalProceedingsComplainantRespondentCodeTextText = doc.createTextNode("Navrhovateľ");
+      }
+      ApplicationLegalProceedingsComplainantRespondentText.appendChild(ApplicationLegalProceedingsComplainantRespondentCodeTextText);
+      ApplicationLegalProceedingsComplainantRespondent.appendChild(ApplicationLegalProceedingsComplainantRespondentText);
+  
+
     }
     // C V.
   
