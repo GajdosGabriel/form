@@ -9,12 +9,17 @@ import ClientF from "./ClientF.vue";
 import ClientG from "./ClientG.vue";
 import ClientH from "./ClientH.vue";
 import useClient from "../composables/Client.js";
+import validationList from "./ValidationList.vue";
 
-import useFormValidation from "./inputs/useFormValidation";
-
-const {state, getValidate, getForm, getRepresentative, getLegalRepresentative, createXml, setDemoDataForm } = useClient();
-
-const { errors } = useFormValidation();
+const {
+  state,
+  getValidate,
+  getForm,
+  getRepresentative,
+  getLegalRepresentative,
+  createXml,
+  setDemoDataForm,
+} = useClient();
 
 const onSubmit = () => {
   getValidate();
@@ -27,8 +32,6 @@ const copyXml = () => {
 const pushDemoDataForm = () => {
   setDemoDataForm();
 };
-
-
 </script>
 
 <template>
@@ -44,14 +47,20 @@ const pushDemoDataForm = () => {
     <main class="govuk-main-wrapper" id="main-content" role="main">
       <!-- Fpr testing -->
       <div style="margin-bottom: 30px">
-        <span style="background-color: grey; color: whitesmoke; padding: 7px" @click="copyXml">Copy Xml</span>
+        <span
+          style="background-color: grey; color: whitesmoke; padding: 7px"
+          @click="copyXml"
+          >Copy Xml</span
+        >
       </div>
 
       <div style="margin-bottom: 30px">
-        <span style="background-color: grey; color: whitesmoke; padding: 7px" @click="pushDemoDataForm">SetForm Demo data</span>
+        <span
+          style="background-color: grey; color: whitesmoke; padding: 7px"
+          @click="pushDemoDataForm"
+          >SetForm Demo data</span
+        >
       </div>
-
-
 
       <div style="margin-bottom: 30px">
         <span style="background-color: aqua; padding: 7px">Form</span>
@@ -59,7 +68,9 @@ const pushDemoDataForm = () => {
       </div>
 
       <div style="margin-bottom: 30px" @click="clickOnNext">
-        <span style="background-color: aqua; padding: 7px">LegalReprezentative</span>
+        <span style="background-color: aqua; padding: 7px"
+          >LegalReprezentative</span
+        >
         {{ getLegalRepresentative }}
       </div>
 
@@ -69,33 +80,16 @@ const pushDemoDataForm = () => {
       </div>
 
       <!-- Errors sumaary -->
-      <div
-        class="govuk-error-summary"
-        data-module="govuk-error-summary"
-        v-if="Object.keys(errors).length != 0"
-      >
-        <div role="alert">
-          <h2 class="govuk-error-summary__title">
-            Validačné chyby / Required inputs
-          </h2>
-          <div class="govuk-error-summary__body">
-            <ul class="govuk-list govuk-error-summary__list">
-              <li v-for="(error, index) in errors" :key="index">
-                <a href="#">{{ error }}</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <validationList></validationList>
       <!-- End Errors sumaary -->
 
       <form action="/" @submit.prevent="onSubmit">
         <ClientA1></ClientA1>
-        <!-- <ClientA2></ClientA2> -->
-        <!-- <ClientA3></ClientA3> -->
-        <!-- <ClientB></ClientB> -->
-        <!-- <ClientC></ClientC> -->
-        <!-- <ClientE></ClientE> -->
+        <ClientA2></ClientA2>
+        <ClientA3></ClientA3>
+        <ClientB></ClientB>
+        <ClientC></ClientC>
+        <ClientE></ClientE>
         <!-- <ClientF></ClientF> -->
         <!-- <ClientG></ClientG> -->
         <!-- <ClientH></ClientH> -->

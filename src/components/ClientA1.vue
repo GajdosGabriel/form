@@ -86,7 +86,7 @@ watch(form, () => {
             v-model="getForm.Sex"
             name="Sex"
             id="MUZ"
-            :value="MUZ"
+            :value="'MUZ'"
             :checked="getForm.Sex === 'MUZ'"
             required
           />
@@ -99,7 +99,7 @@ watch(form, () => {
             v-model="getForm.Sex"
             name="Sex"
             id="ZENA"
-            :value="ZENA"
+            :value="'ZENA'"
             :checked="getForm.Sex === 'ZENA'"
             required
           />
