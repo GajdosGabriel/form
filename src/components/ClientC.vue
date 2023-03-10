@@ -128,7 +128,7 @@ watch(form, () => {
                   <input
                     class="govuk-radios__input"
                     type="radio"
-                    :value="0"
+                    :value="'NAVRHOVATEL'"
                     v-model="form.ComplainantRespondent"
                     required
                   />
@@ -141,7 +141,7 @@ watch(form, () => {
                     class="govuk-radios__input"
                     type="radio"
                     v-model="form.ComplainantRespondent"
-                    :value="1"
+                    :value="'ODPORCA'"
                     required
                   />
                   <label class="govuk-label govuk-radios__label" for="w">
@@ -305,7 +305,7 @@ watch(form, () => {
                       class="govuk-radios__input"
                       type="radio"
                       id="ComplainantRespondent0"
-                      :value="'OPRAVNENI'"
+                      :value="'OPRAVNENY'"
                       v-model="form.ComplainantRespondent"
                       required
                     />
@@ -313,7 +313,7 @@ watch(form, () => {
                       class="govuk-label govuk-radios__label"
                       for="ComplainantRespondent0"
                     >
-                      Oprávnení
+                      Oprávnený
                     </label>
                   </div>
                   <div class="govuk-radios__item">
