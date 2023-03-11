@@ -78,6 +78,8 @@ watch(form, () => {
           type="text"
           placeholder="v peniazoch, suma"
           v-model="form.ClaimValue"
+          :required="!form.CantCalculateClaimValue"
+          :disabled="form.CantCalculateClaimValue"
         />
       </div>
       <fieldset class="govuk-fieldset">

@@ -91,7 +91,7 @@ const pushDemoDataForm = () => {
         <ClientC></ClientC>
         <ClientE></ClientE>
         <!-- <ClientF></ClientF> -->
-        <!-- <ClientG></ClientG> -->
+        <ClientG></ClientG>
         <!-- <ClientH></ClientH> -->
 
         <button type="submit" class="govuk-button" data-module="govuk-button">

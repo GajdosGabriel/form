@@ -2,6 +2,7 @@
 import { reactive, watch } from "vue";
 import useClient from "../composables/Client.js";
 import TextField from "./inputs/TextField.vue";
+import DateField from "./inputs/DateField.vue";
 
 const { state, setRepresentative, getRepresentative } = useClient();
 const representative = reactive({});
@@ -84,23 +85,13 @@ watch(representative, () => {
         label="Priezvisko zástupcu"
       />
 
-      <div class="govuk-form-group">
-        <label
-          class="govuk-label govuk-label--s"
-          for="RepresentativeDateOfBirth"
-        >
-          Dátum narodenia
-        </label>
-        <input
-          class="govuk-input govuk-input--width-10"
-          id="LegalRepresentativeDateOfBirth"
-          v-model="representative.DateOfBirth"
-          placeholder="Dátum
-              narodenia"
-          required
-          type="date"
-        />
-      </div>
+      <DateField
+        v-model="representative.DateOfBirth"
+        :current-value="representative.DateOfBirth"
+        label="Dátum narodenia"
+        placeholder="Dátum narodenia"
+        :input-short="true"
+      />
 
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
         Adresa zákonného zástupcu

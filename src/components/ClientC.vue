@@ -2,6 +2,7 @@
 import { reactive, watch } from "vue";
 import useClient from "../composables/Client.js";
 import TextField from "./inputs/TextField.vue";
+import DateField from "./inputs/DateField.vue";
 
 const { setForm, getForm } = useClient();
 const form = reactive({});
@@ -106,18 +107,13 @@ watch(form, () => {
               label="Spisová značka"
             />
 
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-label--s" for="HearingDate">
-                Dátum najbližšieho pojednávania
-              </label>
-              <input
-                class="govuk-input govuk-input--width-10"
-                id="HearingDate"
-                type="date"
-                label="Dňa"
-                v-model="form.HearingDate"
-              />
-            </div>
+            <DateField
+              v-model="form.HearingDate"
+              :current-value="form.HearingDate"
+              label="Dátum najbližšieho pojednávania"
+              placeholder="Dátum najbližšieho pojednávania"
+              :input-short="true"
+            />
 
             <fieldset class="govuk-fieldset" style="margin-top: 20px">
               <legend class="govuk-fieldset__legend govuk-label--s">
@@ -211,24 +207,13 @@ watch(form, () => {
                   style="background-color: #f4f4f4"
                   v-if="form.CaseNatureCode == 'ODVOLANIE_PROTI_ROZHODNUTIU'"
                 >
-                  <div class="govuk-form-group">
-                    <label
-                      class="govuk-label govuk-label--s"
-                      for="JudicalDecisionDate"
-                    >
-                      Dátum doručenia rozhodnutia </label
-                    ><span
-                      id="input-with-error-message-error"
-                      class="govuk-error-message"
-                    ></span
-                    ><input
-                      class="govuk-input govuk-input--width-10"
-                      id="JudicalDecisionDate"
-                      type="date"
-                      label="Dňa"
-                      v-model="form.JudicalDecisionDate"
-                    />
-                  </div>
+                  <DateField
+                    v-model="form.JudicalDecisionDate"
+                    :current-value="form.JudicalDecisionDate"
+                    label="Dátum doručenia rozhodnutia"
+                    placeholder="Dátum doručenia rozhodnutia"
+                    :input-short="true"
+                  />
 
                   <fieldset class="govuk-fieldset" style="margin-top: 30px">
                     <legend class="govuk-fieldset__legend govuk-label--s">
