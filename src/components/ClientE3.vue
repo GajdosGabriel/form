@@ -13,7 +13,7 @@ watch(family, () => {
 </script>
 
 <template>
-  <div style="margin-top: 50px">
+  <div style="margin-top: 50px; background-color: rgb(243 244 246); padding: 1.5rem;">
     <div class="govuk-heading-m">E3) Rodinné pomery žiadateľa</div>
 
     <p class="govuk-body-s">
@@ -57,11 +57,11 @@ watch(family, () => {
         id="family_typeOfPerson"
         v-model="family.Person"
       >
-        <option value="" >--Vybrať--</option>
-        <option value="MANZEL">Manžel/ka</option>
-        <option value="DRUH">Druh/ družka</option>
-        <option value="ZAK_ZAST">Zákonný zástupca</option>
-        <option value="INA_FO">
+        <option value="undefined" disabled>-- Vybrať --</option>
+        <option :value="'MANZEL'">Manžel/ka</option>
+        <option :value="'DRUH'">Druh/ družka</option>
+        <option :value="'ZAK_ZAST'">Zákonný zástupca</option>
+        <option :value="'INA_FO'">
           Iná fyzická osoba, ktorá poberá na dieťa príjem
         </option>
       </select>

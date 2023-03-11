@@ -1,8 +1,9 @@
 <script setup>
 import clientE3 from "./ClientE3.vue";
+import clientE4 from "./ClientE4.vue";
 import { reactive } from "vue";
 import useClient from "../composables/Client.js";
-import TextField from "./inputs/TextField.vue";
+
 
 const { setForm } = useClient();
 const form = reactive({});
@@ -72,6 +73,7 @@ const form = reactive({});
       </details>
 
       <clientE3></clientE3>
+      <clientE4></clientE4>
     </div>
   </div>
 </template>
