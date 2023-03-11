@@ -5,12 +5,6 @@ import TextField from "./inputs/TextField.vue";
 
 const { state, setForm, getForm, getvalidatedErrors } = useClient();
 
-const errorsClass = {
-  span: "govuk-error-message",
-  input: "govuk-input--error",
-  required: "govuk-input--error",
-};
-
 const form = reactive({});
 
 watch(form, () => {
@@ -114,8 +108,8 @@ watch(form, () => {
   <TextField
     v-model="form.IdentifierValue"
     :current-value="getForm.IdentifierValue"
-    placeholder="Uveďte vaše  rodné číslo"
-    label=" Rodné číslo"
+    placeholder="Uveďte vaše rodné číslo"
+    label="Rodné číslo"
     :input-short="true"
   />
 

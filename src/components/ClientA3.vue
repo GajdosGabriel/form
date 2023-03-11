@@ -3,7 +3,7 @@ import { reactive, watch } from "vue";
 import useClient from "../composables/Client.js";
 import TextField from "./inputs/TextField.vue";
 
-const {state, setRepresentative, getRepresentative } = useClient();
+const { state, setRepresentative, getRepresentative } = useClient();
 const representative = reactive({});
 
 watch(representative, () => {
@@ -14,7 +14,8 @@ watch(representative, () => {
 <template>
   <div style="margin-top: 50px">
     <div class="govuk-heading-m">
-      A3) Údaje o splnomocnencovi žiadateľa pre účely nárokového konania / Reprezentative
+      A3) Údaje o splnomocnencovi žiadateľa pre účely nárokového konania /
+      Reprezentative
     </div>
 
     <p class="govuk-body">(v prílohe priložte plnomocenstvo)</p>
