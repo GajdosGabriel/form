@@ -692,6 +692,65 @@ export function xml(state) {
     );
   }
 
+
+   // ApplicationFamilySituation
+   if (state.family.GivenName) {
+    var ApplicationFamilySituation = doc.createElement('ApplicationFamilySituation');
+    var TypeOfPerson = doc.createElement('TypeOfPerson');
+
+    if (state.family.Person == 'MANZEL') {
+        var FamilyTypeOfPersonCodeCode = doc.createTextNode(state.family.Person);
+        var FamilyTypeOfPersonTextText = doc.createTextNode('Manžel/ka');
+    }
+
+    if (state.family.Person == 'DRUH') {
+        var FamilyTypeOfPersonCodeCode = doc.createTextNode(state.family.Person);
+        var FamilyTypeOfPersonTextText = doc.createTextNode('Druh/družka');
+    }
+
+    if (state.family.Person == 'ZAK_ZAST') {
+        var FamilyTypeOfPersonCodeCode = doc.createTextNode(state.family.Person);
+        var FamilyTypeOfPersonTextText = doc.createTextNode('zákonný zástupca');
+    }
+
+    if (state.family.Person == 'INA_FO') {
+        var FamilyTypeOfPersonCodeCode = doc.createTextNode(state.family.Person);
+        var FamilyTypeOfPersonTextText = doc.createTextNode('iná fyzická osoba, ktorá poberá na dieťa príjem');
+    }
+
+    var TypeOfPerson = doc.createElement('TypeOfPerson');
+    ApplicationFamilySituation.appendChild(TypeOfPerson);
+
+    var Code = doc.createElement('Code');
+    var Text = doc.createElement('Text');
+    TypeOfPerson.appendChild(Code);
+    TypeOfPerson.appendChild(Text);
+
+    Code.appendChild(FamilyTypeOfPersonCodeCode);
+    Text.appendChild(FamilyTypeOfPersonTextText);
+
+    var GivenName = doc.createElement('GivenName');
+    var FamilyName = doc.createElement('FamilyName');
+    var DateOfBirth = doc.createElement('DateOfBirth');
+
+    ApplicationFamilySituation.appendChild(TypeOfPerson);
+
+    ApplicationFamilySituation.appendChild(GivenName);
+    ApplicationFamilySituation.appendChild(FamilyName);
+    ApplicationFamilySituation.appendChild(DateOfBirth);
+    ApplicationCivil.appendChild(ApplicationFamilySituation);
+
+    var GivenNameText = doc.createTextNode(state.family.GivenName);
+    var FamilyNameText = doc.createTextNode(state.family.FamilyName);
+    var DateOfBirthText = doc.createTextNode(state.family.DateOfBirth);
+    GivenName.appendChild(GivenNameText);
+    FamilyName.appendChild(FamilyNameText);
+    DateOfBirth.appendChild(DateOfBirthText);
+}
+// ApplicationFamilySituation
+
+
+
   // -------- End of XML ----------
 
   var AdditionalInfo = doc.createElement("AdditionalInfo");

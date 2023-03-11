@@ -55,7 +55,7 @@ watch(family, () => {
       <select
         class="govuk-select"
         id="family_typeOfPerson"
-        name="family_typeOfPerson"
+        v-model="family.Person"
       >
         <option value="" selected>--Vybrať--</option>
         <option value="MANZEL">Manžel/ka</option>
