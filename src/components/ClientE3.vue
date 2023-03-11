@@ -26,13 +26,15 @@ watch(family, () => {
       :current-value="getFamily.GivenName"
       label="Meno partnera"
       placeholder="Uveďte meno partnera"
+      :required="false"
     />
 
     <TextField
       v-model="family.FamilyName"
       :current-value="getFamily.FamilyName"
-      label="Priezvisko"
+      label="Priezvisko partnera"
       placeholder="Uveďte priezvisko partnera"
+      :required="false"
     />
 
     <DateField
@@ -41,6 +43,7 @@ watch(family, () => {
       label="Dátum narodenia"
       placeholder="Dátum narodenia"
       :input-short="true"
+      :required="false"
     />
 
     <div class="govuk-form-group">

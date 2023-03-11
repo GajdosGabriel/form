@@ -18,6 +18,10 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  required: {
+    type: Boolean,
+    default: true,
+  }
 });
 
 let input = ref(props.currentValue);
@@ -37,6 +41,7 @@ watch(
   });
 
 const validateInput = () => {
+  if(!props.required) return;
   validateNameField(props.label, input.value);
 };
 </script>
@@ -54,7 +59,7 @@ const validateInput = () => {
       type="text"
       class="govuk-input"
       :class="{
-        'govuk-input--error': input == '',
+        'govuk-input--error': errors[key] ,
         'govuk-input--width-10': inputShort,
       }"
       :id="label"
