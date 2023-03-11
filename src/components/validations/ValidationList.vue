@@ -1,5 +1,5 @@
 <script setup>
-import useFormValidation from "./validations/useFormValidation";
+import useFormValidation from "./useFormValidation";
 
 const { errors } = useFormValidation();
 </script>

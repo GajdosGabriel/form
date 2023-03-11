@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref, watch } from "vue";
-import useFormValidation from "./useFormValidation";
+import useFormValidation from "../validations/useFormValidation";
 const props = defineProps({
   label: {
     type: String,
