@@ -25,7 +25,7 @@ watch(representative, () => {
       <div
         id="changed-name-hint"
         class="govuk-label govuk-label--s"
-        style="margin-bottom: 30px"
+        style="margin-bottom: 20px"
       >
         Bude Vás v konaní pred Centrom právnej pomoci zastupovať iná fyzická
         osoba?
@@ -74,7 +74,7 @@ watch(representative, () => {
       <TextField
         v-model="representative.GivenName"
         :current-value="state.representative.GivenName"
-        placeholder="Uveďte zástupcu"
+        placeholder="Uveďte meno zástupcu"
         label="Meno zástupcu"
       />
 
@@ -140,6 +140,7 @@ watch(representative, () => {
         :current-value="state.representative.PhoneNumber"
         placeholder="Uveďte telefónne číslo"
         label="Telefónne číslo zástupcu"
+        :input-short="true"
       />
 
       <TextField
@@ -147,6 +148,7 @@ watch(representative, () => {
         :current-value="state.representative.Email"
         placeholder="Uveďte email zákonného zástupcu"
         label="Email zákonného zástupcu"
+        :input-short="true"
       />
     </div>
   </div>

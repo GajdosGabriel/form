@@ -49,7 +49,7 @@ watch(family, () => {
     <div class="govuk-form-group">
       <h4 class="govuk-label-wrapper">
         <label class="govuk-label govuk-label--s" for="family_typeOfPerson">
-          Osoba je
+          Typ osoby
         </label>
       </h4>
       <select
@@ -57,7 +57,7 @@ watch(family, () => {
         id="family_typeOfPerson"
         v-model="family.Person"
       >
-        <option value="" selected>--Vybrať--</option>
+        <option value="" >--Vybrať--</option>
         <option value="MANZEL">Manžel/ka</option>
         <option value="DRUH">Druh/ družka</option>
         <option value="ZAK_ZAST">Zákonný zástupca</option>

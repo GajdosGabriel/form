@@ -59,7 +59,7 @@ const validateInput = () => {
       type="text"
       class="govuk-input"
       :class="{
-        'govuk-input--error': errors[key] ,
+        // 'govuk-input--error': errors[key] ,
         'govuk-input--width-10': inputShort,
       }"
       :id="label"

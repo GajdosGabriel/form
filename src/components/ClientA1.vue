@@ -333,6 +333,7 @@ watch(form, () => {
     :current-value="getForm.PhoneNumber"
     placeholder="Uveďte telefónne číslo"
     label="Telefónne číslo"
+    :input-short="true"
   />
 
   <TextField
@@ -340,6 +341,7 @@ watch(form, () => {
     :current-value="getForm.Email"
     placeholder="Uveďte svoj email"
     label="Email"
+    :input-short="true"
   />
 
   <!-- End A1 -->
