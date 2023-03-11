@@ -3,7 +3,7 @@ import { reactive, watch } from "vue";
 import useClient from "../composables/Client.js";
 import TextField from "./inputs/TextField.vue";
 
-const { setForm } = useClient();
+const { setForm, getForm } = useClient();
 const form = reactive({});
 
 

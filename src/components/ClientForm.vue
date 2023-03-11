@@ -17,6 +17,7 @@ const {
   getForm,
   getRepresentative,
   getLegalRepresentative,
+  getFamily,
   createXml,
   setDemoDataForm,
 } = useClient();
@@ -77,6 +78,11 @@ const pushDemoDataForm = () => {
       <div style="margin-bottom: 30px" @click="clickOnNext">
         <span style="background-color: aqua; padding: 7px">Reprezentative</span>
         {{ getRepresentative }}
+      </div>
+
+      <div style="margin-bottom: 30px" @click="clickOnNext">
+        <span style="background-color: aqua; padding: 7px">Reprezentative</span>
+        {{ getFamily }}
       </div>
 
       <!-- Errors sumaary -->

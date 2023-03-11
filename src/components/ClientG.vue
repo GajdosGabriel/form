@@ -4,7 +4,9 @@ import useClient from "../composables/Client.js";
 import TextField from "./inputs/TextField.vue";
 import DateField from "./inputs/DateField.vue";
 
-const { setForm } = useClient();
+
+
+const { setForm, getForm } = useClient();
 const form = reactive({});
 
 watch(form, () => {
@@ -23,7 +25,7 @@ watch(form, () => {
 
     <TextField
         v-model="form.CompletionPlace"
-        :current-value="form.CompletionPlace"
+        :current-value="getForm.CompletionPlace"
         label="Miesto"
         placeholder="Miesto podania"
         :input-short="true"
@@ -32,7 +34,7 @@ watch(form, () => {
 
       <DateField
         v-model="form.CompletionDate"
-        :current-value="form.CompletionDate"
+        :current-value="getForm.CompletionDate"
         label="Dňa"
         placeholder="Deň podania"
         :input-short="true"

@@ -21,10 +21,13 @@ const defaultState = {
     Email: "email.email@gmail.com", 
     Sex: "ZENA", 
     MaritalStatus: "5", 
-    GivenFamilyName: "Gadd"
+    GivenFamilyName: "Gadd",
+    CompletionPlace: "Bratislava",
+    CompletionDate: "2023-03-08"
  },
   representative: {},
   legalRepresentative: {},
+  family: {},
   validatedErrors: [],
 };
 
@@ -34,6 +37,7 @@ const getters = {
   getForm: computed(() => state.form),
   getRepresentative: computed(() => state.representative),
   getLegalRepresentative: computed(() => state.legalRepresentative),
+  getFamily: computed(() => state.family),
   getvalidatedErrors: computed(() => state.validatedErrors),
 };
 
@@ -49,6 +53,9 @@ const actions = {
   },
   setLegalRepresentative: (inputs) => {
     state.legalRepresentative = inputs;
+  },
+  setFamily: (inputs) => {
+    state.family = inputs;
   },
 
   createXml: () => {

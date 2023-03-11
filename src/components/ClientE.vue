@@ -1,11 +1,11 @@
 <script setup>
+import clientE3 from "./ClientE3.vue";
 import { reactive } from "vue";
 import useClient from "../composables/Client.js";
 import TextField from "./inputs/TextField.vue";
 
 const { setForm } = useClient();
 const form = reactive({});
-
 </script>
 
 <template>
@@ -70,6 +70,8 @@ const form = reactive({});
           žiadosť, a za 6 mesiacov pred jej podaním!
         </div>
       </details>
+
+      <clientE3></clientE3>
     </div>
   </div>
 </template>
