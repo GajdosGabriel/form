@@ -9,7 +9,7 @@ import ClientF from "./ClientF.vue";
 import ClientG from "./ClientG.vue";
 import ClientH from "./ClientH.vue";
 import useClient from "../composables/Client.js";
-import validationList from "./ValidationList.vue";
+import validationList from "./validations/ValidationList.vue";
 
 const {
   state,
