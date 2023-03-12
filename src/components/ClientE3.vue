@@ -3,6 +3,7 @@ import { reactive, watch } from "vue";
 import useClient from "../composables/Client.js";
 import TextField from "./inputs/TextField.vue";
 import DateField from "./inputs/DateField.vue";
+import ClientFamily from "./ClientFamily/ClientFamily.vue";
 
 const { setForm, getFamily, setFamily } = useClient();
 const family = reactive({});
@@ -13,7 +14,13 @@ watch(family, () => {
 </script>
 
 <template>
-  <div style="margin-top: 50px; background-color: rgb(243 244 246); padding: 1.5rem;">
+  <div
+    style="
+      margin-top: 50px;
+      background-color: rgb(243 244 246);
+      padding: 1.5rem;
+    "
+  >
     <div class="govuk-heading-m">E3) Rodinné pomery žiadateľa</div>
 
     <p class="govuk-body-s">
@@ -80,5 +87,7 @@ watch(family, () => {
         VŠ.
       </div>
     </details>
+
+    <ClientFamily></ClientFamily>
   </div>
 </template>
