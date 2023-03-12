@@ -3,7 +3,7 @@ import { reactive, watch } from "vue";
 import useClient from "../composables/Client.js";
 import TextField from "./inputs/TextField.vue";
 import DateField from "./inputs/DateField.vue";
-import ClientFamily from "./ClientFamily/ClientFamily.vue";
+import FamilyPerson from "./ClientFamily/FamilyPerson.vue";
 
 const { setForm, getFamily, setFamily } = useClient();
 const family = reactive({});
@@ -88,6 +88,6 @@ watch(family, () => {
       </div>
     </details>
 
-    <ClientFamily></ClientFamily>
+    <family-person></family-person>
   </div>
 </template>
