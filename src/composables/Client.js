@@ -59,6 +59,9 @@ const actions = {
   setFamily: (inputs) => {
     state.family = inputs;
   },
+  setChildren: (inputs) => {
+    state.children = inputs;
+  },
 
   createXml: () => {
     xml(state);
