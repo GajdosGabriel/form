@@ -99,14 +99,14 @@ watch(form, () => {
             <TextField
               v-model="form.CourtName"
               :current-value="form.CourtName"
-              key="form.CourtName"
+              model="form.CourtName"
               placeholder="Príslušný súd"
               label="Príslušný súd"
             />
             <TextField
               v-model="form.ReferenceNumber"
               :current-value="form.ReferenceNumber"
-              key="form.ReferenceNumber"
+              model="form.ReferenceNumber"
               placeholder="Spisová značka"
               label="Spisová značka"
             />
@@ -114,7 +114,7 @@ watch(form, () => {
             <DateField
               v-model="form.HearingDate"
               :current-value="form.HearingDate"
-              key="form.HearingDate"
+              model="form.HearingDate"
               label="Dátum najbližšieho pojednávania"
               placeholder="Dátum najbližšieho pojednávania"
               :input-short="true"
@@ -177,14 +177,14 @@ watch(form, () => {
             <TextField
               v-model="form.CourtName5"
               :current-value="form.CourtName5"
-              key="form.CourtName5"
+              model="form.CourtName5"
               placeholder="Príslušný súd"
               label="Príslušný súd"
             />
             <TextField
               v-model="form.ReferenceNumber5"
               :current-value="form.ReferenceNumber5"
-              key="form.ReferenceNumber5"
+              model="form.ReferenceNumber5"
               placeholder="Spisová značka"
               label="Spisová značka"
             />
@@ -219,7 +219,7 @@ watch(form, () => {
                   <DateField
                     v-model="form.JudicalDecisionDate"
                     :current-value="form.JudicalDecisionDate"
-                    key="form.JudicalDecisionDate"
+                    model="form.JudicalDecisionDate"
                     label="Dátum doručenia rozhodnutia"
                     placeholder="Dátum doručenia rozhodnutia"
                     :input-short="true"

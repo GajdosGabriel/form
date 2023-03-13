@@ -17,7 +17,7 @@ const { errors } = useFormValidation();
       <div class="govuk-error-summary__body">
         <ul class="govuk-list govuk-error-summary__list">
           <li v-for="(error, index) in errors" :key="index">
-            <a href="#">{{ error }}</a>
+            <a :href="'#'+index">{{ error }}</a>
           </li>
         </ul>
       </div>

@@ -68,7 +68,7 @@ export default {
     <div
       class="grid grid-cols-3 gap-3 my-2"
       v-for="(item, index) in items"
-      :key="index"
+      :model="index"
     >
       <family-person-input
         :item="item"

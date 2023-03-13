@@ -18,6 +18,10 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  model: {
+    type: String,
+    default: "",
+  },
   required: {
     type: Boolean,
     default: true,
@@ -26,8 +30,6 @@ const props = defineProps({
 
 let input = ref(props.currentValue);
 const { validateNameField, errors } = useFormValidation();
-
-var key = props.label;
 
 onMounted(() => {
   validateInput();
@@ -42,17 +44,17 @@ watch(
 
 const validateInput = () => {
   if(!props.required) return;
-  validateNameField(props.label, input.value);
+  validateNameField(props.label, props.model, input.value);
 };
 </script>
 
 <template>
-  <div class="govuk-form-group">
+  <div class="govuk-form-group" :id="model">
     <label class="govuk-label govuk-label--s" :for="label" v-text="label">
     </label>
 
     <span class="govuk-error-message">
-      {{ errors[key] ? "Položka sa požaduje" : errors[key] }}
+      {{ errors[model] ? "Položka sa požaduje" : errors[model] }}
       <!-- {{ input == "" ? "Položka musí byť vyplnená" : errors[key] }} -->
     </span>
     <input

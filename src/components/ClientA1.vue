@@ -16,7 +16,7 @@ watch(form, () => {
   <TextField
     v-model="form.FamilyName"
     :current-value="getForm.FamilyName"
-    key="form.FamilyName"
+    model="form.FamilyName"
     placeholder="Uveďte vaše prizvisko"
     label="Priezvisko"
   />
@@ -58,7 +58,7 @@ watch(form, () => {
     <TextField
       v-model="getForm.GivenFamilyName"
       :current-value="getForm.GivenFamilyName"
-      key="form.GivenFamilyName"
+      model="form.GivenFamilyName"
       placeholder="Uveďte vaše rodné priezvisko"
       label="Rodné priezvisko"
     />
@@ -67,7 +67,7 @@ watch(form, () => {
   <TextField
     v-model="getForm.GivenName"
     :current-value="getForm.GivenName"
-    key="form.GivenName"
+    model="form.GivenName"
     placeholder="Uveďte vaše meno"
     label="Meno"
   />
@@ -111,7 +111,7 @@ watch(form, () => {
   <TextField
     v-model="form.IdentifierValue"
     :current-value="getForm.IdentifierValue"
-    key="form.IdentifierValue"
+    model="form.IdentifierValue"
     placeholder="Uveďte vaše rodné číslo"
     label="Rodné číslo"
     :input-short="true"
@@ -120,7 +120,7 @@ watch(form, () => {
   <TextField
     v-model="form.Nationality"
     :current-value="getForm.Nationality"
-    key="form.Nationality"
+    model="form.Nationality"
     placeholder="Uveďte vašu štátnu príslušnosť"
     label="Štátna príslušnosť"
     :input-short="true"
@@ -215,7 +215,7 @@ watch(form, () => {
   <TextField
     v-model="form.StreetName"
     :current-value="getForm.StreetName"
-    key="form.StreetName"
+    model="form.StreetName"
     placeholder="Uveďte názov ulice"
     label="Názov ulice"
   />
@@ -223,7 +223,7 @@ watch(form, () => {
   <TextField
     v-model="form.BuildingNumber"
     :current-value="getForm.BuildingNumber"
-    key="form.BuildingNumber"
+    model="form.BuildingNumber"
     label="Orientačné číslo"
     placeholder="Uveďte orientačné číslo"
     :input-short="true"
@@ -232,7 +232,7 @@ watch(form, () => {
   <TextField
     v-model="form.PropertyRegistrationNumber"
     :current-value="getForm.PropertyRegistrationNumber"
-    key="form.PropertyRegistrationNumber"
+    model="form.PropertyRegistrationNumber"
     label="Súpisné číslo"
     placeholder="Uveďte súpisné číslo"
     :input-short="true"
@@ -241,13 +241,13 @@ watch(form, () => {
   <TextField
     v-model="form.PostalCode"
     :current-value="getForm.PostalCode"
-    key="form.PostalCode"
+    model="form.PostalCode"
     label="Psč"
     placeholder="Psč obce"
     :input-short="true"
   />
 
-  <TextField v-model="form.Municipal" :current-value="getForm.Municipal" key="form.Municipal" label="Obec" placeholder="Názov obce" />
+  <TextField v-model="form.Municipal" :current-value="getForm.Municipal" model="form.Municipal" label="Obec" placeholder="Názov obce" />
 
   <fieldset class="govuk-fieldset" style="margin-bottom: 20px">
     <legend class="govuk-fieldset__legend govuk-label--s">
@@ -301,7 +301,7 @@ watch(form, () => {
     <TextField
       v-model="form.CorrespondenceStreetName"
       :current-value="getForm.CorrespondenceStreetName"
-      key="form.CorrespondenceStreetName"
+      model="form.CorrespondenceStreetName"
       placeholder="Uveďte názov ulice"
       label="Názov ulice"
     />
@@ -309,7 +309,7 @@ watch(form, () => {
     <TextField
       v-model="form.CorrespondenceBuildingNumber"
       :current-value="getForm.CorrespondenceBuildingNumber"
-      key="form.CorrespondenceBuildingNumber"
+      model="form.CorrespondenceBuildingNumber"
       label="Orientačné číslo"
       placeholder="Uveďte orientačné číslo"
       :input-short="true"
@@ -318,7 +318,7 @@ watch(form, () => {
     <TextField
       v-model="form.CorrespondencePropertyRegistrationNumber"
       :current-value="getForm.CorrespondencePropertyRegistrationNumber"
-      key="form.CorrespondencePropertyRegistrationNumber"
+      model="form.CorrespondencePropertyRegistrationNumber"
       label="Súpisné číslo"
       placeholder="Uveďte súpisné číslo"
       :input-short="true"
@@ -327,7 +327,7 @@ watch(form, () => {
     <TextField
       v-model="form.CorrespondencePostalCode"
       :current-value="getForm.CorrespondencePostalCode"
-      key="form.CorrespondencePostalCode"
+      model="form.CorrespondencePostalCode"
       label="Psč"
       placeholder="Psč obce"
       :input-short="true"
@@ -336,7 +336,7 @@ watch(form, () => {
     <TextField
       v-model="form.CorrespondenceMunicipality"
       :current-value="getForm.CorrespondenceMunicipality"
-      key="form.CorrespondenceMunicipality"
+      model="form.CorrespondenceMunicipality"
       label="Obec"
       placeholder="Názov obce"
     />
@@ -345,7 +345,7 @@ watch(form, () => {
   <TextField
     v-model="form.PhoneNumber"
     :current-value="getForm.PhoneNumber"
-    key="form.PhoneNumber"
+    model="form.PhoneNumber"
     placeholder="Uveďte telefónne číslo"
     label="Telefónne číslo"
     :input-short="true"
@@ -354,7 +354,7 @@ watch(form, () => {
   <TextField
     v-model="form.Email"
     :current-value="getForm.Email"
-    key="form.Email"
+    model="form.Email"
     placeholder="Uveďte svoj email"
     label="Email"
     :input-short="true"
