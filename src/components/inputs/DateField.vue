@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, watch } from "vue";
+import { onMounted, ref, watch, onBeforeUnmount } from "vue";
 import useFormValidation from "../validations/useFormValidation";
 const props = defineProps({
   label: {
@@ -43,9 +43,13 @@ watch(
   });
 
 const validateInput = () => {
-  if(!props.required) return;
+  if (!props.required) return;
   validateNameField(props.label, props.model, input.value);
 };
+
+onBeforeUnmount(() => {
+  delete errors[props.model]
+})
 </script>
 
 <template>
@@ -57,19 +61,10 @@ const validateInput = () => {
       {{ errors[model] ? "Položka sa požaduje" : errors[model] }}
       <!-- {{ input == "" ? "Položka musí byť vyplnená" : errors[key] }} -->
     </span>
-    <input
-      type="date"
-      class="govuk-input"
-      :class="{
-        // 'govuk-input--error': errors[key],
-        'govuk-input--width-10': inputShort,
-      }"
-      :id="label"
-      v-model.trim="input"
-      :placeholder="placeholder"
-      @keyup="validateInput"
-      @blue="validateInput"
-      @input="$emit('update:modelValue', $event.target.value)"
-    />
+    <input type="date" class="govuk-input" :class="{
+      // 'govuk-input--error': errors[key],
+      'govuk-input--width-10': inputShort,
+    }" :id="label" v-model.trim="input" :placeholder="placeholder" @keyup="validateInput" @blue="validateInput"
+      @input="$emit('update:modelValue', $event.target.value)" />
   </div>
 </template>
