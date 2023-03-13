@@ -2,6 +2,7 @@
 import { reactive, watch } from "vue";
 import useClient from "../composables/Client.js";
 import TextField from "./inputs/TextField.vue";
+import CheckboxField from "./inputs/CheckboxField.vue";
 import DateField from "./inputs/DateField.vue";
 
 const { setForm, getForm } = useClient();
@@ -120,37 +121,14 @@ watch(form, () => {
               :input-short="true"
             />
 
-            <fieldset class="govuk-fieldset" style="margin-top: 20px">
-              <legend class="govuk-fieldset__legend govuk-label--s">
-                V konaní ste
-              </legend>
-              <div class="govuk-radios govuk-radios--inline">
-                <div class="govuk-radios__item">
-                  <input
-                    class="govuk-radios__input"
-                    type="radio"
-                    :value="'NAVRHOVATEL'"
-                    v-model="form.ComplainantRespondent"
-                    required
-                  />
-                  <label class="govuk-label govuk-radios__label" for="m">
-                    Navrhovateľ
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input
-                    class="govuk-radios__input"
-                    type="radio"
-                    v-model="form.ComplainantRespondent"
-                    :value="'ODPORCA'"
-                    required
-                  />
-                  <label class="govuk-label govuk-radios__label" for="w">
-                    Odporca</label
-                  >
-                </div>
-              </div>
-            </fieldset>
+            <CheckboxField
+              v-model="form.ComplainantRespondent"
+              :current-value="form.ComplainantRespondent"
+              model="form.ComplainantRespondent"
+              :values="['NAVRHOVATEL', 'ODPORCA']"
+              :names="['Navrhovateľ', 'Odporca']"
+              label="V konaní ste"
+            />
           </div>
 
           <div class="govuk-checkboxes__item">
