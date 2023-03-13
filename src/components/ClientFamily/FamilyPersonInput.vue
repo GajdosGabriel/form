@@ -1,32 +1,21 @@
 <template>
-  <div class="col-span-1 pl-2 my-1">
-    <input
-      :name="'families[' + index + '][GiveName]'"
-      :value="item.GiveName"
-      placeholder="meno"
-      class="govuk-input"
-    />
-  </div>
-  <div class="col-span-1 pl-2 my-1">
-    <input
-      :name="'families[' + index + '][FamilyName]'"
-      :value="item.FamilyName"
-      placeholder="priezvisko"
-      class="govuk-input"
-    />
-  </div>
-  <div class="flex col-span-1 my-1">
-    <input
-      type="date"
-      :name="'families[' + index + '][born_date]'"
-      :value="item.born_date"
-      class="govuk-input"
-    />
+  <td class="idsk-table__cell">
+    <input placeholder="meno" class="govuk-input" :name="'families[' + index + '][GiveName]'" :value="item.GiveName" />
+  </td>
 
-    <div @click="$emit('clickOnDelete', index)" class="form_delete_button">
+  <td class="idsk-table__cell">
+    <input placeholder="priezvisko" class="govuk-input" :name="'families[' + index + '][FamilyName]'"
+      :value="item.FamilyName" />
+  </td>
+
+  <td class="idsk-table__cell" style="display: flex; justify-content: center; ">
+    <input placeholder="meno" class="govuk-input" type="date" :name="'families[' + index + '][born_date]'"
+      :value="item.born_date" />
+    <div @click="$emit('clickOnDelete', index)" class="form_delete_button"
+      style="padding: 10px; background-color: silver; margin: 0px 0px 0px 5px; font-size: large; cursor: pointer;">
       -
     </div>
-  </div>
+  </td>
 </template>
 
 <script>
