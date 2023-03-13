@@ -31,6 +31,7 @@ watch(family, () => {
     <TextField
       v-model="family.GivenName"
       :current-value="getFamily.GivenName"
+      key="family.GivenName"
       label="Meno partnera"
       placeholder="Uveďte meno partnera"
       :required="false"
@@ -39,6 +40,7 @@ watch(family, () => {
     <TextField
       v-model="family.FamilyName"
       :current-value="getFamily.FamilyName"
+      key="family.FamilyName"
       label="Priezvisko partnera"
       placeholder="Uveďte priezvisko partnera"
       :required="false"
@@ -47,6 +49,7 @@ watch(family, () => {
     <DateField
       v-model="family.DateOfBirth"
       :current-value="family.DateOfBirth"
+      key="family.DateOfBirth"
       label="Dátum narodenia"
       placeholder="Dátum narodenia"
       :input-short="true"

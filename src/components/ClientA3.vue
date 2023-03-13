@@ -74,6 +74,7 @@ watch(representative, () => {
       <TextField
         v-model="representative.GivenName"
         :current-value="state.representative.GivenName"
+        key="representative.GivenName"
         placeholder="Uveďte meno zástupcu"
         label="Meno zástupcu"
       />
@@ -81,13 +82,15 @@ watch(representative, () => {
       <TextField
         v-model="representative.FamilyName"
         :current-value="state.representative.FamilyName"
+        key="representative.FamilyName"
         placeholder="Uveďte priezvisko zástupcu"
         label="Priezvisko zástupcu"
       />
 
       <DateField
         v-model="representative.DateOfBirth"
-        :current-value="representative.DateOfBirth"
+        :current-value="state.representative.DateOfBirth"
+        key="representative.DateOfBirth"
         label="Dátum narodenia"
         placeholder="Dátum narodenia"
         :input-short="true"
@@ -100,6 +103,7 @@ watch(representative, () => {
       <TextField
         v-model="representative.StreetName"
         :current-value="state.representative.StreetName"
+        key="representative.StreetName"
         placeholder="Uveďte názov ulice"
         label="Názov ulice"
       />
@@ -107,6 +111,7 @@ watch(representative, () => {
       <TextField
         v-model="representative.BuildingNumber"
         :current-value="state.representative.BuildingNumber"
+        key="representative.BuildingNumber"
         label="Orientačné číslo"
         placeholder="Uveďte orientačné číslo"
         :input-short="true"
@@ -115,6 +120,7 @@ watch(representative, () => {
       <TextField
         v-model="representative.PropertyRegistrationNumber"
         :current-value="state.representative.PropertyRegistrationNumber"
+        key="representative.PropertyRegistrationNumber"
         label="Súpisné číslo"
         placeholder="Uveďte súpisné číslo"
         :input-short="true"
@@ -123,6 +129,7 @@ watch(representative, () => {
       <TextField
         v-model="representative.PostalCode"
         :current-value="state.representative.PostalCode"
+        key="representative.PostalCode"
         label="Psč"
         placeholder="Psč obce"
         :input-short="true"
@@ -131,6 +138,7 @@ watch(representative, () => {
       <TextField
         v-model="representative.Municipality"
         :current-value="state.representative.Municipality"
+        key="representative.Municipality"
         label="Obec"
         placeholder="Názov obce"
       />
@@ -138,6 +146,7 @@ watch(representative, () => {
       <TextField
         v-model="representative.PhoneNumber"
         :current-value="state.representative.PhoneNumber"
+        key="representative.PhoneNumber"
         placeholder="Uveďte telefónne číslo"
         label="Telefónne číslo zástupcu"
         :input-short="true"
@@ -146,6 +155,7 @@ watch(representative, () => {
       <TextField
         v-model="representative.Email"
         :current-value="state.representative.Email"
+        key="representative.Email"
         placeholder="Uveďte email zákonného zástupcu"
         label="Email zákonného zástupcu"
         :input-short="true"

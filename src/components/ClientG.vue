@@ -26,6 +26,7 @@ watch(form, () => {
     <TextField
         v-model="form.CompletionPlace"
         :current-value="getForm.CompletionPlace"
+        key="form.CompletionPlace"
         label="Miesto"
         placeholder="Miesto podania"
         :input-short="true"
@@ -35,6 +36,7 @@ watch(form, () => {
       <DateField
         v-model="form.CompletionDate"
         :current-value="getForm.CompletionDate"
+        key="form.CompletionDate"
         label="Dňa"
         placeholder="Deň podania"
         :input-short="true"
