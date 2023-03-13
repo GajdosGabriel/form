@@ -28,7 +28,7 @@ const defaultState = {
   representative: {},
   legalRepresentative: {},
   family: {},
-  familyPerson: [],
+  children: [],
   validatedErrors: [],
 };
 
@@ -39,7 +39,7 @@ const getters = {
   getRepresentative: computed(() => state.representative),
   getLegalRepresentative: computed(() => state.legalRepresentative),
   getFamily: computed(() => state.family),
-  getFamilyPerson: computed(() => state.familyPerson),
+  getChildren: computed(() => state.children),
   getvalidatedErrors: computed(() => state.validatedErrors),
 };
 

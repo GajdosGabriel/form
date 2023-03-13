@@ -11,6 +11,8 @@ import ClientH from "./ClientH.vue";
 import useClient from "../composables/Client.js";
 import validationList from "./validations/ValidationList.vue";
 
+import FamilyChildren from "./ClientFamily/FamilyChildren.vue";
+
 const {
   state,
   getValidate,
@@ -45,6 +47,12 @@ const pushDemoDataForm = () => {
       podnikaní (živnostenský zákon) v znení neskorších predpisov v znení zákona
       č. 8/2005 Z. z. v znení neskorších predpisov
     </p>
+
+
+    <family-children></family-children>
+
+
+
     <main class="govuk-main-wrapper" id="main-content" role="main">
       <!-- Fpr testing -->
       <div style="margin-bottom: 30px">

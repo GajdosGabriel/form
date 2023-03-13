@@ -1,13 +1,13 @@
 <script>
 import { reactive, ref, onMounted } from "vue";
-import FamilyPersoninput from "./FamilyPersonInput.vue";
+import FamilyChildreninput from "./FamilyPersonInput.vue";
 import dataTip from "../DataTip.vue";
 
 import useClient from "../../composables/Client";
 export default {
-  components: { FamilyPersoninput, dataTip },
+  components: { FamilyChildreninput, dataTip },
   setup() {
-    const { state, getFamilyPerson } = useClient();
+    const { state, getChildren } = useClient();
 
     const items = reactive([]);
     onMounted(() => {
@@ -23,7 +23,7 @@ export default {
       items,
       onAdd,
       onDelete,
-      getFamilyPerson
+      getChildren
     };
   },
 };
@@ -47,7 +47,7 @@ export default {
     </thead>
     <tbody class="idsk-table__body" style="">
       <tr class="idsk-table__row" v-for="(item, index) in items" :key="index">
-        <family-personinput :item="item" :index="index" @clickOnDelete="onDelete" />
+        <family-childreninput :item="item" :index="index" @clickOnDelete="onDelete" />
         </tr>
       </tbody>
 
