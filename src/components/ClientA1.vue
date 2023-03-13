@@ -2,6 +2,7 @@
 import { reactive, watch } from "vue";
 import useClient from "../composables/Client.js";
 import TextField from "./inputs/TextField.vue";
+import CheckboxField from "./inputs/CheckboxField.vue";
 
 const { state, setForm, getForm, getvalidatedErrors } = useClient();
 
@@ -72,41 +73,14 @@ watch(form, () => {
     label="Meno"
   />
 
-  <div class="govuk-form-group">
-    <fieldset class="govuk-fieldset">
-      <legend class="govuk-fieldset__legend govuk-label--s">Pohlavie</legend>
-      <div class="govuk-radios govuk-radios--inline">
-        <div class="govuk-radios__item">
-          <input
-            class="govuk-radios__input"
-            type="radio"
-            v-model="getForm.Sex"
-            name="Sex"
-            id="MUZ"
-            :value="'MUZ'"
-            :checked="getForm.Sex === 'MUZ'"
-            required
-          />
-          <label class="govuk-label govuk-radios__label" for="MUZ"> Muž </label>
-        </div>
-        <div class="govuk-radios__item">
-          <input
-            class="govuk-radios__input"
-            type="radio"
-            v-model="getForm.Sex"
-            name="Sex"
-            id="ZENA"
-            :value="'ZENA'"
-            :checked="getForm.Sex === 'ZENA'"
-            required
-          />
-          <label class="govuk-label govuk-radios__label" for="ZENA">
-            Žena
-          </label>
-        </div>
-      </div>
-    </fieldset>
-  </div>
+  <CheckboxField
+    v-model="getForm.Sex"
+    :current-value="getForm.Sex"
+    model="form.Sex"
+    :values="['MUZ', 'ZENA']"
+    :names="['Muž', 'Žena']"
+    label="Pohlavie"
+  />
 
   <TextField
     v-model="form.IdentifierValue"
